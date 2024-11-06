@@ -1,6 +1,7 @@
 (ns recipe-recommendation-system.core
   (:gen-class)
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str])
+  (:import (java.security MessageDigest)))
 
 (def filename "first-cleaned.csv")
 
@@ -27,3 +28,20 @@
 
 (def map-dataset (vectors-to-maps initial-dataset))
 (def initial-dataset (doall map-dataset))
+
+(defn hash-password [password]
+  (let [md (MessageDigest/getInstance "SHA-256") ;; Object of class MessageDigest configured for using SHA-256 algorithm
+        hashed-bytes (.digest md (.getBytes password))] ;;getBytes as a method implemented in String class is used for creating this into bytes array
+        ;;parameters for .digest are algorithm and data
+    (apply str (map #(format "%02x" %) hashed-bytes))))
+    ;;this is only for converting into hex format
+
+(defn create-user [username password]
+  (let [hashed-password (hash-password password)]
+    {:username username
+     :password hashed-password}))
+
+(let [username "ivana"
+      password "sifra12345"
+      user (create-user username password)]
+  (println "Created user:" user))
