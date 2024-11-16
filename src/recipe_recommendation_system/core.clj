@@ -18,7 +18,7 @@
 
 (def initial-dataset (agent (rest (parse (slurp filename)))))
 
-(def keys (agent [:title :total-time :serving-size :ingr :instructions]))
+(def keys (agent [:title :total-time :serving-size :ingr :instructions :difficulty]))
 
 (defn vectors-to-maps [vectors]
   (map #(zipmap @keys %) vectors))
@@ -126,13 +126,16 @@
       (println "No recipes found."))))
 
 (defn main-menu [username]
+  (println "--------------------------------------------")
   (println "\nMain Menu:")
+  (println "0. View all recipes")
   (println "1. Choose a recipe")
   (println "2. Logout")
   (println "Please select an option:")
 
   (let [option (read-line)]
     (cond
+      (= option "0") @initial-dataset
       (= option "1") (choose-fav username)
       (= option "2") (logout)
       :else (do
@@ -155,6 +158,15 @@
               (send logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
+
+
+(defn reccomend-by-difficulty [chosen]
+  (let [diff (:difficulty chosen)
+        same-diff (filter #(= (:difficulty %) diff) @initial-dataset)
+        others (remove #(= (:title %) (:title chosen)) same-diff)]
+    (take 3 (shuffle others))))
+
+(reccomend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
 (login)
 (logout)
