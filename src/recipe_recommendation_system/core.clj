@@ -168,7 +168,25 @@
 
 (reccomend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
+(defn generate-report [user]
+  (let [favs (count (:favs user))
+        difficulty-counts (frequencies (map :difficulty (:favs user)))
+        avg-difficulty (if (empty? (:favs user))
+                         "No favorite recipes"
+                         (let [difficulty-map {"easy" 1, "medium" 2, "hard" 3}
+                               avg-diff (/ (apply + (map #(difficulty-map (:difficulty %)) (:favs user)))
+                                           favs)]
+                           avg-diff))
+        report-time (str (java.time.LocalDateTime/now))]
+    {:username (:username user)
+     :num-favs favs
+     :difficulty-levels difficulty-counts
+     :avg-difficulty avg-difficulty
+     :report-time report-time}))
+
+
+(generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
+
+
 (login)
 (logout)
-
-@registered-users
