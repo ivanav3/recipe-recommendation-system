@@ -3,8 +3,6 @@
   (:require [clojure.string :as str])
   (:import (java.security MessageDigest)))
 
-(def filename "first-cleaned5.csv")
-
 (defn parse
   "Convert a CSV string into rows of columns, removing unwanted characters."
   [string]
@@ -16,19 +14,23 @@
                (str/split trimmed-row #";"))))
          (str/split cleaned-string #"\n"))))
 
-(def initial-dataset (agent (rest (parse (slurp filename)))))
+(def initial-dataset (agent (rest (parse (slurp "first-cleaned5.csv")))))
 
-(def keys (agent [:title :total-time :serving-size :ingr :instructions :difficulty]))
+(def keys (agent [:title :total-time :serving-size :ingr :instructions :difficulty :fav]))
 
 (defn vectors-to-maps [vectors]
   (map #(zipmap @keys %) vectors))
 
 (send initial-dataset vectors-to-maps)
 
+(defn reset-fav [recipes]
+  (map #(assoc % :fav 0) recipes))
+
 (defn clean-ingr [recipes]
   (map #(update % :ingr (fn [ingr] (str/split ingr #",\s*"))) recipes))
 
 (send initial-dataset clean-ingr)
+(send initial-dataset reset-fav)
 
 (defn hash-password [password]
   (let [md (MessageDigest/getInstance "SHA-256") ;; Object of class MessageDigest configured for using SHA-256 algorithm
@@ -106,6 +108,11 @@
           %)
        users))
 
+(defn update-rec [recipes chosen]
+  (map #(if (= (:title chosen) (:title %))
+          (update % :fav inc)
+          %)
+       recipes))
 
 (defn choose-fav [username]
   (println "Enter recipe title or part of title:")
@@ -121,7 +128,9 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (send registered-users update-favs username chosen-recipe)
+            (do
+              (send registered-users update-favs username chosen-recipe)
+              (send initial-dataset update-rec chosen-recipe))
             (println "Error. Try again."))))
       (println "No recipes found."))))
 
@@ -130,14 +139,17 @@
   (println "\nMain Menu:")
   (println "0. View all recipes")
   (println "1. Choose a recipe")
-  (println "2. Logout")
+  (println "2. View popular recipes")
+  (println "3. Logout")
   (println "Please select an option:")
 
   (let [option (read-line)]
     (cond
       (= option "0") @initial-dataset
       (= option "1") (choose-fav username)
-      (= option "2") (logout)
+      (= option "2") (take 3
+                           (sort-by :fav > @initial-dataset))
+      (= option "3") (logout)
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
@@ -193,12 +205,14 @@
                                (some #(= (:title %) (:title selected-recipe)) (:favs user)))
                              @registered-users)
         all-favs (mapcat :favs users-with-selected)
-        without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)  ; Ukloni selected-recipe
+        without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
         shuffled (shuffle without-selected)
         top-3 (take 3 shuffled)]
     top-3))
 
 (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
-(login)
 
+(rand-nth @initial-dataset)
+
+(login)
 (logout)
