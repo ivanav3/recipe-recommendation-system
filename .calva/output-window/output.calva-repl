@@ -3333,3 +3333,73 @@ clj꞉recipe-recommendation-system.core꞉> 
   :difficulty "hard",
   :fav 0})
 clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/group-favs
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ClassCastException) at recipe-recommendation-system.core/group-favs (form-init3593513783142455403.clj:221).
+; class clojure.lang.LazySeq cannot be cast to class clojure.lang.Agent (clojure.lang.LazySeq and clojure.lang.Agent are in unnamed module of loader 'app')
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ClassCastException) at recipe-recommendation-system.core/group-favs (form-init3593513783142455403.clj:221).
+; class java.lang.String cannot be cast to class clojure.lang.Agent (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.Agent is in unnamed module of loader 'app')
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/group-favs
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ClassCastException) at recipe-recommendation-system.core/group-favs (form-init3593513783142455403.clj:222).
+; class clojure.lang.LazySeq cannot be cast to class clojure.lang.Agent (clojure.lang.LazySeq and clojure.lang.Agent are in unnamed module of loader 'app')
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/group-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/group-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#<Agent@45b73f4b: 
+  ({:username "ivana",
+    :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+    :favs
+    [{:title "Easy Mojitos",
+      :total-time "5",
+      :serving-size "1 cocktail",
+      :ingr
+      ["12 leaves mint"
+       "2 lime slices"
+       "1 teaspoon white sugar or more to taste"
+       "� cup ice cubes or as needed"
+       "1 (1.5 fluid ounce) jigger rum (such as Bacardi�)"
+       "4 � ounces diet lemon-lime soda (such as Diet Sprite�)"],
+      :instructions
+      "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+      :difficulty "easy",
+      :fav 0}]})>
+clj꞉recipe-recommendation-system.core꞉> 
+[{:username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  [{:title "Easy Mojitos",
+    :total-time "5",
+    :serving-size "1 cocktail",
+    :ingr
+    ["12 leaves mint"
+     "2 lime slices"
+     "1 teaspoon white sugar or more to taste"
+     "� cup ice cubes or as needed"
+     "1 (1.5 fluid ounce) jigger rum (such as Bacardi�)"
+     "4 � ounces diet lemon-lime soda (such as Diet Sprite�)"],
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+    :difficulty "easy",
+    :fav 0}],
+  :albums
+  {"album"
+   [{:title "Easy Mojitos",
+     :total-time "5",
+     :serving-size "1 cocktail",
+     :ingr
+     ["12 leaves mint"
+      "2 lime slices"
+      "1 teaspoon white sugar or more to taste"
+      "� cup ice cubes or as needed"
+      "1 (1.5 fluid ounce) jigger rum (such as Bacardi�)"
+      "4 � ounces diet lemon-lime soda (such as Diet Sprite�)"],
+     :instructions
+     "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+     :difficulty "easy",
+     :fav 1}]}}]
+clj꞉recipe-recommendation-system.core꞉> 

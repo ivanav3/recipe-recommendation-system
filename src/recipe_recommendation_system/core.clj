@@ -212,7 +212,30 @@
 
 (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
-(rand-nth @initial-dataset)
+(defn group-favs [username recipe group-name]
+  (let [user (first (filter #(= (:username %) username) @registered-users))]
+    (let [groups (:groups user)
+          group (get groups group-name [])]
+      (send registered-users #(mapv (fn [u]
+                                      (if (= (:username u) username)
+                                        (update u :groups assoc group-name (conj group recipe))
+                                        u)) %)))))
+
+
+(group-favs "ivana" {:title "Easy Mojitos",
+                     :total-time "5",
+                     :serving-size "1 cocktail",
+                     :ingr
+                     ["12 leaves mint"
+                      "2 lime slices"
+                      "1 teaspoon white sugar or more to taste"
+                      "� cup ice cubes or as needed"
+                      "1 (1.5 fluid ounce) jigger rum (such as Bacardi�)"
+                      "4 � ounces diet lemon-lime soda (such as Diet Sprite�)"],
+                     :instructions
+                     "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+                     :difficulty "easy",
+                     :fav 1} "g1")
 
 (login)
 (logout)
