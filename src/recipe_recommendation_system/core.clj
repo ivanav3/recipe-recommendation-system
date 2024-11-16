@@ -187,6 +187,18 @@
 
 (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
 
+(defn users-recommend [selected-recipe]
+  (let [users-with-selected (filter
+                             (fn [user]
+                               (some #(= (:title %) (:title selected-recipe)) (:favs user)))
+                             @registered-users)
+        all-favs (mapcat :favs users-with-selected)
+        without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)  ; Ukloni selected-recipe
+        shuffled (shuffle without-selected)
+        top-3 (take 3 shuffled)]
+    top-3))
 
+(users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 (login)
+
 (logout)
