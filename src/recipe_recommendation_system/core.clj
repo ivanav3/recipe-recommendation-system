@@ -41,11 +41,43 @@
     ;;this is only for converting into hex format
 
 
+(def registered-users (agent []))
 
-(def user-a (agent {:username "ivana" :password "sifra12345"}))
+(defn register []
+  (println "Username:")
+  (let [username (read-line)]
+    (if (some #(= username (:username %)) @registered-users)
+      (do
+        (println "This username is taken, try again.")
+        (register))
+      (do
+        (println "Password:")
+        (let [password (read-line)]
+          (send registered-users
+                (fn [korisnici]
+                  (conj korisnici {:username username :password (hash-password password)})))
+          (await registered-users)
+          (println "Registered!" username))))))
 
-(send user-a
-      #(assoc % :password (hash-password (:password %))))
 
-(@user-a :password)
-(hash-password "sifra12345")
+(register)
+
+
+(println "Registered users:")
+(doseq [u @registered-users]
+  (println "Username:" (:username u) ", Password:" (:password u)))
+
+
+(defn login []
+  (println "Username:")
+  (let [username (read-line)]
+    (println "Password:")
+    (let [password (read-line)]
+      (let [korisnik (some #(when (and (= username (:username %))
+                                       (= (hash-password password) (:password %))) %)
+                           @registered-users)]
+        (if korisnik
+          (println "Welcome, " username)
+          (println "Error. Try again."))))))
+
+(login)
