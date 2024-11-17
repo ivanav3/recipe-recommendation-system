@@ -41,7 +41,6 @@
 
 
 (def registered-users (agent []))
-
 (defn register []
   (println "Username:")
   (let [username (read-line)]
@@ -57,9 +56,6 @@
                   (conj users {:username username :password (hash-password password) :favs []})))
           (await registered-users)
           (println "Registered!" username))))))
-
-
-(register)
 
 
 (println "Registered users:")
@@ -91,16 +87,11 @@
               (let [title (:title item)]
                 (str/includes? (str/lower-case title) lower-title))) @initial-dataset)))
 
-(defn update-favs [users username chosen-recipe]
-  (map #(if (= username (:username %))
-          (update % :favs conj chosen-recipe)
-          %)
-       users))
-
 (defn add-to-favs [favs chosen-recipe]
-  (if (not-any? #(= % chosen-recipe) favs)
+  (if (not-any? #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
     (conj favs chosen-recipe)
-    (println "Already marked as fav.")))
+    (do (println "Already marked as fav.") favs)))
+
 
 (defn update-favs [users username chosen-recipe]
   (map #(if (= username (:username %))
@@ -109,7 +100,7 @@
        users))
 
 (defn update-rec [recipes chosen]
-  (map #(if (= (:title chosen) (:title %))
+  (map #(if (= (str/lower-case (:title chosen)) (str/lower-case (:title %)))
           (update % :fav inc)
           %)
        recipes))
@@ -134,6 +125,12 @@
             (println "Error. Try again."))))
       (println "No recipes found."))))
 
+(defn choose-by-popularity [username]
+  (println (take 3
+                 (sort-by :fav > @initial-dataset)))
+  (choose-fav username))
+(first (filter #(= (:username %) "ivana") @registered-users))
+
 (defn main-menu [username]
   (println "--------------------------------------------")
   (println "\nMain Menu:")
@@ -147,13 +144,11 @@
     (cond
       (= option "0") @initial-dataset
       (= option "1") (choose-fav username)
-      (= option "2") (take 3
-                           (sort-by :fav > @initial-dataset))
+      (= option "2") (choose-by-popularity username)
       (= option "3") (logout)
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
-
 (defn login []
   (println "Username:")
   (let [username (read-line)]
@@ -172,13 +167,11 @@
             (println "Error. Try again.")))))))
 
 
-(defn reccomend-by-difficulty [chosen]
+(defn recommend-by-difficulty [chosen]
   (let [diff (:difficulty chosen)
         same-diff (filter #(= (:difficulty %) diff) @initial-dataset)
         others (remove #(= (:title %) (:title chosen)) same-diff)]
     (take 3 (shuffle others))))
-
-(reccomend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -222,20 +215,7 @@
                                         u)) %)))))
 
 
-(group-favs "ivana" {:title "Easy Mojitos",
-                     :total-time "5",
-                     :serving-size "1 cocktail",
-                     :ingr
-                     ["12 leaves mint"
-                      "2 lime slices"
-                      "1 teaspoon white sugar or more to taste"
-                      "� cup ice cubes or as needed"
-                      "1 (1.5 fluid ounce) jigger rum (such as Bacardi�)"
-                      "4 � ounces diet lemon-lime soda (such as Diet Sprite�)"],
-                     :instructions
-                     "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
-                     :difficulty "easy",
-                     :fav 1} "g1")
 
+(register)
 (login)
 (logout)
