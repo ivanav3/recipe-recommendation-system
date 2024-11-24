@@ -236,12 +236,26 @@
         union (count (clojure.set/union favs1 favs2))]
     (if (zero? union)
       0.0
-      (float (/ intersection union)))))
+      (let [similarity (float (/ intersection union))]
+        (/ (Math/round (* similarity 1000)) 1000.0)))))
 
-(defn most-similar-user [target-user]
-  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)  ;; Izuzmi target-user iz liste
-        similarities (map #(vector (:username %) (jaccard-similarity target-user %)) all-users)  ;; Izračunaj sličnosti za sve korisnike
+(defn most-similar-user [target-user similarity-fn]
+  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
+        similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
+        ;;second as argument because it represents metric that is used
         most-similar (apply max-key second similarities)]
     most-similar))
 
-(most-similar-user (get-user-by-username "ivana"))
+(defn cosine-similarity [user1 user2]
+  (let [favs1 (extract-favs user1)
+        favs2 (extract-favs user2)
+        all-recipes (clojure.set/union favs1 favs2)
+        vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
+        vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)]
+    (let [dot-product (reduce + (map * vector1 vector2))
+          norm1 (Math/sqrt (reduce + (map #(* % %) vector1)))
+          norm2 (Math/sqrt (reduce + (map #(* % %) vector2)))]
+      (if (and (zero? norm1) (zero? norm2))
+        1.0
+        (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))
+

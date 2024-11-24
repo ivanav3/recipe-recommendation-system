@@ -1040,3 +1040,47 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 true
 clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/cosine-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+["ivana2" 0.333]
+clj꞉recipe-recommendation-system.core꞉> 
+; 
+; FAIL Test Jaccard similarity at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:49)
+; Expected:
+; ["ivana2" 0.333]
+; Actual:
+; clojure.lang.ArityException: Wrong number of args (1) passed to: recipe-recommendation-system.core/most-similar-user
+;   recipe_recommendation_system.core_test$eval19253$fn__19254$fn__19255$fn__19256.invoke(form-init5549974813150157962.clj:49)
+;   recipe_recommendation_system.core_test$eval19253$fn__19254$fn__19255.invoke(form-init5549974813150157962.clj:48)
+;   recipe_recommendation_system.core_test$eval19253$fn__19254.invoke(form-init5549974813150157962.clj:48)
+;   recipe_recommendation_system.core_test$eval19253.invokeStatic(form-init5549974813150157962.clj:48)
+;   recipe_recommendation_system.core_test$eval19253.invoke(form-init5549974813150157962.clj:48)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__1363$fn__1364.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__1363.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__1396$fn__1400.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__1466$fn__1470.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__1466.invoke(session.clj:217)
+false
+clj꞉recipe-recommendation-system.core-test꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+["ivana2" 0.333]
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+["ivana2" 0.4999999999999999]
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/cosine-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+["ivana2" 0.5]
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
