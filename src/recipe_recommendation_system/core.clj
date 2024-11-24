@@ -125,6 +125,7 @@
             (println "Error. Try again."))))
       (println "No recipes found."))))
 
+
 (defn choose-by-popularity [username]
   (println (take 3
                  (sort-by :fav > @initial-dataset)))
@@ -219,3 +220,28 @@
 (register)
 (login)
 (logout)
+
+@registered-users
+
+(defn get-user-by-username [username]
+  (first (filter #(= (:username %) username) @registered-users)))
+
+(defn extract-favs [user]
+  (set (map :title (:favs user))))
+
+(defn jaccard-similarity [user1 user2]
+  (let [favs1 (extract-favs user1)
+        favs2 (extract-favs user2)
+        intersection (count (clojure.set/intersection favs1 favs2))
+        union (count (clojure.set/union favs1 favs2))]
+    (if (zero? union)
+      0.0
+      (float (/ intersection union)))))
+
+(defn most-similar-user [target-user]
+  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)  ;; Izuzmi target-user iz liste
+        similarities (map #(vector (:username %) (jaccard-similarity target-user %)) all-users)  ;; Izračunaj sličnosti za sve korisnike
+        most-similar (apply max-key second similarities)]
+    most-similar))
+
+(most-similar-user (get-user-by-username "ivana"))

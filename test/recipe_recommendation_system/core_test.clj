@@ -8,21 +8,27 @@
     (is (= 0 1))))
 
 
-
+;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
 (facts "Test adding to favs" (choose-fav "ivana") :truthy)
 
+;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
 (facts "Test recommend by difficulty" (recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset))) =not=> nil)
 
+;;User wants to get report on recent activity. That way users can track their improvement. 
 (defn contains-more [my-map & keys]
   (every? #(contains? my-map %) keys))
 (facts "Test report"
        (contains-more (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
                       :username :num-favs :difficulty-levels :avg-difficulty :report-time) => true)
 
+;;User wants to get recipes that are recommended by other users. 
+;;That way users can connect and discover recipes that are recommended by users with similar taste.
 (facts "Test recommend by favs" (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset))) =not=> nil)
 
+;;User wants to find out which recipes are the most popular. That way users can discover current trends in recipes. 
 (facts "Test recommend by popularity" (choose-by-popularity "ivana") =not=> nil)
 
+;;User wants to group recipes that were chosen as favorites. That way user can find them quciker or get a new idea.
 (facts "Test group recipes" (group-favs "ivana" {:title "Easy Mojitos",
                                                  :total-time "5",
                                                  :serving-size "1 cocktail",
@@ -37,3 +43,7 @@
                                                  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
                                                  :difficulty "easy",
                                                  :fav 1} "g1") =not=> nil)
+
+;;User wants to find another user with similar taste in recipes. That way users can connect and find recipes liked by similar users.
+(facts "Test Jaccard similarity"
+       (most-similar-user (get-user-by-username "ivana")) => ["ivana2" 0.333])
