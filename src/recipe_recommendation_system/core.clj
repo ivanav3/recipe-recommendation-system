@@ -1,7 +1,17 @@
 (ns recipe-recommendation-system.core
   (:gen-class)
-  (:require [clojure.string :as str])
+  (:require [clojure.string :as str]
+            [next.jdbc :as jdbc]
+            [clojure.walk :as walk])
   (:import (java.security MessageDigest)))
+
+
+(def db-spec {:dbtype "mysql"
+              :dbname "recipe-rs"
+              :host "localhost"
+              :port 3306
+              :user "root"
+              :password ""})
 
 (defn parse
   "Convert a CSV string into rows of columns, removing unwanted characters."
@@ -14,14 +24,15 @@
                (str/split trimmed-row #";"))))
          (str/split cleaned-string #"\n"))))
 
-(def initial-dataset (agent (rest (parse (slurp "first-cleaned5.csv")))))
+;; (def initial-dataset (ref (rest (parse (slurp "first-cleaned5.csv")))))
 
-(def keys (agent [:title :total-time :serving-size :ingr :instructions :difficulty :fav]))
+
+(def initial-dataset (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])))
+
+(def keys (atom [:title :total-time :serving-size :ingr :instructions :difficulty :fav]))
 
 (defn vectors-to-maps [vectors]
   (map #(zipmap @keys %) vectors))
-
-(send initial-dataset vectors-to-maps)
 
 (defn reset-fav [recipes]
   (map #(assoc % :fav 0) recipes))
@@ -29,8 +40,11 @@
 (defn clean-ingr [recipes]
   (map #(update % :ingr (fn [ingr] (str/split ingr #",\s*"))) recipes))
 
-(send initial-dataset clean-ingr)
-(send initial-dataset reset-fav)
+(dosync
+ (alter initial-dataset vectors-to-maps)
+ (alter initial-dataset clean-ingr)
+ (alter initial-dataset reset-fav))
+
 
 (defn hash-password [password]
   (let [md (MessageDigest/getInstance "SHA-256") ;; Object of class MessageDigest configured for using SHA-256 algorithm
@@ -40,7 +54,23 @@
     ;;this is only for converting into hex format
 
 
-(def registered-users (agent []))
+;; (def registered-users (ref []))
+(def registered-users
+  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
+@registered-users
+
+(defn clean-from-db [data]
+  (into {} (map (fn [[k v]] [(keyword (name k)) v]) data)))
+
+(defn remove-ns-from-ref [r]
+  (dosync
+   (alter r
+          (fn [re]
+            (map clean-from-db re)))))
+
+(remove-ns-from-ref registered-users)
+(remove-ns-from-ref initial-dataset)
+
 (defn register []
   (println "Username:")
   (let [username (read-line)]
@@ -48,22 +78,32 @@
       (do
         (println "This username is taken, try again.")
         (register))
-      (do
-        (println "Password:")
-        (let [password (read-line)]
-          (send registered-users
-                (fn [users]
-                  (conj users {:username username :password (hash-password password) :favs []})))
-          (await registered-users)
-          (println "Registered!" username))))))
+      (dosync
+       (println "Password:")
+       (let [password (read-line)
+             hashed-password (hash-password password)
+             _ (jdbc/execute! db-spec
+                              ["INSERT INTO user (username, password) VALUES (?, ?)"
+                               username hashed-password])]
 
+
+         (alter registered-users
+                (fn [users]
+                  (conj users {:id (:user/id  (first (jdbc/execute! db-spec
+                                                                    ["SELECT id FROM user WHERE username = ?"
+                                                                     username])))
+                               :username username
+                               :password hashed-password
+                               :favs []})))
+
+         (println "Registered!" username))))))
 
 (println "Registered users:")
 (doseq [u @registered-users]
   (println "Username:" (:username u) ", Password:" (:password u)))
 
 
-(def logged-in-users (agent []))
+(def logged-in-users (atom []))
 
 (defn is-user-logged-in? [username]
   (some #(= username (:username %)) @logged-in-users))
@@ -76,7 +116,7 @@
   (let [username (read-line)]
     (if (is-user-logged-in? username)
       (do
-        (send logged-in-users remove-user username)
+        (swap! logged-in-users remove-user username)
         (println username "has been logged out."))
       (println "No such user is logged in."))))
 
@@ -119,12 +159,23 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (do
-              (send registered-users update-favs username chosen-recipe)
-              (send initial-dataset update-rec chosen-recipe))
-            (println "Error. Try again."))))
-      (println "No recipes found."))))
+            (let [user (some #(if (= (:username %) username) %) @registered-users)
+                  user-id (:id user)
+                  recipe-id (:id chosen-recipe)]
 
+              (if (and user-id recipe-id)
+                (do
+                  (dosync
+                   (alter registered-users update-favs username chosen-recipe)
+                   (alter initial-dataset update-rec chosen-recipe))
+
+                  (jdbc/execute! db-spec
+                                 ["INSERT INTO favorites (`user-id`, `recipe-id`) VALUES (?, ?)" user-id recipe-id])
+                  (println "Recipe added to favorites!"))
+                (println "Error: Could not find user or recipe ID.")))
+
+            (println "Error. Recipe not found or invalid input."))))
+      (println "No recipes found."))))
 
 (defn choose-by-popularity [username]
   (println (take 3
@@ -150,6 +201,7 @@
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
+
 (defn login []
   (println "Username:")
   (let [username (read-line)]
@@ -163,7 +215,7 @@
           (if u
             (do
               (println "Welcome, " username)
-              (send logged-in-users conj {:username username})
+              (swap! logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
 
@@ -210,11 +262,10 @@
   (let [user (first (filter #(= (:username %) username) @registered-users))]
     (let [groups (:groups user)
           group (get groups group-name [])]
-      (send registered-users #(mapv (fn [u]
-                                      (if (= (:username u) username)
-                                        (update u :groups assoc group-name (conj group recipe))
-                                        u)) %)))))
-
+      (swap! registered-users #(mapv (fn [u]
+                                       (if (= (:username u) username)
+                                         (update u :groups assoc group-name (conj group recipe))
+                                         u)) %)))))
 
 
 (register)

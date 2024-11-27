@@ -7,7 +7,6 @@
   (testing "FIXME, I fail."
     (is (= 0 1))))
 
-
 ;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
 (facts "test-adding-to-favs" (choose-fav "ivana") :truthy)
 
