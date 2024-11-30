@@ -1114,3 +1114,1132 @@ clj꞉recipe-recommendation-system.core-test꞉> 
 ; Recipe added to favorites!
 true
 clj꞉recipe-recommendation-system.core-test꞉> 
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:49959 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉cas10.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs2
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/db-spec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/parse
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/keys
+; 
+; WARNING: keys already refers to: #'clojure.core/keys in namespace: recipe-recommendation-system.core, being replaced by: #'recipe-recommendation-system.core/keys
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/vectors-to-maps
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/reset-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-ingr
+clj꞉recipe-recommendation-system.core꞉> 
+; Error printing return value (ClassCastException) at clojure.string/split (string.clj:219).
+; class clojure.lang.MapEntry cannot be cast to class java.lang.CharSequence (clojure.lang.MapEntry is in unnamed module of loader 'app'; java.lang.CharSequence is in module java.base of loader 'bootstrap')
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/hash-password
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-from-db
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-ns-from-ref
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 38, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+clj꞉recipe-recommendation-system.core꞉> 
+()
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logged-in-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs2
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-rec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-by-popularity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/recommend-by-difficulty
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/generate-report
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/users-recommend
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/group-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/get-user-by-username
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/extract-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/jaccard-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/cosine-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; This username is taken, try again.
+; Username:
+; This username is taken, try again.
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 38, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 38, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+(#:user{:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"})
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Registered! ivana
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 2}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (NullPointerException) at recipe-recommendation-system.core/fn$fn (form-init5846644611032287746.clj:36).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (NullPointerException) at recipe-recommendation-system.core/fn$fn (form-init5846644611032287746.clj:36).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Execution error (NullPointerException) at recipe-recommendation-system.core/find-by-title$fn (form-init5846644611032287746.clj:128).
+; Cannot invoke "Object.toString()" because "s" is null
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Execution error (NullPointerException) at recipe-recommendation-system.core/find-by-title$fn (form-init5846644611032287746.clj:128).
+; Cannot invoke "Object.toString()" because "s" is null
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 3}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Jamaican Fried Dumplings
+; Cuban Ropa Vieja
+; 
+; Conch Fritters
+; 
+; Easy Mojitos
+; Mojo Grilling Marinade
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 2}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:226:1).
+; Unable to resolve symbol: logoin in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLIntegrityConstraintViolationException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:117).
+; Duplicate entry '39-4' for key 'PRIMARY'
+clj꞉recipe-recommendation-system.core꞉> 
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:49959 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉cas10.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:33:1).
+; Unable to resolve symbol: initial-dataset in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:32:36).
+; Unable to resolve symbol: db-spec in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/db-spec
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (IOException) at sun.tools.attach.HotSpotVirtualMachine/<init> (HotSpotVirtualMachine.java:76).
+; Can not attach to current VM
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; nREPL Connection was closed
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:49959 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/db-spec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+; Jamm starting with: java.version='17.0.12', java.vendor='Oracle Corporation', instrumentation=true, unsafe=true, Memory Layout: [objectHeaderSize=12 , arrayHeaderSize=16, objectAlignment=8, referenceSize=4, contendedPaddingWidth=128]
+"9.9 KiB"
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+"10.0 KiB"
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:54:1).
+; No such namespace: mm
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:55:8).
+; No such namespace: mm
+clj꞉recipe-recommendation-system.core-test꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+(#:user{:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ #:user{:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-from-db
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-ns-from-ref
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 0}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 0})
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:90:30).
+; Unable to resolve symbol: hash-password in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/hash-password
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+; Username: ivana10 , Password: 40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b
+; Username: ivana , Password: feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0
+; 
+; // Decompiling class: recipe_recommendation_system/core$fn__21255
+; package recipe_recommendation_system;
+; 
+; import clojure.lang.*;
+; 
+; public final class core$fn__21255 extends AFunction
+; {
+;     public static final Var __seq;
+;     public static final Var __deref;
+;     public static final Var __rcore_registered_users;
+;     public static final Var __println;
+;     public static final Var __chunked_seq_QMARK_;
+;     public static final Var __chunk_first;
+;     public static final Var __chunk_rest;
+;     public static final Var __first;
+;     public static final Var __next;
+;     static final KeywordLookupSite __site__0__;
+;     static ILookupThunk __thunk__0__;
+;     static final KeywordLookupSite __site__1__;
+;     static ILookupThunk __thunk__1__;
+;     static final KeywordLookupSite __site__2__;
+;     static ILookupThunk __thunk__2__;
+;     static final KeywordLookupSite __site__3__;
+;     static ILookupThunk __thunk__3__;
+;     
+;     public static Object invokeStatic() {
+;         Object seq_21251 = __seq.invoke(__deref.invoke(__rcore_registered_users.getRawRoot()));
+;         Object chunk_21252 = null;
+;         long count_21253 = 0L;
+;         long i_21254 = 0L;
+;         while (true) {
+;             if (i_21254 < count_21253) {
+;                 final Object u = ((Indexed)chunk_21252).nth(RT.intCast(i_21254));
+;                 final IFn fn = (IFn)__println.getRawRoot();
+;                 final String s = "Username:";
+;                 final ILookupThunk _thunk__0__ = __thunk__0__;
+;                 final Object o = u;
+;                 Object o2;
+;                 if (_thunk__0__ == (o2 = _thunk__0__.get(o))) {
+;                     o2 = (__thunk__0__ = __site__0__.fault(o)).get(o);
+;                 }
+;                 final String s2 = ", Password:";
+;                 final ILookupThunk _thunk__1__ = __thunk__1__;
+;                 final Object o3 = u;
+;                 Object o4;
+;                 if (_thunk__1__ == (o4 = _thunk__1__.get(o3))) {
+;                     o4 = (__thunk__1__ = __site__1__.fault(o3)).get(o3);
+;                 }
+;                 fn.invoke(s, o2, s2, o4);
+;                 final Object o5 = seq_21251;
+;                 final Object o6 = chunk_21252;
+;                 final long n = count_21253;
+;                 ++i_21254;
+;                 count_21253 = n;
+;                 chunk_21252 = o6;
+;                 seq_21251 = o5;
+;             }
+;             else {
+;                 final Object invoke;
+;                 final Object temp__5804__auto__21258 = invoke = __seq.invoke(seq_21251);
+;                 if (invoke == null) {
+;                     break;
+;                 }
+;                 if (invoke == Boolean.FALSE) {
+;                     break;
+;                 }
+;                 final Object seq_21252 = temp__5804__auto__21258;
+;                 final Object invoke2 = __chunked_seq_QMARK_.invoke(seq_21252);
+;                 if (invoke2 != null) {
+;                     if (invoke2 != Boolean.FALSE) {
+;                         final Object c__6065__auto__21257 = __chunk_first.invoke(seq_21252);
+;                         final Object invoke3 = __chunk_rest.invoke(seq_21252);
+;                         final Object o7 = c__6065__auto__21257;
+;                         final long n2 = RT.intCast(RT.count(c__6065__auto__21257));
+;                         i_21254 = RT.intCast(0L);
+;                         count_21253 = n2;
+;                         chunk_21252 = o7;
+;                         seq_21251 = invoke3;
+;                         continue;
+;                     }
+;                 }
+;                 final Object u2 = __first.invoke(seq_21252);
+;                 final IFn fn2 = (IFn)__println.getRawRoot();
+;                 final String s3 = "Username:";
+;                 final ILookupThunk _thunk__2__ = __thunk__2__;
+;                 final Object o8 = u2;
+;                 Object o9;
+;                 if (_thunk__2__ == (o9 = _thunk__2__.get(o8))) {
+;                     o9 = (__thunk__2__ = __site__2__.fault(o8)).get(o8);
+;                 }
+;                 final String s4 = ", Password:";
+;                 final ILookupThunk _thunk__3__ = __thunk__3__;
+;                 final Object o10 = u2;
+;                 Object o11;
+;                 if (_thunk__3__ == (o11 = _thunk__3__.get(o10))) {
+;                     o11 = (__thunk__3__ = __site__3__.fault(o10)).get(o10);
+;                 }
+;                 fn2.invoke(s3, o9, s4, o11);
+;                 final Object invoke4 = __next.invoke(seq_21252);
+;                 final Object o12 = null;
+;                 final long n3 = 0L;
+;                 i_21254 = 0L;
+;                 count_21253 = n3;
+;                 chunk_21252 = o12;
+;                 seq_21251 = invoke4;
+;             }
+;         }
+;         return null;
+;     }
+;     
+;     @Override
+;     public Object invoke() {
+;         return invokeStatic();
+;     }
+;     
+;     static {
+;         __seq = RT.var("clojure.core", "seq");
+;         __deref = RT.var("clojure.core", "deref");
+;         __rcore_registered_users = RT.var("recipe-recommendation-system.core", "registered-users");
+;         __println = RT.var("clojure.core", "println");
+;         __chunked_seq_QMARK_ = RT.var("clojure.core", "chunked-seq?");
+;         __chunk_first = RT.var("clojure.core", "chunk-first");
+;         __chunk_rest = RT.var("clojure.core", "chunk-rest");
+;         __first = RT.var("clojure.core", "first");
+;         __next = RT.var("clojure.core", "next");
+;         __thunk__0__ = (__site__0__ = new KeywordLookupSite(RT.keyword(null, "username")));
+;         __thunk__1__ = (__site__1__ = new KeywordLookupSite(RT.keyword(null, "password")));
+;         __thunk__2__ = (__site__2__ = new KeywordLookupSite(RT.keyword(null, "username")));
+;         __thunk__3__ = (__site__3__ = new KeywordLookupSite(RT.keyword(null, "password")));
+;     }
+; }
+; 
+; 
+; // Decompiling class: cjd__init
+; import recipe_recommendation_system.*;
+; import clojure.lang.*;
+; 
+; public class cjd__init
+; {
+;     public static void load() {
+;         ((IFn)new core$fn__21255()).invoke();
+;     }
+;     
+;     static {
+;         Compiler.pushNSandLoader(RT.classForName("cjd__init").getClassLoader());
+;         try {
+;             load();
+;             Var.popThreadBindings();
+;         }
+;         finally {
+;             Var.popThreadBindings();
+;         }
+;     }
+; }
+; 
+nil
+clj꞉recipe-recommendation-system.core꞉> 

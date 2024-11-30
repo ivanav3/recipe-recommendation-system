@@ -1,0 +1,1 @@
+["^ ","~:members",["^ ","<init>",["~#set",[["^ ","~:flags",["^2",["~:method","~:public"]]]]],"run",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitAnonymousObjectCreationExpression",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitAssignmentExpression",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitSuperReferenceExpression",["^2",[["^ ","^3",["^2",["^4","^5"]]]]]]]

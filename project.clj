@@ -6,5 +6,9 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [midje "1.10.10"]
                  [com.github.seancorfield/next.jdbc "1.3.955"]
-                 [mysql/mysql-connector-java "8.0.30"]]
-  :repl-options {:init-ns recipe-recommendation-system.core})
+                 [mysql/mysql-connector-java "8.0.30"]
+                 [criterium "0.4.6"]
+                 [com.clojure-goes-fast/clj-memory-meter "0.3.0"]
+                 [com.clojure-goes-fast/clj-java-decompiler "0.3.6"]]
+  :repl-options {:init-ns recipe-recommendation-system.core}
+  :jvm-opts ["-Djdk.attach.allowAttachSelf"])

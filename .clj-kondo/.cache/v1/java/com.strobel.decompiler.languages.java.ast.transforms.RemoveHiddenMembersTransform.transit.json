@@ -1,0 +1,1 @@
+["^ ","~:members",["^ ","<init>",["~#set",[["^ ","~:flags",["^2",["~:method","~:public"]]]]],"visitAssignmentExpression",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitFieldDeclaration",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitConstructorDeclaration",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"visitExpressionStatement",["^2",[["^ ","^3",["^2",["^4","^5"]]]]]]]

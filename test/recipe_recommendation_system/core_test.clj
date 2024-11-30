@@ -50,3 +50,6 @@
 
 (facts "test-cosine-similarity"
        (most-similar-user (get-user-by-username "ivana") cosine-similarity) => ["ivana2" 0.5])
+
+(facts "test-memory-measure-function"
+       (clj-memory-meter.core/measure initial-dataset) =not=> nil)

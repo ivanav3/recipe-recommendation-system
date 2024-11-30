@@ -2,7 +2,10 @@
   (:gen-class)
   (:require [clojure.string :as str]
             [next.jdbc :as jdbc]
-            [clojure.walk :as walk])
+            [clojure.java.io :as io]
+            [clojure.walk :as walk]
+            [clj-memory-meter.core :as mm]
+            [clj-java-decompiler.core :refer [decompile]])
   (:import (java.security MessageDigest)))
 
 
@@ -26,13 +29,17 @@
 
 ;; (def initial-dataset (ref (rest (parse (slurp "first-cleaned5.csv")))))
 
+(def initial-dataset
+  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])
+       :validator
+       (comp not nil?)))
 
-(def initial-dataset (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])))
+(mm/measure initial-dataset)
 
-(def keys (atom [:title :total-time :serving-size :ingr :instructions :difficulty :fav]))
 
 (defn vectors-to-maps [vectors]
-  (map #(zipmap @keys %) vectors))
+  (let [keys [:title :total-time :serving-size :ingr :instructions :difficulty :fav]]
+    (map #(zipmap keys %) vectors)))
 
 (defn reset-fav [recipes]
   (map #(assoc % :fav 0) recipes))
@@ -70,7 +77,6 @@
 
 (remove-ns-from-ref registered-users)
 (remove-ns-from-ref initial-dataset)
-
 (defn register []
   (println "Username:")
   (let [username (read-line)]
@@ -98,10 +104,8 @@
 
          (println "Registered!" username))))))
 
-(println "Registered users:")
-(doseq [u @registered-users]
-  (println "Username:" (:username u) ", Password:" (:password u)))
-
+(decompile (doseq [u @registered-users]
+             (println "Username:" (:username u) ", Password:" (:password u))))
 
 (def logged-in-users (atom []))
 
@@ -166,12 +170,13 @@
               (if (and user-id recipe-id)
                 (do
                   (dosync
+                   (jdbc/execute! db-spec
+                                  ["INSERT INTO favorites (`user-id`, `recipe-id`) VALUES (?, ?)" user-id recipe-id])
+                   (jdbc/execute! db-spec
+                                  ["UPDATE recipe SET fav = fav + 1 WHERE id = ?" recipe-id])
+                   (println "Recipe added to favorites!")
                    (alter registered-users update-favs username chosen-recipe)
-                   (alter initial-dataset update-rec chosen-recipe))
-
-                  (jdbc/execute! db-spec
-                                 ["INSERT INTO favorites (`user-id`, `recipe-id`) VALUES (?, ?)" user-id recipe-id])
-                  (println "Recipe added to favorites!"))
+                   (alter initial-dataset update-rec chosen-recipe)))
                 (println "Error: Could not find user or recipe ID.")))
 
             (println "Error. Recipe not found or invalid input."))))
@@ -218,7 +223,6 @@
               (swap! logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
-
 
 (defn recommend-by-difficulty [chosen]
   (let [diff (:difficulty chosen)
@@ -272,7 +276,6 @@
 (login)
 (logout)
 
-@registered-users
 
 (defn get-user-by-username [username]
   (first (filter #(= (:username %) username) @registered-users)))
