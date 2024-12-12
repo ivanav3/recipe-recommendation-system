@@ -2,8 +2,6 @@
   (:gen-class)
   (:require [clojure.string :as str]
             [next.jdbc :as jdbc]
-            [clojure.java.io :as io]
-            [clojure.walk :as walk]
             [clj-memory-meter.core :as mm]
             [clj-java-decompiler.core :refer [decompile]])
   (:import (java.security MessageDigest)))
@@ -54,17 +52,10 @@
 
 
 (defn hash-password [password]
-  (let [md (MessageDigest/getInstance "SHA-256") ;; Object of class MessageDigest configured for using SHA-256 algorithm
-        hashed-bytes (.digest md (.getBytes password))] ;;getBytes as a method implemented in String class is used for changing this into bytes array
-        ;;parameters for .digest are algorithm and data
+  (let [md (MessageDigest/getInstance "SHA-256")
+        hashed-bytes (.digest md (.getBytes password))]
     (apply str (map #(format "%02x" %) hashed-bytes))))
-    ;;this is only for converting into hex format
 
-
-;; (def registered-users (ref []))
-(def registered-users
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
-@registered-users
 
 (defn clean-from-db [data]
   (into {} (map (fn [[k v]] [(keyword (name k)) v]) data)))
@@ -75,8 +66,39 @@
           (fn [re]
             (map clean-from-db re)))))
 
+(def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
+JOIN favorites f ON r.id=f.recipe_id "])))
+
+(remove-ns-from-ref favorites-base)
+
+(def registered-users
+  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
+
+(defn attach-favorites-to-user [user]
+  (let [user-id (:id user)]
+    (assoc user :favs
+           (filter #(= user-id (:user_id %)) @favorites-base))))
+
+(defn join-favs [r]
+  (dosync
+   (alter registered-users
+          (fn [users] (map #(attach-favorites-to-user %) users)))))
+
+(defn remove-user-id-from-favorites [user]
+  (let [favorites (map #(dissoc % :user_id) (:favs user))]
+    (assoc user :favorites favorites)))
+
+(defn clean-up-favs []
+  (dosync
+   (alter registered-users
+          (fn [users] (map remove-user-id-from-favorites users)))))
+
+
 (remove-ns-from-ref registered-users)
 (remove-ns-from-ref initial-dataset)
+(join-favs @registered-users)
+(clean-up-favs)
+
 (defn register []
   (println "Username:")
   (let [username (read-line)]
@@ -186,6 +208,7 @@
   (println (take 3
                  (sort-by :fav > @initial-dataset)))
   (choose-fav username))
+
 (first (filter #(= (:username %) "ivana") @registered-users))
 
 (defn main-menu [username]
@@ -199,14 +222,22 @@
 
   (let [option (read-line)]
     (cond
-      (= option "0") @initial-dataset
-      (= option "1") (choose-fav username)
-      (= option "2") (choose-by-popularity username)
+      (= option "0")
+      (do
+        (println @initial-dataset)
+        (main-menu username))
+      (= option "1")
+      (do
+        (choose-fav username)
+        (main-menu username))
+      (= option "2")
+      (do
+        (choose-by-popularity username)
+        (main-menu username))
       (= option "3") (logout)
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
-
 (defn login []
   (println "Username:")
   (let [username (read-line)]
@@ -299,6 +330,7 @@
         ;;second as argument because it represents metric that is used
         most-similar (apply max-key second similarities)]
     most-similar))
+(most-similar-user (get-user-by-username "ivana") jaccard-similarity)
 
 (defn cosine-similarity [user1 user2]
   (let [favs1 (extract-favs user1)
