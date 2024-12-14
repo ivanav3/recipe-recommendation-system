@@ -355,6 +355,14 @@ JOIN favorites f ON r.id=f.recipe_id "])))
             1.0
             (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
 
+
+(defn get-favs-by-username [username]
+  (some #(if (= (:username %) username) (:favs %)) @registered-users))
+
+(defn get-user-favs [username]
+  {:username username
+   :favs (get-favs-by-username username)})
+
 (defn most-similar-users [target-user]
   (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
 
@@ -368,6 +376,9 @@ JOIN favorites f ON r.id=f.recipe_id "])))
     (if most-similar-cosine
       [most-similar-jaccard most-similar-cosine]
       [most-similar-jaccard])))
+
+(for [similar-user (most-similar-users (get-user-by-username "ivana"))]
+  (get-user-favs (first similar-user)))
 
 (defn extract-keywords [description]
   (set (str/split (str/lower-case description) #"\s+")))

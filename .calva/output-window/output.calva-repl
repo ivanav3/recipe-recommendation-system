@@ -569,3 +569,121 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 true
 clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/get-favs-by-username
+clj꞉recipe-recommendation-system.core꞉> 
+({:fav 1,
+  :difficulty "easy",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :title "Jamaican Fried Dumplings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :id 1,
+  :total-time "20",
+  :user_id 36,
+  :serving-size "6 servings"}
+ {:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :user_id 36,
+  :serving-size "1 cocktail"})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+[[{:username "ivana10",
+   :favs
+   ({:fav 1,
+     :difficulty "easy",
+     :instructions
+     "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+     :title "Jamaican Fried Dumplings",
+     :ingr
+     "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+     :id 1,
+     :total-time "20",
+     :user_id 36,
+     :serving-size "6 servings"}
+    {:fav 2,
+     :difficulty "easy",
+     :instructions
+     "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+     :title "Easy Mojitos",
+     :ingr
+     "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+     :id 4,
+     :total-time "5",
+     :user_id 36,
+     :serving-size "1 cocktail"})}]
+ {:username "ivana13", :favs []}]
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/get-user-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username: ivana10, Favs: clojure.lang.LazySeq@ba8701c8
+; Username: ivana13, Favs: []
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username: ivana10, Favs: ({:fav 1, :difficulty "easy", :instructions "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n", :title "Jamaican Fried Dumplings", :ingr "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying", :id 1, :total-time "20", :user_id 36, :serving-size "6 servings"} {:fav 2, :difficulty "easy", :instructions "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n", :title "Easy Mojitos", :ingr "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n", :id 4, :total-time "5", :user_id 36, :serving-size "1 cocktail"})
+; Username: ivana13, Favs: []
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+{:username "ivana",
+ :favs
+ ({:fav 2,
+   :difficulty "easy",
+   :instructions
+   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+   :title "Easy Mojitos",
+   :ingr
+   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+   :id 4,
+   :total-time "5",
+   :user_id 39,
+   :serving-size "1 cocktail"}
+  {:fav 1,
+   :difficulty "easy",
+   :instructions
+   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+   :title "Mojo Grilling Marinade",
+   :ingr
+   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+   :id 5,
+   :total-time "15",
+   :user_id 39,
+   :serving-size "3 cups"})}
+clj꞉recipe-recommendation-system.core꞉> 
+({:username "ivana10",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"})}
+ {:username "ivana13", :favs []})
+clj꞉recipe-recommendation-system.core꞉> 
