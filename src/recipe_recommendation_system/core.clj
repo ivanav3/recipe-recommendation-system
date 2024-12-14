@@ -321,16 +321,19 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (defn jaccard-similarity [user1 user2]
   (let [favs1 (extract-favs user1)
-        favs2 (extract-favs user2)
-        intersection (count (clojure.set/intersection favs1 favs2))
-        union (count (clojure.set/union favs1 favs2))]
-    (if (zero? union)
+        favs2 (extract-favs user2)]
+    (if (or (empty? favs1) (empty? favs2))
       0.0
-      (let [similarity (float (/ intersection union))]
-        (/ (Math/round (* similarity 1000)) 1000.0)))))
+      (let
+       [intersection (count (clojure.set/intersection favs1 favs2))
+        union (count (clojure.set/union favs1 favs2))]
+        (if (zero? union)
+          0.0
+          (let [similarity (float (/ intersection union))]
+            (/ (Math/round (* similarity 1000)) 1000.0)))))))
 
-(defn most-similar-user [target-user similarity-fn]
-  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
+(defn most-similar-user [users-to-compare target-user similarity-fn]
+  (let [all-users (remove #(= (:username %) (:username target-user)) users-to-compare)
         similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
         most-similar (apply max-key second similarities)]
     most-similar))
@@ -339,18 +342,32 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (defn cosine-similarity [user1 user2]
   (let [favs1 (extract-favs user1)
-        favs2 (extract-favs user2)
-        all-recipes (clojure.set/union favs1 favs2)
-        vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
-        vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)]
-    (let [dot-product (reduce + (map * vector1 vector2))
-          norm1 (Math/sqrt (reduce + (map #(* % %) vector1)))
-          norm2 (Math/sqrt (reduce + (map #(* % %) vector2)))]
-      (if (and (zero? norm1) (zero? norm2))
-        1.0
-        (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))
+        favs2 (extract-favs user2)]
+    (if (or (empty? favs1) (empty? favs2))
+      0.0
+      (let [all-recipes (clojure.set/union favs1 favs2)
+            vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
+            vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)]
+        (let [dot-product (reduce + (map * vector1 vector2))
+              norm1 (Math/sqrt (reduce + (map #(* % %) vector1)))
+              norm2 (Math/sqrt (reduce + (map #(* % %) vector2)))]
+          (if (and (zero? norm1) (zero? norm2))
+            1.0
+            (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
 
-;; (most-similar-user (get-user-by-username "ivana") jaccard-similarity)
+(defn most-similar-users [target-user]
+  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
+
+        most-similar-jaccard  (most-similar-user all-users target-user jaccard-similarity)
+
+        remaining-users (remove #(= (:username %) (first most-similar-jaccard)) all-users)
+        most-similar-cosine (if (empty? remaining-users)
+                              nil
+                              (most-similar-user remaining-users target-user cosine-similarity))]
+
+    (if most-similar-cosine
+      [most-similar-jaccard most-similar-cosine]
+      [most-similar-jaccard])))
 
 (defn extract-keywords [description]
   (set (str/split (str/lower-case description) #"\s+")))

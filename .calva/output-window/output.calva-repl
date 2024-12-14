@@ -494,3 +494,78 @@ clj꞉recipe-recommendation-system.core꞉> 
    :total-time "15",
    :serving-size "3 cups"})}
 clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:361).
+; Wrong number of args (1) passed to: clojure.core/max-key
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
+; Wrong number of args (1) passed to: clojure.core/max-key
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
+; Wrong number of args (1) passed to: clojure.core/max-key
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
+; Wrong number of args (1) passed to: clojure.core/max-key
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/eval14065 (form-init7082665417684718866.clj:369).
+; Wrong number of args (2) passed to: recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/eval14076 (form-init7082665417684718866.clj:369).
+; Wrong number of args (2) passed to: recipe-recommendation-system.core/most-similar-user
+clj꞉recipe-recommendation-system.core꞉> 
+["ivana10" 0.333]
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+[["ivana10" 0.333]]
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Registered! ivana13
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+[["ivana10" 0.333] ["ivana13" ##NaN]]
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/jaccard-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/cosine-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/most-similar-users
+clj꞉recipe-recommendation-system.core꞉> 
+[["ivana10" 0.333] ["ivana13" 0.0]]
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 

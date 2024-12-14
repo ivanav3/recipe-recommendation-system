@@ -45,11 +45,16 @@
 
 ;;User wants to find another user with similar taste in recipes. That way users can connect and find recipes liked by similar users.
 (facts "test-jaccard-similarity"
-       (most-similar-user (get-user-by-username "ivana") jaccard-similarity) => ["ivana2" 0.333])
+       (most-similar-user @registered-users (get-user-by-username "ivana") jaccard-similarity) => ["ivana2" 0.333])
 
 
 (facts "test-cosine-similarity"
-       (most-similar-user (get-user-by-username "ivana") cosine-similarity) => ["ivana2" 0.5])
+       (most-similar-user @registered-users (get-user-by-username "ivana") cosine-similarity) => ["ivana2" 0.5])
+
+;;User wants to find another users with similar taste in recipes. This time all similarities are included.
+(facts "test-most-similar-users"
+
+       (most-similar-users (get-user-by-username "ivana")) => [["ivana10" 0.333] ["ivana13" 0.0]])
 
 (facts "test-memory-measure-function"
        (clj-memory-meter.core/measure initial-dataset) =not=> nil)
