@@ -37,35 +37,29 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: pushd c:\Users\HP\Desktop\recipe-recommendation-system & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.1.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.47.1"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
-; Using host:port 127.0.0.1:59719 ...
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: pushd c:\Users\HP\Desktop\recipe-recommendation-system & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.1.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.47.1"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:59719 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
 nil
-clj꞉recipe-recommendation-system.core꞉> 
+clj꞉cas10.core꞉> 
 "Please see https://calva.io/output/#about-stdout-in-the-repl-window
 about why stdout printed to this file is prepended with `;` to be line comments."
-clj꞉recipe-recommendation-system.core꞉> 
-; Jack-in done.
-clj꞉recipe-recommendation-system.core꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:359:19).
-; Unable to resolve symbol: extract-keywords in this context
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/extract-keywords
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/content-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/db-spec
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ConnectException) at sun.nio.ch.Net/connect0 (Net.java:-2).
-; Connection refused: connect
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/initial-dataset
-clj꞉recipe-recommendation-system.core꞉> 
+clj꞉cas10.core꞉> 
 nil
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/db-spec
@@ -187,7 +181,8 @@ clj꞉recipe-recommendation-system.core꞉> 
   :fav 1})
 clj꞉recipe-recommendation-system.core꞉> 
 ({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
- {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"})
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da"})
 clj꞉recipe-recommendation-system.core꞉> 
 ({:id 36,
   :username "ivana10",
@@ -240,7 +235,8 @@ clj꞉recipe-recommendation-system.core꞉> 
     :id 5,
     :total-time "15",
     :user_id 39,
-    :serving-size "3 cups"})})
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
 clj꞉recipe-recommendation-system.core꞉> 
 ({:id 36,
   :username "ivana10",
@@ -335,7 +331,12 @@ clj꞉recipe-recommendation-system.core꞉> 
     "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
     :id 5,
     :total-time "15",
-    :serving-size "3 cups"})})
+    :serving-size "3 cups"})}
+ {:id 41,
+  :username "ivana13",
+  :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da",
+  :favs (),
+  :favorites ()})
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/register
 clj꞉recipe-recommendation-system.core꞉> 
@@ -347,9 +348,9 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/logout
 clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/add-to-favs
-clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/update-favs
 clj꞉recipe-recommendation-system.core꞉> 
@@ -381,285 +382,11 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/cosine-similarity
 clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/extract-keywords
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/content-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/recommend-by-content
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/recommended-products
-clj꞉recipe-recommendation-system.core꞉> 
-; {:id 3, :title Conch Fritters
-; , :total-time 35, :serving-size 8 servings, :ingr 1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce, :instructions Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.
-; , :difficulty medium, :fav 0}
-; {:id 2, :title Cuban Ropa Vieja
-; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0}
-; {:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-; , :difficulty easy, :fav 2}
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/recommend-by-content
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/recommended-recipes
-clj꞉recipe-recommendation-system.core꞉> 
-; {:id 3, :title Conch Fritters
-; , :total-time 35, :serving-size 8 servings, :ingr 1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce, :instructions Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.
-; , :difficulty medium, :fav 0}
-; {:id 2, :title Cuban Ropa Vieja
-; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0}
-; {:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-; , :difficulty easy, :fav 2}
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/content-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/content-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/recommended-recipes
-clj꞉recipe-recommendation-system.core꞉> 
-; {:id 3, :title Conch Fritters
-; , :total-time 35, :serving-size 8 servings, :ingr 1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce, :instructions Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.
-; , :difficulty medium, :fav 0}
-; {:id 2, :title Cuban Ropa Vieja
-; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0}
-; {:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-; , :difficulty easy, :fav 2}
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333] ["ivana10" 0.5]]
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333] ["ivana10" 0.5]]
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333] ["ivana10" 0.5]]
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:362).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-{:id 39,
- :username "ivana",
- :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
- :favs
- ({:fav 2,
-   :difficulty "easy",
-   :instructions
-   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-   :title "Easy Mojitos",
-   :ingr
-   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-   :id 4,
-   :total-time "5",
-   :user_id 39,
-   :serving-size "1 cocktail"}
-  {:fav 1,
-   :difficulty "easy",
-   :instructions
-   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-   :title "Mojo Grilling Marinade",
-   :ingr
-   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-   :id 5,
-   :total-time "15",
-   :user_id 39,
-   :serving-size "3 cups"}),
- :favorites
- ({:fav 2,
-   :difficulty "easy",
-   :instructions
-   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-   :title "Easy Mojitos",
-   :ingr
-   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-   :id 4,
-   :total-time "5",
-   :serving-size "1 cocktail"}
-  {:fav 1,
-   :difficulty "easy",
-   :instructions
-   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-   :title "Mojo Grilling Marinade",
-   :ingr
-   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-   :id 5,
-   :total-time "15",
-   :serving-size "3 cups"})}
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:361).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/most-similar-users (form-init7082665417684718866.clj:359).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-user
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/eval14065 (form-init7082665417684718866.clj:369).
-; Wrong number of args (2) passed to: recipe-recommendation-system.core/most-similar-user
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-user
-clj꞉recipe-recommendation-system.core꞉> 
-; Execution error (ArityException) at recipe-recommendation-system.core/eval14076 (form-init7082665417684718866.clj:369).
-; Wrong number of args (2) passed to: recipe-recommendation-system.core/most-similar-user
-clj꞉recipe-recommendation-system.core꞉> 
-["ivana10" 0.333]
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333]]
-clj꞉recipe-recommendation-system.core꞉> 
-; Username:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-; Username:
-; Password:
-; Registered! ivana13
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. Logout
-; Please select an option:
-; Enter username to logout:
-; ivana has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333] ["ivana13" ##NaN]]
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/jaccard-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/cosine-similarity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[["ivana10" 0.333] ["ivana13" 0.0]]
-clj꞉recipe-recommendation-system.core꞉> 
-true
-clj꞉recipe-recommendation-system.core-test꞉> 
 #'recipe-recommendation-system.core/get-favs-by-username
-clj꞉recipe-recommendation-system.core꞉> 
-({:fav 1,
-  :difficulty "easy",
-  :instructions
-  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
-  :title "Jamaican Fried Dumplings",
-  :ingr
-  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
-  :id 1,
-  :total-time "20",
-  :user_id 36,
-  :serving-size "6 servings"}
- {:fav 2,
-  :difficulty "easy",
-  :instructions
-  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-  :title "Easy Mojitos",
-  :ingr
-  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-  :id 4,
-  :total-time "5",
-  :user_id 36,
-  :serving-size "1 cocktail"})
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-[[{:username "ivana10",
-   :favs
-   ({:fav 1,
-     :difficulty "easy",
-     :instructions
-     "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
-     :title "Jamaican Fried Dumplings",
-     :ingr
-     "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
-     :id 1,
-     :total-time "20",
-     :user_id 36,
-     :serving-size "6 servings"}
-    {:fav 2,
-     :difficulty "easy",
-     :instructions
-     "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-     :title "Easy Mojitos",
-     :ingr
-     "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-     :id 4,
-     :total-time "5",
-     :user_id 36,
-     :serving-size "1 cocktail"})}]
- {:username "ivana13", :favs []}]
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/get-user-favs
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/most-similar-users
-clj꞉recipe-recommendation-system.core꞉> 
-true
-clj꞉recipe-recommendation-system.core-test꞉> 
-; Username: ivana10, Favs: clojure.lang.LazySeq@ba8701c8
-; Username: ivana13, Favs: []
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; Username: ivana10, Favs: ({:fav 1, :difficulty "easy", :instructions "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n", :title "Jamaican Fried Dumplings", :ingr "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying", :id 1, :total-time "20", :user_id 36, :serving-size "6 servings"} {:fav 2, :difficulty "easy", :instructions "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n", :title "Easy Mojitos", :ingr "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n", :id 4, :total-time "5", :user_id 36, :serving-size "1 cocktail"})
-; Username: ivana13, Favs: []
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-{:username "ivana",
- :favs
- ({:fav 2,
-   :difficulty "easy",
-   :instructions
-   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-   :title "Easy Mojitos",
-   :ingr
-   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-   :id 4,
-   :total-time "5",
-   :user_id 39,
-   :serving-size "1 cocktail"}
-  {:fav 1,
-   :difficulty "easy",
-   :instructions
-   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-   :title "Mojo Grilling Marinade",
-   :ingr
-   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-   :id 5,
-   :total-time "15",
-   :user_id 39,
-   :serving-size "3 cups"})}
 clj꞉recipe-recommendation-system.core꞉> 
 ({:username "ivana10",
   :favs
@@ -685,5 +412,1274 @@ clj꞉recipe-recommendation-system.core꞉> 
     :total-time "5",
     :user_id 36,
     :serving-size "1 cocktail"})}
- {:username "ivana13", :favs []})
+ {:username "ivana13", :favs ()})
 clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/extract-keywords
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/content-similarity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/recommend-by-content
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/recommended-recipes
+clj꞉recipe-recommendation-system.core꞉> 
+; {:id 3, :title Conch Fritters
+; , :total-time 35, :serving-size 8 servings, :ingr 1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce, :instructions Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.
+; , :difficulty medium, :fav 0}
+; {:id 2, :title Cuban Ropa Vieja
+; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0}
+; {:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
+; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
+; , :difficulty easy, :fav 2}
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-name
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (NullPointerException) at recipe-recommendation-system.core/recommend-by-content (form-init18444110680514099078.clj:389).
+; Cannot invoke "java.lang.Character.charValue()" because "x" is null
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (NullPointerException) at (REPL:1).
+; null
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/index-of-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/index-of-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 2}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+3
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-index-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/recommended-recipes
+clj꞉recipe-recommendation-system.core꞉> 
+; {:id 3, :title Conch Fritters
+; , :total-time 35, :serving-size 8 servings, :ingr 1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce, :instructions Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.
+; , :difficulty medium, :fav 0}
+; {:id 2, :title Cuban Ropa Vieja
+; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0}
+; {:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
+; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
+; , :difficulty easy, :fav 2}
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-from-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs-when-removed
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipes
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Execution error (ArityException) at recipe-recommendation-system.core/remove-fav (form-init18444110680514099078.clj:430).
+; Wrong number of args (2) passed to: recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; No recipes found.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; No recipes found.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"}),
+  :favorites
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 39,
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"}),
+  :favorites
+  ({:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :serving-size "3 cups"})}
+ {:id 41,
+  :username "ivana13",
+  :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da",
+  :favs (),
+  :favorites ()})
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+({:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :user_id 39,
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :user_id 39,
+  :serving-size "3 cups"})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLSyntaxErrorException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:120).
+; Unknown column 'user-id' in 'where clause'
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe deleted from favorites!
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"}),
+  :favorites
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"}),
+  :favorites
+  ({:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :serving-size "3 cups"})}
+ {:id 41,
+  :username "ivana13",
+  :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da",
+  :favs (),
+  :favorites ()})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user-id-from-favorites
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/attach-favorites-to-user
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 39,
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b", :favs ()}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0", :favs ()}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b", :favs ()}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0", :favs ()}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/initial-dataset
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b", :favs ()}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0", :favs ()}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/join-favs
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b", :favs ()}
+ {:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0", :favs ()}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+({:fav 1,
+  :difficulty "easy",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :title "Jamaican Fried Dumplings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :id 1,
+  :total-time "20",
+  :user_id 36,
+  :serving-size "6 servings"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :user_id 36,
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :user_id 39,
+  :serving-size "3 cups"})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (ArityException) at recipe-recommendation-system.core/eval14098 (form-init18444110680514099078.clj:463).
+; Wrong number of args (1) passed to: recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Execution error (ArityException) at recipe-recommendation-system.core/choose-fav (form-init18444110680514099078.clj:180).
+; Wrong number of args (1) passed to: recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Execution error (ArityException) at recipe-recommendation-system.core/choose-fav (form-init18444110680514099078.clj:180).
+; Wrong number of args (1) passed to: recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Execution error (SQLSyntaxErrorException) at com.mysql.cj.jdbc.exceptions.SQLError/createSQLException (SQLError.java:120).
+; Unknown column 'user-id' in 'field list'
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error reading source at (REPL:199:83).
+; Unmatched delimiter: )
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 2}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:id 4,
+    :title "Easy Mojitos",
+    :total-time "5",
+    :serving-size "1 cocktail",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :difficulty "easy",
+    :fav 1}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe deleted from favorites!
+({:id 1,
+  :title "Jamaican Fried Dumplings",
+  :total-time "20",
+  :serving-size "6 servings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 2,
+  :title "Cuban Ropa Vieja\r\n",
+  :total-time "255",
+  :serving-size "6 servings",
+  :ingr
+  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
+  :instructions
+  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
+  :difficulty "hard",
+  :fav 0}
+ {:id 3,
+  :title "Conch Fritters\r\n",
+  :total-time "35",
+  :serving-size "8 servings",
+  :ingr
+  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
+  :instructions
+  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
+  :difficulty "medium",
+  :fav 0}
+ {:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :difficulty "easy",
+  :fav 1}
+ {:id 5,
+  :title "Mojo Grilling Marinade",
+  :total-time "15",
+  :serving-size "3 cups",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :difficulty "easy",
+  :fav 1})
+clj꞉recipe-recommendation-system.core꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :user_id 36,
+    :serving-size "6 servings"}
+   {:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :user_id 36,
+    :serving-size "1 cocktail"})}
+ {:id 39,
+  :username "ivana",
+  :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+    :title "Mojo Grilling Marinade",
+    :ingr
+    "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+    :id 5,
+    :total-time "15",
+    :user_id 39,
+    :serving-size "3 cups"})}
+ {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. Logout
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+({:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :user_id 39,
+  :serving-size "3 cups"})
+clj꞉recipe-recommendation-system.core꞉> 
+; ivana
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; ({:fav 1, :difficulty easy, :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
+; , :title Mojo Grilling Marinade, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
+; , :id 5, :total-time 15, :user_id 39, :serving-size 3 cups})
+; ivana
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; ({:fav 1, :difficulty easy, :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
+; , :title Mojo Grilling Marinade, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
+; , :id 5, :total-time 15, :user_id 39, :serving-size 3 cups})
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe added to favorites!
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; ({:id 4, :title Easy Mojitos, :total-time 5, :serving-size 1 cocktail, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
+; , :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
+; , :difficulty easy, :fav 1} {:fav 1, :difficulty easy, :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
+; , :title Mojo Grilling Marinade, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
+; , :id 5, :total-time 15, :user_id 39, :serving-size 3 cups})
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; Recipe deleted from favorites!
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; Enter recipe title or part of title:
+; No recipes found.
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Logout
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
