@@ -3,7 +3,8 @@
   (:require [clojure.string :as str]
             [next.jdbc :as jdbc]
             [clj-memory-meter.core :as mm]
-            [clj-java-decompiler.core :refer [decompile]])
+            [clj-java-decompiler.core :refer [decompile]]
+            [clojure.set :as set])
   (:import (java.security MessageDigest)))
 
 
@@ -14,16 +15,17 @@
               :user "root"
               :password ""})
 
-(defn parse
-  "Convert a CSV string into rows of columns, removing unwanted characters."
-  [string]
+;;check - csv or database
+;; (defn parse
+;;   "Convert a CSV string into rows of columns, removing unwanted characters."
+;;   [string]
 
-  (let [cleaned-string (str/replace string #"\r" "")] ;; Removing \r  because it isn't necessary even though dataset contains it
-    (map (fn [row]
-           (let [trimmed-row (str/trim row)] ;; Removing all unnecessary space characters
-             (when (not (str/blank? trimmed-row))
-               (str/split trimmed-row #";"))))
-         (str/split cleaned-string #"\n"))))
+;;   (let [cleaned-string (str/replace string #"\r" "")] ;; Removing \r  because it isn't necessary even though dataset contains it
+;;     (map (fn [row]
+;;            (let [trimmed-row (str/trim row)] ;; Removing all unnecessary space characters
+;;              (when (not (str/blank? trimmed-row))
+;;                (str/split trimmed-row #";"))))
+;;          (str/split cleaned-string #"\n"))))
 
 ;; (def initial-dataset (ref (rest (parse (slurp "first-cleaned5.csv")))))
 
@@ -32,24 +34,23 @@
        :validator
        (comp not nil?)))
 
-(mm/measure initial-dataset)
+;; (mm/measure initial-dataset)
 
+;; check
+;; (defn vectors-to-maps [vectors]
+;;   (let [keys [:title :total-time :serving-size :ingr :instructions :difficulty :fav]]
+;;     (map #(zipmap keys %) vectors)))
 
-(defn vectors-to-maps [vectors]
-  (let [keys [:title :total-time :serving-size :ingr :instructions :difficulty :fav]]
-    (map #(zipmap keys %) vectors)))
+;; (defn reset-fav [recipes]
+;;   (map #(assoc % :fav 0) recipes))
 
-(defn reset-fav [recipes]
-  (map #(assoc % :fav 0) recipes))
+;; (defn clean-ingr [recipes]
+;;   (map #(update % :ingr (fn [ingr] (str/split ingr #",\s*"))) recipes))
 
-(defn clean-ingr [recipes]
-  (map #(update % :ingr (fn [ingr] (str/split ingr #",\s*"))) recipes))
-
-(dosync
- (alter initial-dataset vectors-to-maps)
- (alter initial-dataset clean-ingr)
- (alter initial-dataset reset-fav))
-
+;; (dosync
+;;  (alter initial-dataset vectors-to-maps)
+;;  (alter initial-dataset clean-ingr)
+;;  (alter initial-dataset reset-fav))
 
 (defn hash-password [password]
   (let [md (MessageDigest/getInstance "SHA-256")
@@ -71,6 +72,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (remove-ns-from-ref favorites-base)
 
+;;check
 (def registered-users
   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
 
@@ -81,23 +83,24 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (defn join-favs [r]
   (dosync
-   (alter registered-users
+   (alter r
           (fn [users] (map #(attach-favorites-to-user %) users)))))
 
 (defn remove-user-id-from-favorites [user]
   (let [favorites (map #(dissoc % :user_id) (:favs user))]
     (assoc user :favorites favorites)))
 
-(defn clean-up-favs []
+(defn clean-up-favs [r]
   (dosync
-   (alter registered-users
+   (alter r
           (fn [users] (map remove-user-id-from-favorites users)))))
 
 
-(remove-ns-from-ref registered-users)
 (remove-ns-from-ref initial-dataset)
-(join-favs @registered-users)
-(clean-up-favs)
+
+(remove-ns-from-ref registered-users)
+(join-favs registered-users)
+(clean-up-favs registered-users)
 
 (defn register []
   (println "Username:")
@@ -126,8 +129,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
          (println "Registered!" username))))))
 
-(decompile (doseq [u @registered-users]
-             (println "Username:" (:username u) ", Password:" (:password u))))
+;; (decompile (doseq [u @registered-users]
+;;              (println "Username:" (:username u) ", Password:" (:password u))))
 
 (def logged-in-users (atom []))
 
@@ -209,7 +212,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
                  (sort-by :fav > @initial-dataset)))
   (choose-fav username))
 
-(first (filter #(= (:username %) "ivana") @registered-users))
+;; (first (filter #(= (:username %) "ivana") @registered-users))
 
 (defn main-menu [username]
   (println "--------------------------------------------")
@@ -238,8 +241,10 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
+
 (defn login []
   (println "Username:")
+  ;;read-line umesto u bi trebalo
   (let [username (read-line)]
     (println "Password:")
     (let [password (read-line)]
@@ -278,7 +283,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
      :report-time report-time}))
 
 
-(generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
+;; (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
 
 (defn users-recommend [selected-recipe]
   (let [users-with-selected (filter
@@ -291,7 +296,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         top-3 (take 3 shuffled)]
     top-3))
 
-(users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
+;; (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
 (defn group-favs [username recipe group-name]
   (let [user (first (filter #(= (:username %) username) @registered-users))]
@@ -327,10 +332,10 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn most-similar-user [target-user similarity-fn]
   (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
         similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
-        ;;second as argument because it represents metric that is used
         most-similar (apply max-key second similarities)]
     most-similar))
-(most-similar-user (get-user-by-username "ivana") jaccard-similarity)
+
+
 
 (defn cosine-similarity [user1 user2]
   (let [favs1 (extract-favs user1)
@@ -345,3 +350,27 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         1.0
         (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))
 
+;; (most-similar-user (get-user-by-username "ivana") jaccard-similarity)
+
+(defn extract-keywords [description]
+  (set (str/split (str/lower-case description) #"\s+")))
+
+(defn content-similarity [r1 r2]
+  (let [keywords1 (extract-keywords (:instructions r1))
+        keywords2 (extract-keywords (:instructions r2))]
+    (count (set/intersection keywords1 keywords2))))
+
+(defn recommend-by-content [recipes target-index]
+  (let [target-product (nth recipes target-index)
+        similarities (map #(content-similarity target-product %) recipes)
+        indexed-similarities (map-indexed vector similarities)
+        sorted-similarities (sort-by second > indexed-similarities)
+        top-recommendations (take 3 (filter #(not= (first %) target-index) sorted-similarities))]
+    (map #(nth recipes (first %)) top-recommendations)))
+
+
+(def recommended-recipes (recommend-by-content @initial-dataset 0))
+
+(println "Recommended:")
+(doseq [product recommended-recipes]
+  (println product))
