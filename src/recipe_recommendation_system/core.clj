@@ -214,67 +214,14 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 ;; (first (filter #(= (:username %) "ivana") @registered-users))
 
-(defn main-menu [username]
-  (println "--------------------------------------------")
-  (println "\nMain Menu:")
-  (println "0. View all recipes")
-  (println "1. Choose a recipe")
-  (println "2. View popular recipes")
-  (println "3. View favorites")
-  (println "4. Remove from favorites")
-  (println "5. Logout")
-  (println "Please select an option:")
-
-  (let [option (read-line)]
-    (cond
-      (= option "0")
-      (do
-        (println @initial-dataset)
-        (main-menu username))
-      (= option "1")
-      (do
-        (choose-fav username)
-        (main-menu username))
-      (= option "2")
-      (do
-        (choose-by-popularity username)
-        (main-menu username))
-      (= option "3")
-      (do
-        (println (get-favs-by-username username))
-        (main-menu username))
-
-      (= option "4")
-      (do
-        (remove-fav username)
-        (main-menu username))
-      (= option "5") (logout)
-      :else (do
-              (println "Invalid option. Please try again.")
-              (main-menu username)))))
-
-(defn login []
-  (println "Username:")
-  (let [username (read-line)]
-    (println "Password:")
-    (let [password (read-line)]
-      (if (some #(= username (:username %)) @logged-in-users)
-        (println "User is already logged in. Please logout first.")
-        (let [u (some #(when (and (= username (:username %))
-                                  (= (hash-password password) (:password %))) %)
-                      @registered-users)]
-          (if u
-            (do
-              (println "Welcome, " username)
-              (swap! logged-in-users conj {:username username})
-              (main-menu username))
-            (println "Error. Try again.")))))))
 
 (defn recommend-by-difficulty [chosen]
   (let [diff (:difficulty chosen)
         same-diff (filter #(= (:difficulty %) diff) @initial-dataset)
         others (remove #(= (:title %) (:title chosen)) same-diff)]
     (take 3 (shuffle others))))
+
+(recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -295,10 +242,12 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 ;; (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
 
-(defn users-recommend [selected-recipe]
+(defn users-recommend [selected-recipe username]
   (let [users-with-selected (filter
                              (fn [user]
-                               (some #(= (:title %) (:title selected-recipe)) (:favs user)))
+                               (and
+                                (some #(= (:title %) (:title selected-recipe)) (:favs user))
+                                (not= (:username user) username)))
                              @registered-users)
         all-favs (mapcat :favs users-with-selected)
         without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
@@ -308,20 +257,14 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 ;; (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
-(defn group-favs [username recipe group-name]
-  (let [user (first (filter #(= (:username %) username) @registered-users))]
-    (let [groups (:groups user)
-          group (get groups group-name [])]
-      (swap! registered-users #(mapv (fn [u]
-                                       (if (= (:username u) username)
-                                         (update u :groups assoc group-name (conj group recipe))
-                                         u)) %)))))
-
-
-(register)
-(login)
-(logout)
-
+;; (defn group-favs [username recipe group-name]
+;;   (let [user (first (filter #(= (:username %) username) @registered-users))]
+;;     (let [groups (:groups user)
+;;           group (get groups group-name [])]
+;;       (swap! registered-users #(mapv (fn [u]
+;;                                        (if (= (:username u) username)
+;;                                          (update u :groups assoc group-name (conj group recipe))
+;;                                          u)) %)))))
 
 (defn get-user-by-username [username]
   (first (filter #(= (:username %) username) @registered-users)))
@@ -387,7 +330,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       [most-similar-jaccard])))
 
 (for [similar-user (most-similar-users (get-user-by-username "ivana"))]
-  (get-user-favs (first similar-user)))
+  (println (get-user-favs (first similar-user))))
 
 (defn extract-keywords [description]
   (set (str/split (str/lower-case description) #"\s+")))
@@ -412,7 +355,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
                            index))
                        dataset)))
 
-(def recommended-recipes (recommend-by-content @initial-dataset 0))
+(def recommended-recipes (recommend-by-content @initial-dataset (find-index-by-title @initial-dataset "Easy Mojitos")))
 
 (doseq [product recommended-recipes]
   (println product))
@@ -468,4 +411,143 @@ JOIN favorites f ON r.id=f.recipe_id "])))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-(login)
+(defn by-dif [username]
+  (println "Enter recipe title or part of title:")
+  (let [title (read-line)
+        results (find-by-title title (get-favs-by-username username))]
+    (if (seq results)
+      (do
+        (println "Found the following recipes:")
+        (doseq [result results]
+          (println (:title result)))
+
+        (println "Please enter the full title of the recipe you're interested in:")
+        (let [chosen-title (str/lower-case (read-line))
+              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
+          (if chosen-recipe
+            (recommend-by-difficulty (first (filter #(= (:title %) (:title chosen-recipe)) @initial-dataset)))
+            (println "Error. Recipe not found or invalid input."))))
+      (println "No recipes found."))))
+
+(defn by-users-recipe [username]
+  (println "Enter recipe title or part of title:")
+  (let [title (read-line)
+        results (find-by-title title (get-favs-by-username username))]
+    (if (seq results)
+      (do
+        (println "Found the following recipes:")
+        (doseq [result results]
+          (println (:title result)))
+
+        (println "Please enter the full title of the recipe you're interested in:")
+        (let [chosen-title (str/lower-case (read-line))
+              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
+          (if chosen-recipe
+            (println (users-recommend (first (filter #(= (:title %) (:title chosen-recipe)) @initial-dataset)) username))
+            (println "Error. Recipe not found or invalid input."))))
+      (println "No recipes found."))))
+
+(defn print-recs [username]
+  (doseq [s (map first (most-similar-users (get-user-by-username username)))]
+    (println (get-user-favs s))))
+
+(defn by-content [username]
+  (println "Enter recipe title or part of title:")
+  (let [title (read-line)
+        results (find-by-title title (get-favs-by-username username))]
+    (if (seq results)
+      (do
+        (println "Found the following recipes:")
+        (doseq [result results]
+          (println (:title result)))
+
+        (println "Please enter the full title of the recipe you're interested in:")
+        (let [chosen-title (str/lower-case (read-line))
+              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
+          (if chosen-recipe
+            (println (recommend-by-content @initial-dataset (find-index-by-title @initial-dataset (:title chosen-recipe))))
+            (println "Error. Recipe not found or invalid input."))))
+      (println "No recipes found."))))
+
+
+(defn main-menu [username]
+  (println "--------------------------------------------")
+  (println "\nMain Menu:")
+  (println "0. View all recipes")
+  (println "1. Choose a recipe")
+  (println "2. View popular recipes")
+  (println "3. View favorites")
+  (println "4. Remove from favorites")
+  (println "5. Recommend by difficulty")
+  (println "6. Generate a report")
+  (println "7. Recommendations by users that chose the same recipe")
+  (println "8. Recommendations by similar users")
+  (println "9. Content recommendation")
+  (println "10. Logout")
+  (println "Please select an option:")
+
+  (let [option (read-line)]
+    (cond
+      (= option "0")
+      (do
+        (println @initial-dataset)
+        (main-menu username))
+      (= option "1")
+      (do
+        (choose-fav username)
+        (main-menu username))
+      (= option "2")
+      (do
+        (choose-by-popularity username)
+        (main-menu username))
+      (= option "3")
+      (do
+        (println (get-favs-by-username username))
+        (main-menu username))
+
+      (= option "4")
+      (do
+        (remove-fav username)
+        (main-menu username))
+      (= option "5")
+      (do
+        (by-dif username)
+        (main-menu username))
+
+      (= option "6")
+      (do
+        (generate-report (get-user-by-username username))
+        (main-menu username))
+      (= option "7")
+      (do
+        (by-users-recipe username)
+        (main-menu username))
+      (= option "8")
+      (do
+        (print-recs username)
+        (main-menu username))
+      (= option "9")
+      (do
+        (by-content username)
+        (main-menu username))
+      (= option "10") (logout)
+      :else (do
+              (println "Invalid option. Please try again.")
+              (main-menu username)))))
+
+(defn login []
+  (println "Username:")
+  (let [username (read-line)]
+    (println "Password:")
+    (let [password (read-line)]
+      (if (some #(= username (:username %)) @logged-in-users)
+        (println "User is already logged in. Please logout first.")
+        (let [u (some #(when (and (= username (:username %))
+                                  (= (hash-password password) (:password %))) %)
+                      @registered-users)]
+          (if u
+            (do
+              (println "Welcome, " username)
+              (swap! logged-in-users conj {:username username})
+              (main-menu username))
+            (println "Error. Try again.")))))))
