@@ -4,7 +4,9 @@
             [next.jdbc :as jdbc]
             [clj-memory-meter.core :as mm]
             [clj-java-decompiler.core :refer [decompile]]
-            [clojure.set :as set])
+            [clojure.set :as set]
+            [recipe-recommendation-system.content :as content]
+            [recipe-recommendation-system.users :as users])
   (:import (java.security MessageDigest)))
 
 
@@ -15,42 +17,10 @@
               :user "root"
               :password ""})
 
-;;check - csv or database
-;; (defn parse
-;;   "Convert a CSV string into rows of columns, removing unwanted characters."
-;;   [string]
-
-;;   (let [cleaned-string (str/replace string #"\r" "")] ;; Removing \r  because it isn't necessary even though dataset contains it
-;;     (map (fn [row]
-;;            (let [trimmed-row (str/trim row)] ;; Removing all unnecessary space characters
-;;              (when (not (str/blank? trimmed-row))
-;;                (str/split trimmed-row #";"))))
-;;          (str/split cleaned-string #"\n"))))
-
-;; (def initial-dataset (ref (rest (parse (slurp "first-cleaned5.csv")))))
-
 (def initial-dataset
   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])
        :validator
        (comp not nil?)))
-
-;; (mm/measure initial-dataset)
-
-;; check
-;; (defn vectors-to-maps [vectors]
-;;   (let [keys [:title :total-time :serving-size :ingr :instructions :difficulty :fav]]
-;;     (map #(zipmap keys %) vectors)))
-
-;; (defn reset-fav [recipes]
-;;   (map #(assoc % :fav 0) recipes))
-
-;; (defn clean-ingr [recipes]
-;;   (map #(update % :ingr (fn [ingr] (str/split ingr #",\s*"))) recipes))
-
-;; (dosync
-;;  (alter initial-dataset vectors-to-maps)
-;;  (alter initial-dataset clean-ingr)
-;;  (alter initial-dataset reset-fav))
 
 (defn hash-password [password]
   (let [md (MessageDigest/getInstance "SHA-256")
@@ -72,7 +42,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (remove-ns-from-ref favorites-base)
 
-;;check
 (def registered-users
   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
 
@@ -97,7 +66,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 
 (remove-ns-from-ref initial-dataset)
-
 (remove-ns-from-ref registered-users)
 (join-favs registered-users)
 (clean-up-favs registered-users)
@@ -128,9 +96,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
                                :favs []})))
 
          (println "Registered!" username))))))
-
-;; (decompile (doseq [u @registered-users]
-;;              (println "Username:" (:username u) ", Password:" (:password u))))
 
 (def logged-in-users (atom []))
 
@@ -212,16 +177,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
                  (sort-by :fav > @initial-dataset)))
   (choose-fav username))
 
-;; (first (filter #(= (:username %) "ivana") @registered-users))
-
-
-(defn recommend-by-difficulty [chosen]
-  (let [diff (:difficulty chosen)
-        same-diff (filter #(= (:difficulty %) diff) @initial-dataset)
-        others (remove #(= (:title %) (:title chosen)) same-diff)]
-    (take 3 (shuffle others))))
-
-(recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -239,32 +194,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
      :avg-difficulty avg-difficulty
      :report-time report-time}))
 
-
-;; (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
-
-(defn users-recommend [selected-recipe username]
-  (let [users-with-selected (filter
-                             (fn [user]
-                               (and
-                                (some #(= (:title %) (:title selected-recipe)) (:favs user))
-                                (not= (:username user) username)))
-                             @registered-users)
-        all-favs (mapcat :favs users-with-selected)
-        without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
-        shuffled (shuffle without-selected)
-        top-3 (take 3 shuffled)]
-    top-3))
-
-;; (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)))
-
-;; (defn group-favs [username recipe group-name]
-;;   (let [user (first (filter #(= (:username %) username) @registered-users))]
-;;     (let [groups (:groups user)
-;;           group (get groups group-name [])]
-;;       (swap! registered-users #(mapv (fn [u]
-;;                                        (if (= (:username u) username)
-;;                                          (update u :groups assoc group-name (conj group recipe))
-;;                                          u)) %)))))
 
 (defn get-user-by-username [username]
   (first (filter #(= (:username %) username) @registered-users)))
@@ -329,38 +258,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       [most-similar-jaccard most-similar-cosine]
       [most-similar-jaccard])))
 
-(for [similar-user (most-similar-users (get-user-by-username "ivana"))]
-  (println (get-user-favs (first similar-user))))
-
-(defn extract-keywords [description]
-  (set (str/split (str/lower-case description) #"\s+")))
-
-(defn content-similarity [r1 r2]
-  (let [keywords1 (extract-keywords (:instructions r1))
-        keywords2 (extract-keywords (:instructions r2))]
-    (count (set/intersection keywords1 keywords2))))
-
-(defn recommend-by-content [recipes target-index]
-  (let [target-product (nth recipes target-index)
-        similarities (map #(content-similarity target-product %) recipes)
-        indexed-similarities (map-indexed vector similarities)
-        sorted-similarities (sort-by second > indexed-similarities)
-        top-recommendations (take 3 (filter #(not= (first %) target-index) sorted-similarities))]
-    (map #(nth recipes (first %)) top-recommendations)))
-
-(defn find-index-by-title [dataset title]
-  (first (keep-indexed (fn [index element]
-                         (when (= (str/lower-case (:title element))
-                                  (str/lower-case title))
-                           index))
-                       dataset)))
-
-(def recommended-recipes (recommend-by-content @initial-dataset (find-index-by-title @initial-dataset "Easy Mojitos")))
-
-(doseq [product recommended-recipes]
-  (println product))
-
-
 (defn remove-from-favs [favs chosen-recipe]
   (if (some #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
     (remove #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
@@ -411,63 +308,10 @@ JOIN favorites f ON r.id=f.recipe_id "])))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-(defn by-dif [username]
-  (println "Enter recipe title or part of title:")
-  (let [title (read-line)
-        results (find-by-title title (get-favs-by-username username))]
-    (if (seq results)
-      (do
-        (println "Found the following recipes:")
-        (doseq [result results]
-          (println (:title result)))
-
-        (println "Please enter the full title of the recipe you're interested in:")
-        (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
-          (if chosen-recipe
-            (recommend-by-difficulty (first (filter #(= (:title %) (:title chosen-recipe)) @initial-dataset)))
-            (println "Error. Recipe not found or invalid input."))))
-      (println "No recipes found."))))
-
-(defn by-users-recipe [username]
-  (println "Enter recipe title or part of title:")
-  (let [title (read-line)
-        results (find-by-title title (get-favs-by-username username))]
-    (if (seq results)
-      (do
-        (println "Found the following recipes:")
-        (doseq [result results]
-          (println (:title result)))
-
-        (println "Please enter the full title of the recipe you're interested in:")
-        (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
-          (if chosen-recipe
-            (println (users-recommend (first (filter #(= (:title %) (:title chosen-recipe)) @initial-dataset)) username))
-            (println "Error. Recipe not found or invalid input."))))
-      (println "No recipes found."))))
 
 (defn print-recs [username]
   (doseq [s (map first (most-similar-users (get-user-by-username username)))]
     (println (get-user-favs s))))
-
-(defn by-content [username]
-  (println "Enter recipe title or part of title:")
-  (let [title (read-line)
-        results (find-by-title title (get-favs-by-username username))]
-    (if (seq results)
-      (do
-        (println "Found the following recipes:")
-        (doseq [result results]
-          (println (:title result)))
-
-        (println "Please enter the full title of the recipe you're interested in:")
-        (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
-          (if chosen-recipe
-            (println (recommend-by-content @initial-dataset (find-index-by-title @initial-dataset (:title chosen-recipe))))
-            (println "Error. Recipe not found or invalid input."))))
-      (println "No recipes found."))))
 
 
 (defn main-menu [username]
@@ -511,7 +355,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "5")
       (do
-        (by-dif username)
+        (content/by-dif username)
         (main-menu username))
 
       (= option "6")
@@ -520,7 +364,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "7")
       (do
-        (by-users-recipe username)
+        (users/by-users-recipe username)
         (main-menu username))
       (= option "8")
       (do
@@ -528,7 +372,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "9")
       (do
-        (by-content username)
+        (content/by-content username)
         (main-menu username))
       (= option "10") (logout)
       :else (do

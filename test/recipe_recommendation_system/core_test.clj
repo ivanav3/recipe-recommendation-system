@@ -1,7 +1,9 @@
 (ns recipe-recommendation-system.core-test
   (:require [clojure.test :refer :all]
             [recipe-recommendation-system.core :refer :all]
-            [midje.sweet :refer :all]))
+            [midje.sweet :refer :all]
+            [recipe-recommendation-system.content :as content]
+            [recipe-recommendation-system.users :as users]))
 
 (deftest a-test
   (testing "FIXME, I fail."
@@ -11,7 +13,7 @@
 (facts "test-adding-to-favs" (choose-fav "ivana") :truthy)
 
 ;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
-(facts "test-recommend-by-difficulty" (recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset))) =not=> nil)
+(facts "test-recommend-by-difficulty" (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)) @initial-dataset) =not=> nil)
 
 ;;User wants to get report on recent activity. That way users can track their improvement. 
 (defn contains-more [my-map & keys]
@@ -22,7 +24,7 @@
 
 ;;User wants to get recipes that are recommended by other users. 
 ;;That way users can connect and discover recipes that are recommended by users with similar taste.
-(facts "test-recommend-by-favs" (users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)) "ivana") =not=> nil)
+(facts "test-recommend-by-favs" (users/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)) "ivana") =not=> nil)
 
 ;;User wants to find out which recipes are the most popular. That way users can discover current trends in recipes. 
 (facts "test-recommend-by-popularity" (choose-by-popularity "ivana") =not=> nil)
