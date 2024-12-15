@@ -37,7 +37,7 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in: pushd c:\Users\HP\Desktop\recipe-recommendation-system & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.1.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.47.1"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
-; Using host:port 127.0.0.1:52110 ...
+; Using host:port 127.0.0.1:54608 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -48,40 +48,28 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉recipe-recommendation-system.core꞉> 
 ; Jack-in done.
 clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:350:10).
+; Unable to resolve symbol: register in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:22:18).
+; No such namespace: jdbc
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/db-spec
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (recipe_recommendation_system\content.clj:17:40).
+; No such var: c/registered-users
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:1:1).
+; namespace 'recipe-recommendation-system.content' not found
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.utils꞉> 
+nil
+clj꞉recipe-recommendation-system.content꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
 nil
 clj꞉recipe-recommendation-system.core꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\utils.clj:5:21).
-; No such namespace: str
-clj꞉recipe-recommendation-system.utils꞉> 
-nil
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/find-by-title
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/get-favs-by-username
-clj꞉recipe-recommendation-system.utils꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.utils/find-by-title
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/get-favs-by-username
-clj꞉recipe-recommendation-system.utils꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.core/registered-users
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.content/recommend-by-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:23:28).
-; No such namespace: str
-clj꞉recipe-recommendation-system.content꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-dif
-clj꞉recipe-recommendation-system.content꞉> 
-(#:user{:id 36, :username "ivana10", :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b"}
- #:user{:id 39, :username "ivana", :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0"}
- #:user{:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da"})
-clj꞉recipe-recommendation-system.content꞉> 
 #'recipe-recommendation-system.core/initial-dataset
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/hash-password
@@ -146,6 +134,53 @@ clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/remove-user-id-from-favorites
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/clean-up-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/favorites-base
+clj꞉recipe-recommendation-system.core꞉> 
+({:fav 1,
+  :difficulty "easy",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :title "Jamaican Fried Dumplings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :id 1,
+  :total-time "20",
+  :user_id 36,
+  :serving-size "6 servings"}
+ {:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :user_id 36,
+  :serving-size "1 cocktail"}
+ {:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :user_id 39,
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :user_id 39,
+  :serving-size "3 cups"})
 clj꞉recipe-recommendation-system.core꞉> 
 ({:id 1,
   :title "Jamaican Fried Dumplings",
@@ -306,161 +341,65 @@ clj꞉recipe-recommendation-system.core꞉> 
     :serving-size "3 cups"})}
  {:id 41, :username "ivana13", :password "985b271e6a163a1138fd18d237ad3b209fb4c892900ee3fb9ad22cdaac0221da", :favs ()})
 clj꞉recipe-recommendation-system.core꞉> 
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-({:id 1,
-  :title "Jamaican Fried Dumplings",
-  :total-time "20",
-  :serving-size "6 servings",
-  :ingr
-  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
-  :instructions
-  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
-  :difficulty "easy",
-  :fav 1}
- {:id 5,
-  :title "Mojo Grilling Marinade",
-  :total-time "15",
-  :serving-size "3 cups",
-  :ingr
-  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-  :instructions
-  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-  :difficulty "easy",
-  :fav 1})
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:357:9).
+; Unable to resolve symbol: register in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logged-in-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:360:9).
+; Unable to resolve symbol: login in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:335:15).
+; Unable to resolve symbol: main-menu in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:279:9).
+; Unable to resolve symbol: choose-fav in this context
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:223:17).
+; Unable to resolve symbol: find-by-title in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-rec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-by-popularity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/generate-report
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/get-user-by-username
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-from-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs-when-removed
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:296:9).
+; No such var: content/by-dif
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.utils/find-by-title
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/get-favs-by-username
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.content/recommend-by-difficulty
 clj꞉recipe-recommendation-system.content꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/main-menu
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
 #'recipe-recommendation-system.content/by-dif
-clj꞉recipe-recommendation-system.content꞉> 
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:id 5, :title Mojo Grilling Marinade, :total-time 15, :serving-size 3 cups, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
-; , :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
-; , :difficulty easy, :fav 1} {:id 1, :title Jamaican Fried Dumplings, :total-time 20, :serving-size 6 servings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :difficulty easy, :fav 1})
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Invalid option. Please try again.
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:id 5, :title Mojo Grilling Marinade, :total-time 15, :serving-size 3 cups, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
-; , :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
-; , :difficulty easy, :fav 1} {:id 1, :title Jamaican Fried Dumplings, :total-time 20, :serving-size 6 servings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :difficulty easy, :fav 1})
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-nil
-clj꞉recipe-recommendation-system.core-test꞉> 
-true
-clj꞉recipe-recommendation-system.core-test꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:47:22).
-; Unable to resolve symbol: recommend-by-content in this context
-clj꞉recipe-recommendation-system.content꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.core/find-index-by-title
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.content/find-index-by-title
-clj꞉recipe-recommendation-system.content꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:71:22).
-; Unable to resolve symbol: recommend-by-content in this context
-clj꞉recipe-recommendation-system.content꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:43:28).
-; Unable to resolve symbol: content-similarity in this context
 clj꞉recipe-recommendation-system.content꞉> 
 #'recipe-recommendation-system.content/extract-keywords
 clj꞉recipe-recommendation-system.content꞉> 
@@ -472,306 +411,48 @@ clj꞉recipe-recommendation-system.content꞉> 
 clj꞉recipe-recommendation-system.content꞉> 
 #'recipe-recommendation-system.content/by-content
 clj꞉recipe-recommendation-system.content꞉> 
-; Enter recipe title or part of title:
-; No recipes found.
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-; Enter recipe title or part of title:
-; No recipes found.
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-({:id 1,
-  :title "Jamaican Fried Dumplings",
-  :total-time "20",
-  :serving-size "6 servings",
-  :ingr
-  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
-  :instructions
-  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
-  :difficulty "easy",
-  :fav 1}
- {:id 2,
-  :title "Cuban Ropa Vieja\r\n",
-  :total-time "255",
-  :serving-size "6 servings",
-  :ingr
-  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
-  :instructions
-  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
-  :difficulty "hard",
-  :fav 0}
- {:id 3,
-  :title "Conch Fritters\r\n",
-  :total-time "35",
-  :serving-size "8 servings",
-  :ingr
-  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
-  :instructions
-  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
-  :difficulty "medium",
-  :fav 0}
- {:id 4,
-  :title "Easy Mojitos",
-  :total-time "5",
-  :serving-size "1 cocktail",
-  :ingr
-  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-  :instructions
-  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-  :difficulty "easy",
-  :fav 2}
- {:id 5,
-  :title "Mojo Grilling Marinade",
-  :total-time "15",
-  :serving-size "3 cups",
-  :ingr
-  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-  :instructions
-  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-  :difficulty "easy",
-  :fav 1})
-clj꞉recipe-recommendation-system.content꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:76:1).
-; Unable to resolve symbol: title in this context
-clj꞉recipe-recommendation-system.content꞉> 
-()
-clj꞉recipe-recommendation-system.content꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\content.clj:1:8545).
-; No such var: c/initi
-clj꞉recipe-recommendation-system.content꞉> 
-({:id 1,
-  :title "Jamaican Fried Dumplings",
-  :total-time "20",
-  :serving-size "6 servings",
-  :ingr
-  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
-  :instructions
-  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
-  :difficulty "easy",
-  :fav 1}
- {:id 2,
-  :title "Cuban Ropa Vieja\r\n",
-  :total-time "255",
-  :serving-size "6 servings",
-  :ingr
-  "1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar",
-  :instructions
-  "Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice.",
-  :difficulty "hard",
-  :fav 0}
- {:id 3,
-  :title "Conch Fritters\r\n",
-  :total-time "35",
-  :serving-size "8 servings",
-  :ingr
-  "1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce",
-  :instructions
-  "Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters.\r\n",
-  :difficulty "medium",
-  :fav 0}
- {:id 4,
-  :title "Easy Mojitos",
-  :total-time "5",
-  :serving-size "1 cocktail",
-  :ingr
-  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
-  :instructions
-  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
-  :difficulty "easy",
-  :fav 2}
- {:id 5,
-  :title "Mojo Grilling Marinade",
-  :total-time "15",
-  :serving-size "3 cups",
-  :ingr
-  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
-  :instructions
-  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
-  :difficulty "easy",
-  :fav 1})
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-content
-clj꞉recipe-recommendation-system.content꞉> 
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; Execution error (NullPointerException) at recipe-recommendation-system.content/find-index-by-title$fn (form-init10423475133868903955.clj:52).
-; Cannot invoke "Object.toString()" because "s" is null
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-content
-clj꞉recipe-recommendation-system.content꞉> 
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:id 1, :title Jamaican Fried Dumplings, :total-time 20, :serving-size 6 servings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :difficulty easy, :fav 1} {:id 2, :title Cuban Ropa Vieja
-; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0} {:id 5, :title Mojo Grilling Marinade, :total-time 15, :serving-size 3 cups, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
-; , :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
-; , :difficulty easy, :fav 1})
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.core/main-menu
+#'recipe-recommendation-system.core/-main
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
 ; Please select an option:
-; Invalid option. Please try again.
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; Error. Recipe not found or invalid input.
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:id 1, :title Jamaican Fried Dumplings, :total-time 20, :serving-size 6 servings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :difficulty easy, :fav 1} {:id 2, :title Cuban Ropa Vieja
-; , :total-time 255, :serving-size 6 servings, :ingr 1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar, :instructions Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice., :difficulty hard, :fav 0} {:id 5, :title Mojo Grilling Marinade, :total-time 15, :serving-size 3 cups, :ingr 6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
-; , :instructions Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
-; , :difficulty easy, :fav 1})
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
+; Execution error (IllegalStateException) at recipe-recommendation-system.core/-main (form-init17159064553508969643.clj:360).
+; Attempting to call unbound fn: #'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; Execution error (IllegalStateException) at recipe-recommendation-system.core/eval13972 (form-init17159064553508969643.clj:337).
+; Attempting to call unbound fn: #'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
 ; Sending interrupt.; Evaluation was interrupted
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
-nil
-clj꞉recipe-recommendation-system.users꞉> 
-nil
-clj꞉recipe-recommendation-system.core-test꞉> 
-nil
-clj꞉recipe-recommendation-system.core-test꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:27:33).
-; No such var: users/users-recommend
-clj꞉recipe-recommendation-system.core-test꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
+; Execution error (IllegalStateException) at recipe-recommendation-system.core/login (form-init17159064553508969643.clj:335).
+; Attempting to call unbound fn: #'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:305:9).
+; No such var: users/by-users-recipe
+clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.users/users-recommend
-clj꞉recipe-recommendation-system.users꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\users.clj:30:28).
-; No such namespace: str
-clj꞉recipe-recommendation-system.users꞉> 
-nil
-clj꞉recipe-recommendation-system.users꞉> 
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\users.clj:31:28).
-; No such namespace: str
-clj꞉recipe-recommendation-system.users꞉> 
-nil
 clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/by-users-recipe
 clj꞉recipe-recommendation-system.users꞉> 
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings})
-nil
-clj꞉recipe-recommendation-system.users꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/main-menu
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; ({:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings})
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-nil
-clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/extract-favs
 clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/jaccard-similarity
@@ -780,62 +461,63 @@ clj꞉recipe-recommendation-system.users꞉> 
 clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/cosine-similarity
 clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/get-favs-by-username
-clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/get-user-favs
 clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/most-similar-users
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/extract-favs
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/jaccard-similarity
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-user
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/cosine-similarity
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/get-favs-by-username
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/get-user-favs
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-users
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-users
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-users
-clj꞉recipe-recommendation-system.users꞉> 
-[["ivana10" 0.333] ["ivana13" 0.0]]
 clj꞉recipe-recommendation-system.users꞉> 
 #'recipe-recommendation-system.users/print-recs
 clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/get-user-favs
-clj꞉recipe-recommendation-system.users꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-fav
-clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/main-menu
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
 ; Please select an option:
-; {:username ivana10, :favs ({:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings} {:fav 2, :difficulty easy, :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-; , :title Easy Mojitos, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-; , :id 4, :total-time 5, :serving-size 1 cocktail})}
-; {:username ivana13, :favs ()}
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+; Invalid option. Please try again.
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+; Enter username to logout:
+; No such user is logged in.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Goodbye!
+; Invalid option. Please try again.
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -855,3 +537,81 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Goodbye!
+; Invalid option. Please try again.
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Goodbye!
+; Invalid option. Please try again.
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/-main
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Goodbye!
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Goodbye!
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; User is already logged in. Please logout first.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 

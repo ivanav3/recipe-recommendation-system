@@ -41,7 +41,7 @@
 (def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
 JOIN favorites f ON r.id=f.recipe_id "])))
 
-(remove-ns-from-ref favorites-base)
+;; (remove-ns-from-ref favorites-base)
 
 (def registered-users
   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
@@ -66,10 +66,10 @@ JOIN favorites f ON r.id=f.recipe_id "])))
           (fn [users] (map remove-user-id-from-favorites users)))))
 
 
-(remove-ns-from-ref initial-dataset)
-(remove-ns-from-ref registered-users)
-(join-favs registered-users)
-(clean-up-favs registered-users)
+;;  (remove-ns-from-ref initial-dataset)
+;;  (remove-ns-from-ref registered-users)
+;;  (join-favs registered-users)
+;;  (clean-up-favs registered-users)
 
 (defn register []
   (println "Username:")
@@ -334,3 +334,33 @@ JOIN favorites f ON r.id=f.recipe_id "])))
               (swap! logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
+(login)
+
+(remove-ns-from-ref favorites-base)
+(remove-ns-from-ref initial-dataset)
+(remove-ns-from-ref registered-users)
+(join-favs registered-users)
+(clean-up-favs registered-users)
+
+(defn -main []
+  (println "--------------------------------------------")
+  (println "\nStart:")
+  (println "0. Register")
+  (println "1. Login")
+  (println "2. Exit")
+  (println "Please select an option:")
+
+  (let [option (read-line)]
+    (cond
+      (= option "0")
+      (do
+        (register))
+      (= option "1")
+      (do
+        (login))
+      (= option "2")
+      (do
+        (println "Goodbye!"))
+      :else (do
+              (println "Invalid option. Please try again.")
+              (-main)))))
