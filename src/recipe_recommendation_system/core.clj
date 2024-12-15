@@ -6,7 +6,8 @@
             [clj-java-decompiler.core :refer [decompile]]
             [clojure.set :as set]
             [recipe-recommendation-system.content :as content]
-            [recipe-recommendation-system.users :as users])
+            [recipe-recommendation-system.users :as users]
+            [recipe-recommendation-system.utils :as u])
   (:import (java.security MessageDigest)))
 
 
@@ -198,65 +199,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn get-user-by-username [username]
   (first (filter #(= (:username %) username) @registered-users)))
 
-(defn extract-favs [user]
-  (set (map :title (:favs user))))
-
-(defn jaccard-similarity [user1 user2]
-  (let [favs1 (extract-favs user1)
-        favs2 (extract-favs user2)]
-    (if (or (empty? favs1) (empty? favs2))
-      0.0
-      (let
-       [intersection (count (clojure.set/intersection favs1 favs2))
-        union (count (clojure.set/union favs1 favs2))]
-        (if (zero? union)
-          0.0
-          (let [similarity (float (/ intersection union))]
-            (/ (Math/round (* similarity 1000)) 1000.0)))))))
-
-(defn most-similar-user [users-to-compare target-user similarity-fn]
-  (let [all-users (remove #(= (:username %) (:username target-user)) users-to-compare)
-        similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
-        most-similar (apply max-key second similarities)]
-    most-similar))
-
-
-(defn cosine-similarity [user1 user2]
-  (let [favs1 (extract-favs user1)
-        favs2 (extract-favs user2)]
-    (if (or (empty? favs1) (empty? favs2))
-      0.0
-      (let [all-recipes (clojure.set/union favs1 favs2)
-            vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
-            vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)]
-        (let [dot-product (reduce + (map * vector1 vector2))
-              norm1 (Math/sqrt (reduce + (map #(* % %) vector1)))
-              norm2 (Math/sqrt (reduce + (map #(* % %) vector2)))]
-          (if (and (zero? norm1) (zero? norm2))
-            1.0
-            (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
-
-
-(defn get-favs-by-username [username]
-  (some #(if (= (:username %) username) (:favs %)) @registered-users))
-
-(defn get-user-favs [username]
-  {:username username
-   :favs (get-favs-by-username username)})
-
-(defn most-similar-users [target-user]
-  (let [all-users (remove #(= (:username %) (:username target-user)) @registered-users)
-
-        most-similar-jaccard  (most-similar-user all-users target-user jaccard-similarity)
-
-        remaining-users (remove #(= (:username %) (first most-similar-jaccard)) all-users)
-        most-similar-cosine (if (empty? remaining-users)
-                              nil
-                              (most-similar-user remaining-users target-user cosine-similarity))]
-
-    (if most-similar-cosine
-      [most-similar-jaccard most-similar-cosine]
-      [most-similar-jaccard])))
 
 (defn remove-from-favs [favs chosen-recipe]
   (if (some #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
@@ -278,7 +220,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn remove-fav [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (find-by-title title (get-favs-by-username username))]
+        results (find-by-title title (u/get-favs-by-username username @registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -308,10 +250,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-
-(defn print-recs [username]
-  (doseq [s (map first (most-similar-users (get-user-by-username username)))]
-    (println (get-user-favs s))))
 
 
 (defn main-menu [username]
@@ -346,7 +284,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "3")
       (do
-        (println (get-favs-by-username username))
+        (println (u/get-favs-by-username username @initial-dataset))
         (main-menu username))
 
       (= option "4")
@@ -368,7 +306,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "8")
       (do
-        (print-recs username)
+        (users/print-recs username)
         (main-menu username))
       (= option "9")
       (do
@@ -378,6 +316,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
+
 
 (defn login []
   (println "Username:")

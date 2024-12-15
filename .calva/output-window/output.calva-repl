@@ -770,3 +770,88 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-favs-by-username
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-favs-by-username
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+[["ivana10" 0.333] ["ivana13" 0.0]]
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/print-recs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Generate a report
+; 7. Recommendations by users that chose the same recipe
+; 8. Recommendations by similar users
+; 9. Content recommendation
+; 10. Logout
+; Please select an option:
+; {:username ivana10, :favs ({:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings} {:fav 2, :difficulty easy, :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
+; , :title Easy Mojitos, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
+; , :id 4, :total-time 5, :serving-size 1 cocktail})}
+; {:username ivana13, :favs ()}
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Generate a report
+; 7. Recommendations by users that chose the same recipe
+; 8. Recommendations by similar users
+; 9. Content recommendation
+; 10. Logout
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
