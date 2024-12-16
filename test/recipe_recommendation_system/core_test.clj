@@ -2,6 +2,7 @@
   (:require [clojure.test :refer :all]
             [recipe-recommendation-system.core :refer :all]
             [midje.sweet :refer :all]
+            [recipe-recommendation-system.core :as c]
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [clojure.test :as t]))
@@ -42,3 +43,24 @@
 (facts "test-memory-measure-function"
        (clj-memory-meter.core/measure initial-dataset) =not=> nil)
 
+
+;;Functions that are needed for authentication.
+(facts "hash-password-test"
+       (hash-password "ivana") =not=> nil)
+
+;;Functions that are used for cleaning datasets.
+(facts "clean-datasets-test"
+       (let [ds {"name" "Ivana" "age" 23}]
+         (c/clean-from-db ds)) => {:name "Ivana" :age 23}
+       "removing-namespace-test"
+       (let [ds (ref [{:user/id 10, :user/username "ivana10"}])]
+         (remove-ns-from-ref ds)
+         @ds) => '({:id 10, :username "ivana10"})
+       "attach-favs-test"
+       (c/attach-favorites-to-user (c/get-user-by-username "ivana")) =not=> nil
+       "join-favs-test"
+       (c/join-favs @c/initial-dataset) =not=> nil
+       "remove-user-id-from-favorites-test"
+       (c/remove-user-id-from-favorites (c/get-user-by-username "ivana")) :truthy
+       "clean-up-favs-test"
+       (c/clean-up-favs @c/registered-users) =not=> empty)
