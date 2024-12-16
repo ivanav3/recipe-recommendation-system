@@ -202,3 +202,13 @@
 (facts "remove-from-fav-test"
        (with-in-str "Easy Mojitos\nEasy Mojitos"
          (c/remove-fav "ivana13")) =not=> nil)
+
+;;Menus tested.
+
+(facts "main-menu-test"
+       (with-in-str "10\nivana"
+         (c/main-menu "ivana")) =not=> empty
+       "main-test"
+       (with-in-str "2\n"
+         (c/-main)) =not=> empty)
+
