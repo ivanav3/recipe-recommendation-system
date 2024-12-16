@@ -34,14 +34,10 @@
 
 (defn remove-ns-from-ref [r]
   (dosync
-   (alter (fn [re]
-            (map clean-from-db re))
-          r)))
+   (alter r #(map clean-from-db %))))
 
 (def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
 JOIN favorites f ON r.id=f.recipe_id "])))
-
-;; (remove-ns-from-ref favorites-base)
 
 (def registered-users
   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
@@ -66,10 +62,11 @@ JOIN favorites f ON r.id=f.recipe_id "])))
           (fn [users] (map remove-user-id-from-favorites users)))))
 
 
-;;  (remove-ns-from-ref initial-dataset)
-;;  (remove-ns-from-ref registered-users)
-;;  (join-favs registered-users)
-;;  (clean-up-favs registered-users)
+(remove-ns-from-ref initial-dataset)
+(remove-ns-from-ref registered-users)
+(remove-ns-from-ref favorites-base)
+(join-favs registered-users)
+(clean-up-favs registered-users)
 
 (defn register []
   (println "Username:")

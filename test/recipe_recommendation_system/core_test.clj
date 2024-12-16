@@ -42,11 +42,3 @@
 (facts "test-memory-measure-function"
        (clj-memory-meter.core/measure initial-dataset) =not=> nil)
 
-
-;;Unit tests
-
-(testing "")
-
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
