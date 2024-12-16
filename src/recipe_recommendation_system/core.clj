@@ -34,9 +34,9 @@
 
 (defn remove-ns-from-ref [r]
   (dosync
-   (alter r
-          (fn [re]
-            (map clean-from-db re)))))
+   (alter (fn [re]
+            (map clean-from-db re))
+          r)))
 
 (def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
 JOIN favorites f ON r.id=f.recipe_id "])))
