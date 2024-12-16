@@ -3,7 +3,8 @@
             [recipe-recommendation-system.core :refer :all]
             [midje.sweet :refer :all]
             [recipe-recommendation-system.content :as content]
-            [recipe-recommendation-system.users :as users]))
+            [recipe-recommendation-system.users :as users]
+            [clojure.test :as t]))
 
 ;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
 (facts "test-adding-to-favs" (choose-fav "ivana") :truthy)
@@ -44,6 +45,7 @@
 
 ;;Unit tests
 
+(testing "")
 
 (deftest a-test
   (testing "FIXME, I fail."
