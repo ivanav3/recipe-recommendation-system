@@ -73,4 +73,68 @@
        "clean-up-favs-test"
        (c/clean-up-favs @c/registered-users) =not=> empty)
 
+;;Functions related to adding to favorites.
+(facts "find-by-title-test"
+       (c/find-by-title "title1" '({:title "title1" :time 22}, {:title "title2" :time 32})) => '({:title "title1" :time 22})
+       "update-and-add-to-favs-test"
+       (let [users '({:username "ivana" :favs ()})]
+         (c/update-favs users "ivana" {:id 4,
+                                       :title "Easy Mojitos",
+                                       :total-time "5",
+                                       :serving-size "1 cocktail",
+                                       :ingr
+                                       "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                       :instructions
+                                       "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                       :difficulty "easy",
+                                       :fav 2}))
+       => '({:username "ivana",
+             :favs
+             ({:id 4,
+               :title "Easy Mojitos",
+               :total-time "5",
+               :serving-size "1 cocktail",
+               :ingr
+               "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+               :instructions
+               "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+               :difficulty "easy",
+               :fav 2})})
+       "update-rec-test"
+       (c/update-rec  '({:id 4,
+                         :title "Easy Mojitos",
+                         :total-time "5",
+                         :serving-size "1 cocktail",
+                         :ingr
+                         "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                         :instructions
+                         "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                         :difficulty "easy",
+                         :fav 2}) {:id 4,
+                                   :title "Easy Mojitos",
+                                   :total-time "5",
+                                   :serving-size "1 cocktail",
+                                   :ingr
+                                   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                   :instructions
+                                   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                   :difficulty "easy",
+                                   :fav 2}) => '({:id 4,
+                                                  :title "Easy Mojitos",
+                                                  :total-time "5",
+                                                  :serving-size "1 cocktail",
+                                                  :ingr
+                                                  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                                  :instructions
+                                                  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                                  :difficulty "easy",
+                                                  :fav 3})
+       "choose-by-popularity-test"
+       (with-in-str "Easy Mojitos\nEasy Mojitos"
+         (c/choose-by-popularity "ivana13")) =not=> nil)
+
+
+(facts "choose-fav-test"
+       (with-in-str "Easy Mojitos\nEasy Mojitos"
+         (c/choose-fav "ivana13")) =not=> nil)
 
