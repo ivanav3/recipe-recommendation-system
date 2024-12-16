@@ -71,7 +71,9 @@
        "remove-user-id-from-favorites-test"
        (c/remove-user-id-from-favorites (c/get-user-by-username "ivana")) :truthy
        "clean-up-favs-test"
-       (c/clean-up-favs @c/registered-users) =not=> empty)
+       (c/clean-up-favs @c/registered-users) =not=> empty
+       "get-user-by-username-test"
+       (c/get-user-by-username "ivana") =not=> nil)
 
 ;;Functions related to adding to favorites.
 (facts "find-by-title-test"
@@ -138,3 +140,65 @@
        (with-in-str "Easy Mojitos\nEasy Mojitos"
          (c/choose-fav "ivana13")) =not=> nil)
 
+
+;;Functions related to removing from favs.
+(facts "update-and-remove-from-favs-test"
+       (let [users '({:username "ivana",
+                      :favs
+                      ({:id 4,
+                        :title "Easy Mojitos",
+                        :total-time "5",
+                        :serving-size "1 cocktail",
+                        :ingr
+                        "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                        :instructions
+                        "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                        :difficulty "easy",
+                        :fav 2})})]
+         (c/update-favs-when-removed users "ivana" {:id 4,
+                                                    :title "Easy Mojitos",
+                                                    :total-time "5",
+                                                    :serving-size "1 cocktail",
+                                                    :ingr
+                                                    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                                    :instructions
+                                                    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                                    :difficulty "easy",
+                                                    :fav 2}))
+       => '({:username "ivana",
+             :favs
+             ()})
+       "dec-recipe-test"
+       (c/dec-recipe  '({:id 4,
+                         :title "Easy Mojitos",
+                         :total-time "5",
+                         :serving-size "1 cocktail",
+                         :ingr
+                         "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                         :instructions
+                         "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                         :difficulty "easy",
+                         :fav 2}) {:id 4,
+                                   :title "Easy Mojitos",
+                                   :total-time "5",
+                                   :serving-size "1 cocktail",
+                                   :ingr
+                                   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                   :instructions
+                                   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                   :difficulty "easy",
+                                   :fav 2}) => '({:id 4,
+                                                  :title "Easy Mojitos",
+                                                  :total-time "5",
+                                                  :serving-size "1 cocktail",
+                                                  :ingr
+                                                  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                                  :instructions
+                                                  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                                  :difficulty "easy",
+                                                  :fav 1}))
+
+
+(facts "remove-from-fav-test"
+       (with-in-str "Easy Mojitos\nEasy Mojitos"
+         (c/remove-fav "ivana13")) =not=> nil)
