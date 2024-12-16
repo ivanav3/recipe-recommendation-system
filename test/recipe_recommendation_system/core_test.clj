@@ -46,7 +46,15 @@
 
 ;;Functions that are needed for authentication.
 (facts "hash-password-test"
-       (hash-password "ivana") =not=> nil)
+       (hash-password "ivana") =not=> nil
+       "register-test"
+       (register) =not=> empty)
+
+(facts "is-logged-in-test"
+       (c/is-user-logged-in? "ivana" '({:username "ivana" :password "ivana"})) => true
+       "remove-user-test"
+       (c/remove-user
+        '({:username "ivana" :password "ivana"}, {:username "ivana2" :password "ivana2"}) "ivana") => '({:username "ivana2" :password "ivana2"}))
 
 ;;Functions that are used for cleaning datasets.
 (facts "clean-datasets-test"
@@ -64,3 +72,5 @@
        (c/remove-user-id-from-favorites (c/get-user-by-username "ivana")) :truthy
        "clean-up-favs-test"
        (c/clean-up-favs @c/registered-users) =not=> empty)
+
+

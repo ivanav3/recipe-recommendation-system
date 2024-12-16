@@ -97,8 +97,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
 (def logged-in-users (atom []))
 
-(defn is-user-logged-in? [username]
-  (some #(= username (:username %)) @logged-in-users))
+(defn is-user-logged-in? [username dataset]
+  (some #(= username (:username %)) dataset))
 
 (defn remove-user [users username]
   (filter #(not= username (:username %)) users))
@@ -106,7 +106,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn logout []
   (println "Enter username to logout:")
   (let [username (read-line)]
-    (if (is-user-logged-in? username)
+    (if (is-user-logged-in? username @logged-in-users)
       (do
         (swap! logged-in-users remove-user username)
         (println username "has been logged out."))

@@ -612,3 +612,544 @@ clj꞉recipe-recommendation-system.core-test꞉> 
 clj꞉recipe-recommendation-system.core-test꞉> 
 true
 clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:51:8).
+; Unable to resolve symbol: register in this context
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:51:8).
+; Unable to resolve symbol: register in this context
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; This username is taken, try again.
+; Username:
+; Password:
+; Registered! ivana101
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:48:1).
+; Unable to resolve symbol: login in this context
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56:1).
+; Unable to resolve symbol: logged-in-users in this context
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56:1).
+; No such var: c/logged-in-users
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56:1).
+; No such var: c/logged-in-users
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56:1).
+; No such var: c/logged-in-users
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/logged-in-users
+clj꞉recipe-recommendation-system.core꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+false
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:54:10).
+; Unable to resolve symbol: login in this context
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/find-by-title
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-rec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-by-popularity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/generate-report
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-from-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs-when-removed
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:293:9).
+; No such var: content/by-dif
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.content/recommend-by-difficulty
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-dif
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/extract-keywords
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/content-similarity
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/recommend-by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/find-index-by-title
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.users/users-recommend
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/print-recs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/-main
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; This username is taken, try again.
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+Username:
+; 
+; FAIL hash-password-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.IllegalMonitorStateException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22007$fn__22008$fn__22009$fn__22014.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22007$fn__22008$fn__22009.invoke(form-init15437865091542785874.clj:48)
+;   recipe_recommendation_system.core_test$eval22007$fn__22008.invoke(form-init15437865091542785874.clj:48)
+;   recipe_recommendation_system.core_test$eval22007.invokeStatic(form-init15437865091542785874.clj:48)
+;   recipe_recommendation_system.core_test$eval22007.invoke(form-init15437865091542785874.clj:48)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22019$fn__22020$fn__22021$fn__22022.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22019$fn__22020$fn__22021.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22019$fn__22020.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22019.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22019.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+; Password:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.IllegalMonitorStateException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:322)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22027$fn__22028$fn__22029$fn__22030.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22027$fn__22028$fn__22029.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22027$fn__22028.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22027.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22027.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Password:
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22035$fn__22036$fn__22037$fn__22038.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22035$fn__22036$fn__22037.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22035$fn__22036.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22035.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22035.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:322)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22043$fn__22044$fn__22045$fn__22046.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22043$fn__22044$fn__22045.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22043$fn__22044.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22043.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22043.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22051$fn__22052$fn__22053$fn__22054.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22051$fn__22052$fn__22053.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22051$fn__22052.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22051.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22051.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22059$fn__22060$fn__22061$fn__22062.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22059$fn__22060$fn__22061.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22059$fn__22060.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22059.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22059.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+2
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.InterruptedException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22069$fn__22070$fn__22071$fn__22072.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22069$fn__22070$fn__22071.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22069$fn__22070.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22069.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22069.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+clj꞉recipe-recommendation-system.core-test꞉> 
+2
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; :truthy
+; Actual:
+; java.lang.IllegalMonitorStateException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:320)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22079$fn__22080$fn__22081$fn__22082.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22079$fn__22080$fn__22081.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22079$fn__22080.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22079.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22079.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+; Password:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; true
+; Actual:
+; java.lang.IllegalMonitorStateException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:322)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22087$fn__22088$fn__22089$fn__22090.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22087$fn__22088$fn__22089.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22087$fn__22088.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22087.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22087.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+; Password:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL login-and-check-if-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:53)
+; Expected:
+; true
+; Actual:
+; java.lang.IllegalMonitorStateException
+;   nrepl.middleware.session$session_in$request_input__3669.invoke(session.clj:118)
+;   nrepl.middleware.session$session_in$fn__3677.invoke(session.clj:144)
+;   nrepl.middleware.session.proxy$java.io.Reader$ff19274a.read(Unknown Source)
+;   recipe_recommendation_system.core$login.invokeStatic(form-init15437865091542785874.clj:322)
+;   recipe_recommendation_system.core$login.invoke(form-init15437865091542785874.clj:318)
+;   recipe_recommendation_system.core_test$eval22095$fn__22096$fn__22097$fn__22098.invoke(form-init15437865091542785874.clj:54)
+;   recipe_recommendation_system.core_test$eval22095$fn__22096$fn__22097.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22095$fn__22096.invoke(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22095.invokeStatic(form-init15437865091542785874.clj:52)
+;   recipe_recommendation_system.core_test$eval22095.invoke(form-init15437865091542785874.clj:52)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597$fn__3598.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate$fn__3597.invoke(interruptible_eval.clj:87)
+;   nrepl.middleware.interruptible_eval$evaluate.invokeStatic(interruptible_eval.clj:84)
+;   nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+;   nrepl.middleware.interruptible_eval$interruptible_eval$fn__3630$fn__3634.invoke(interruptible_eval.clj:152)
+;   nrepl.middleware.session$session_exec$main_loop__3700$fn__3704.invoke(session.clj:218)
+;   nrepl.middleware.session$session_exec$main_loop__3700.invoke(session.clj:217)
+; Username:
+; Password:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+; Password:
+; ERROR: Unhandled REPL handler exception processing message {:ns recipe-recommendation-system.core-test, :file c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj, :nrepl.middleware.print/print cider.nrepl.pprint/pprint, :op eval, :column 1, :line 52, :id 2929, :code (facts "login-and-check-if-logged-in-test"
+;        (login) =not=> nil), :pprint 1, :nrepl.middleware.print/options {:right-margin 120, :length 50}, :session c071377d-8baf-4294-9d1b-665b9f303f1f}
+; java.io.IOException: Pushback buffer overflow
+; 	at java.base/java.io.PushbackReader.unread(PushbackReader.java:143)
+; 	at clojure.lang.LineNumberingPushbackReader.unread(LineNumberingPushbackReader.java:84)
+; 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+; 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+; 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+; 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+; 	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:167)
+; 	at clojure.lang.Reflector.invokeInstanceMethod(Reflector.java:102)
+; 	at clojure.main$skip_if_eol.invokeStatic(main.clj:120)
+; 	at clojure.main$skip_if_eol.invoke(main.clj:108)
+; 	at nrepl.middleware.session$add_stdin$fn__3748$fn__3750.invoke(session.clj:369)
+; 	at nrepl.middleware.session$add_stdin$fn__3748.invoke(session.clj:368)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl.middleware.content_type$handle_content_type.invokeStatic(content_type.clj:144)
+; 	at cider.nrepl.middleware.content_type$handle_content_type.invoke(content_type.clj:131)
+; 	at clojure.lang.Var.invoke(Var.java:388)
+; 	at cider.nrepl$wrap_content_type$fn__8590.invoke(nrepl.clj:165)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_spec$fn__8852.invoke(nrepl.clj:672)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_reload$fn__8836.invoke(nrepl.clj:641)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_xref$fn__8910.invoke(nrepl.clj:823)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_test$fn__8868.invoke(nrepl.clj:749)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at recipe_recommendation_system.core$eval9004$fn__9005$fn__9007.invoke(form-init15437865091542785874.clj:1)
+; 	at cider.nrepl$wrap_profile$fn__8810.invoke(nrepl.clj:575)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at nrepl.middleware.lookup$wrap_lookup$fn__4456.invoke(lookup.clj:52)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_clojuredocs$fn__8918.invoke(nrepl.clj:838)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_refresh$fn__8828.invoke(nrepl.clj:616)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_resource$fn__8844.invoke(nrepl.clj:662)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at nrepl.middleware.caught$wrap_caught$fn__3563.invoke(caught.clj:97)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at nrepl.middleware.print$wrap_print$fn__3530.invoke(print.clj:234)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_trace$fn__8876.invoke(nrepl.clj:773)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl.middleware.track_state$handle_tracker.invokeStatic(track_state.clj:346)
+; 	at cider.nrepl.middleware.track_state$handle_tracker.invoke(track_state.clj:340)
+; 	at clojure.lang.Var.invoke(Var.java:388)
+; 	at cider.nrepl$wrap_tracker$fn__8884.invoke(nrepl.clj:791)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_info$fn__8676.invoke(nrepl.clj:287)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at cider.nrepl$wrap_classpath$fn__8631.invoke(nrepl.clj:195)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at nrepl.middleware.dynamic_loader$wrap_dynamic_loader$fn__3816.invoke(dynamic_loader.clj:98)
+; 	at nrepl.middleware$wrap_conj_descriptor$fn__3294.invoke(middleware.clj:16)
+; 	at nrepl.middleware.session$session$fn__3733.invoke(session.clj:325)
+Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+Username:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Username:
+; Password:
+clj꞉recipe-recommendation-system.core-test꞉> 
+; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+; Username:
+; This username is taken, try again.
+; Username:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core-test꞉> 
+
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
+nil
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL is-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56)
+; Expected:
+; ({:password "ivana" :username "ivana"})
+; Actual:
+; ()
+; Diffs: expected length of sequence is 1, actual length is 0.
+;                 actual is missing 1 element: ({:username "ivana", :password "ivana"})
+false
+clj꞉recipe-recommendation-system.core-test꞉> 
+()
+clj꞉recipe-recommendation-system.core-test꞉> 
+({:username "ivana2", :password "ivana2"})
+clj꞉recipe-recommendation-system.core-test꞉> 
+; 
+; FAIL is-logged-in-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\core_test.clj:56)
+; Expected:
+; ({:password "ivana" :username "ivana"})
+; Actual:
+; ({:password "ivana2" :username "ivana2"})
+; Diffs: in [0 :password]
+;                   strings have 1 difference (83% similarity)
+;                   expected: "ivana(-)"
+;                   actual:   "ivana(2)"
+;               in [0 :username]
+;                   strings have 1 difference (83% similarity)
+;                   expected: "ivana(-)"
+;                   actual:   "ivana(2)"
+false
+clj꞉recipe-recommendation-system.core-test꞉> 
+true
+clj꞉recipe-recommendation-system.core-test꞉> 
