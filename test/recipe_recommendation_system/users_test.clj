@@ -2,7 +2,8 @@
   (:require
    [recipe-recommendation-system.core :as c]
    [recipe-recommendation-system.users :as u]
-   [midje.sweet :refer :all]))
+   [midje.sweet :refer :all]
+   [criterium.core :as crit]))
 
 (facts
  "extract-favs-test"

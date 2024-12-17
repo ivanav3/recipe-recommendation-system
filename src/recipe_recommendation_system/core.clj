@@ -112,13 +112,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (println username "has been logged out."))
       (println "No such user is logged in."))))
 
-
-(defn find-by-title [title dataset]
-  (let [lower-title (str/lower-case title)]
-    (filter (fn [item]
-              (let [title (:title item)]
-                (str/includes? (str/lower-case title) lower-title))) dataset)))
-
 (defn add-to-favs [favs chosen-recipe]
   (if (not-any? #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
     (conj favs chosen-recipe)
@@ -140,7 +133,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn choose-fav [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (find-by-title title @initial-dataset)]
+        results (u/find-by-title title @initial-dataset)]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -217,7 +210,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn remove-fav [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (find-by-title title (u/get-favs-by-username username @registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username @registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -263,6 +256,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
   (println "8. Recommendations by similar users")
   (println "9. Content recommendation")
   (println "10. Logout")
+  (println "11. Exit (without logout)")
   (println "Please select an option:")
 
   (let [option (read-line)]
@@ -310,6 +304,9 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (content/by-content username)
         (main-menu username))
       (= option "10") (logout)
+      (= option "11")
+      (do
+        (println "Goodbye!"))
       :else (do
               (println "Invalid option. Please try again.")
               (main-menu username)))))
@@ -321,7 +318,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
     (println "Password:")
     (let [password (read-line)]
       (if (some #(= username (:username %)) @logged-in-users)
-        (println "User is already logged in. Please logout first.")
+        (throw (ex-info "User is already logged in. Please logout first." {:username username}))
         (let [u (some #(when (and (= username (:username %))
                                   (= (hash-password password) (:password %))) %)
                       @registered-users)]
@@ -331,7 +328,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
               (swap! logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
-(login)
 
 (remove-ns-from-ref favorites-base)
 (remove-ns-from-ref initial-dataset)

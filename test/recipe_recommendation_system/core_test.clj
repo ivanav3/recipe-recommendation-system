@@ -212,3 +212,23 @@
        (with-in-str "2\n"
          (c/-main)) =not=> empty)
 
+(facts "login-twice-test"
+       (try
+         (do
+           (with-in-str "ivana\nivana\n11"
+             (c/login))
+           (with-in-str "ivana\nivana"
+             (c/login)))
+
+         (catch Exception e
+           (is (= "User is already logged in. Please logout first." (ex-message e)))
+           (is (= {:username "ivana"} (ex-data e))))) => true)
+
+(facts "logout-test"
+       (try
+         (with-in-str "ivanalogout\n"
+           (c/logout))
+
+         (catch Exception e
+           (is (= "No such user is logged in.") (ex-message e))
+           (is (= {:username "ivanalogout"} (ex-data e))))) => true)
