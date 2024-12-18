@@ -2,7 +2,8 @@
   (:require [midje.sweet :refer :all]
             [recipe-recommendation-system.core :as c]
             [recipe-recommendation-system.utils :as u]
-            [clojure.test :as t]))
+            [clojure.test :as t]
+            [criterium.core :as crit]))
 
 (facts "get-favs-by-username-test"
        (u/get-favs-by-username "ivana" @c/registered-users)
@@ -20,3 +21,10 @@
              "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
              :difficulty "easy",
              :fav 2}))
+
+
+(crit/with-progress-reporting
+  (crit/quick-bench  (u/get-favs-by-username "ivana" @c/registered-users)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench  (u/find-by-title "Easy Mojitos" @c/initial-dataset)))
