@@ -232,3 +232,17 @@
          (catch Exception e
            (is (= "No such user is logged in.") (ex-message e))
            (is (= {:username "ivanalogout"} (ex-data e))))) => true)
+
+(facts "register-test"
+       (try
+         (with-in-str "ivana101\nivana101"
+           (c/register))
+         (catch Exception e
+           (is (= "This username is taken, try again.") (ex-message e))
+           (is (= {:username "ivana101"}) (ex-data e)))) => true)
+
+(facts "add-and-remove-from-favs"
+       (do (with-in-str "Easy Mojitos\nEasy Mojitos"
+             (choose-fav "ivana101"))
+           (with-in-str "Easy Mojitos\nEasy Mojitos"
+             (remove-fav "ivana101"))) =not=> nil)

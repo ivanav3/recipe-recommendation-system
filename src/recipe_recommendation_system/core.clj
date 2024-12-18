@@ -73,8 +73,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
   (let [username (read-line)]
     (if (some #(= username (:username %)) @registered-users)
       (do
-        (println "This username is taken, try again.")
-        (register))
+        (throw (ex-info (println "This username is taken, try again.") {:username username})))
       (dosync
        (println "Password:")
        (let [password (read-line)
@@ -110,7 +109,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       (do
         (swap! logged-in-users remove-user username)
         (println username "has been logged out."))
-      (println "No such user is logged in."))))
+      (throw (ex-info "No such user is logged in." {:username username})))))
 
 (defn add-to-favs [favs chosen-recipe]
   (if (not-any? #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
