@@ -17,7 +17,7 @@
  "find-index-by-title-test"
  (content/find-index-by-title @c/initial-dataset "Easy Mojitos") =not=> nil)
 
-
+;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
 (facts
  "recommend-by-difficulty-test"
  (let [diff
@@ -38,6 +38,7 @@
 
 ;;Performance of functions.
 
+;;Fastest - 1.36 µs
 (crit/with-progress-reporting
   (crit/quick-bench (content/extract-keywords "some words that are extracted")))
 
@@ -54,7 +55,7 @@
    (content/find-index-by-title @c/initial-dataset "Easy Mojitos")))
 
 
-
+;; Slowest - 12.78 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (let [diff

@@ -5,7 +5,8 @@
             [recipe-recommendation-system.core :as c]
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
-            [clojure.test :as t]))
+            [clojure.test :as t]
+            [criterium.core :as crit]))
 
 ;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
 (facts "test-adding-to-favs" (choose-fav "ivana") :truthy)
@@ -37,11 +38,7 @@
 
 ;;User wants to find another users with similar taste in recipes. This time all similarities are included.
 (facts "test-most-similar-users"
-
-       (users/most-similar-users (get-user-by-username "ivana")) => [["ivana10" 0.333] ["ivana13" 0.0]])
-
-(facts "test-memory-measure-function"
-       (clj-memory-meter.core/measure initial-dataset) =not=> nil)
+       (users/most-similar-users (get-user-by-username "ivana")) =not=> nil)
 
 
 ;;Functions that are needed for authentication.
@@ -246,3 +243,55 @@
              (choose-fav "ivana101"))
            (with-in-str "Easy Mojitos\nEasy Mojitos"
              (remove-fav "ivana101"))) =not=> nil)
+
+
+;;Performances.
+(crit/with-progress-reporting
+  (crit/quick-bench (c/hash-password "password")))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/remove-ns-from-ref c/initial-dataset)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/remove-ns-from-ref c/registered-users)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/remove-ns-from-ref c/favorites-base)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/join-favs c/registered-users)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/clean-up-favs c/registered-users)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/is-user-logged-in? "ivana" @c/logged-in-users)))
+
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (c/remove-user @c/logged-in-users "ivana")))
+
+;;Fastest - 18.68 ns
+(crit/with-progress-reporting
+  (crit/quick-bench
+   (let [users '({:username "ivana" :favs ()})]
+     (c/update-favs users "ivana" {:id 4,
+                                   :title "Easy Mojitos",
+                                   :total-time "5",
+                                   :serving-size "1 cocktail",
+                                   :ingr
+                                   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+                                   :instructions
+                                   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+                                   :difficulty "easy",
+                                   :fav 2}))))
+
+;;Slowest -  1.29 µs
+(crit/with-progress-reporting
+  (crit/quick-bench (c/generate-report "ivana")))

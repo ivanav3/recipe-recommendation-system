@@ -23,6 +23,13 @@
        :validator
        (comp not nil?)))
 
+(def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
+JOIN favorites f ON r.id=f.recipe_id "])))
+
+(def registered-users
+  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
+
+
 (defn hash-password [password]
   (let [md (MessageDigest/getInstance "SHA-256")
         hashed-bytes (.digest md (.getBytes password))]
@@ -35,12 +42,6 @@
 (defn remove-ns-from-ref [r]
   (dosync
    (alter r #(map clean-from-db %))))
-
-(def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
-JOIN favorites f ON r.id=f.recipe_id "])))
-
-(def registered-users
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
 
 (defn attach-favorites-to-user [user]
   (let [user-id (:id user)]
@@ -60,7 +61,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
   (dosync
    (alter r
           (fn [users] (map remove-user-id-from-favorites users)))))
-
 
 (remove-ns-from-ref initial-dataset)
 (remove-ns-from-ref registered-users)

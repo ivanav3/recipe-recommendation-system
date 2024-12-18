@@ -7,7 +7,7 @@
 
 (defn recommend-by-difficulty [chosen dataset]
   (let [diff (:difficulty chosen)
-        same-diff (filter #(= (:difficulty %) diff) @c/initial-dataset)
+        same-diff (filter #(= (:difficulty %) diff) dataset)
         others (remove #(= (:title %) (:title chosen)) same-diff)]
     (take 3 (shuffle others))))
 

@@ -75,6 +75,7 @@
 
 ;;Performance of functions.
 
+;; Fastest - 1.31 µs
 (crit/with-progress-reporting
   (crit/quick-bench (u/extract-favs (c/get-user-by-username "ivana"))))
 
@@ -187,6 +188,7 @@
 
                       (u/cosine-similarity u1 u2))))
 
+;;Slowest - 14.43 µs
 (crit/with-progress-reporting
   (crit/quick-bench (u/most-similar-user @c/registered-users (c/get-user-by-username "ivana") u/jaccard-similarity)))
 
