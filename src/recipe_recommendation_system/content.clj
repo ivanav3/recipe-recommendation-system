@@ -26,7 +26,7 @@
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
             (do
-              (println "Chosen difficulty of the recipe" (:title chosen-recipe) "is" (:difficulty chosen-recipe) ". The following recipes have the same difficulty: ")
+              (println "Chosen difficulty of the recipe" (:title chosen-recipe) "is" (:difficulty chosen-recipe) ". The following recipes have the same level of difficulty: ")
               (doseq [rec  (recommend-by-difficulty (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) @c/initial-dataset)]
                 (println rec)))
             (println "Error. Recipe not found or invalid input."))))

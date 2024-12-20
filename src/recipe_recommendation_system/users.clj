@@ -32,7 +32,11 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (println (users-recommend (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) username))
+            (do
+              (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
+              (doseq [rec (users-recommend (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) username)]
+                (println rec)))
+
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
@@ -96,4 +100,5 @@
 
 (defn print-recs [username]
   (doseq [s (map first (most-similar-users (c/get-user-by-username username)))]
-    (println (get-user-favs s))))
+    (doseq [rec (get-user-favs s)]
+      (println rec))))
