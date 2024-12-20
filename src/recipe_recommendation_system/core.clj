@@ -62,11 +62,22 @@ JOIN favorites f ON r.id=f.recipe_id "])))
    (alter r
           (fn [users] (map remove-user-id-from-favorites users)))))
 
+(defn clean-title-serving-size [dataset]
+  (dosync
+   (alter dataset
+          (fn [d]
+            (map (fn [item]
+                   (do
+                     (update item :title #(str/replace % #"\n|\r" "")))
+                   (update item :serving-size #(str/replace % #"\n|\r" "")))
+                 d)))))
+
 (remove-ns-from-ref initial-dataset)
 (remove-ns-from-ref registered-users)
 (remove-ns-from-ref favorites-base)
 (join-favs registered-users)
 (clean-up-favs registered-users)
+(clean-title-serving-size initial-dataset)
 
 (defn register []
   (println "Username:")
@@ -184,10 +195,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
      :avg-difficulty avg-difficulty
      :report-time report-time}))
 
-
 (defn get-user-by-username [username]
   (first (filter #(= (:username %) username) @registered-users)))
-
 
 (defn remove-from-favs [favs chosen-recipe]
   (if (some #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
@@ -238,7 +247,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
-
 
 
 (defn main-menu [username]
@@ -356,3 +364,5 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       :else (do
               (println "Invalid option. Please try again.")
               (-main)))))
+
+(main-menu "ivana")

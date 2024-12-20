@@ -25,7 +25,10 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (println (recommend-by-difficulty (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) @c/initial-dataset))
+            (do
+              (println "Chosen difficulty of the recipe" (:title chosen-recipe) "is" (:difficulty chosen-recipe) ". The following recipes have the same difficulty: ")
+              (doseq [rec  (recommend-by-difficulty (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) @c/initial-dataset)]
+                (println rec)))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
@@ -68,6 +71,7 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (println (recommend-by-content @c/initial-dataset (find-index-by-title @c/initial-dataset (:title chosen-recipe))))
+            (doseq [rec  (recommend-by-content @c/initial-dataset (find-index-by-title @c/initial-dataset (:title chosen-recipe)))]
+              (println rec))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
