@@ -99,6 +99,8 @@
 
 
 (defn print-recs [username]
-  (doseq [s (map first (most-similar-users (c/get-user-by-username username)))]
-    (doseq [rec (get-user-favs s)]
-      (println rec))))
+  (do
+    (println "The following recipes were chosen by users with similar taste in recipes as" username)
+    (doseq [s (map first (most-similar-users (c/get-user-by-username username)))]
+      (doseq [rec (get-user-favs s)]
+        (println rec)))))

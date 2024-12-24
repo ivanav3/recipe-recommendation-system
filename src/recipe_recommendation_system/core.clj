@@ -62,14 +62,19 @@ JOIN favorites f ON r.id=f.recipe_id "])))
    (alter r
           (fn [users] (map remove-user-id-from-favorites users)))))
 
-(defn clean-title-serving-size [dataset]
+(defn clean-strings [dataset]
   (dosync
    (alter dataset
           (fn [d]
             (map (fn [item]
-                   (do
-                     (update item :title #(str/replace % #"\n|\r" "")))
-                   (update item :serving-size #(str/replace % #"\n|\r" "")))
+                   (let [updated-title (str/replace (:title item) #"\n|\r" "")
+                         updated-ingredients (str/replace (:ingr item) "\n|\r" "")
+                         updated-serving-size (str/replace (:serving-size item) #"\n|\r" "")
+                         updated-instructions (str/replace (:instructions item) #"\n|\r" "")]
+
+                     (assoc item :title updated-title :serving-size updated-serving-size
+                            :ingr updated-ingredients
+                            :instructions updated-instructions)))
                  d)))))
 
 (remove-ns-from-ref initial-dataset)
@@ -77,8 +82,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (remove-ns-from-ref favorites-base)
 (join-favs registered-users)
 (clean-up-favs registered-users)
-(clean-title-serving-size initial-dataset)
-
+(clean-strings initial-dataset)
 (defn register []
   (println "Username:")
   (let [username (read-line)]
@@ -174,10 +178,11 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       (println "No recipes found."))))
 
 (defn choose-by-popularity [username]
-  (println (take 3
-                 (sort-by :fav > @initial-dataset)))
-  (choose-fav username))
-
+  (do
+    (doseq [rec (take 3
+                      (sort-by :fav > @initial-dataset))]
+      (println rec))
+    (choose-fav username)))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -270,7 +275,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
     (cond
       (= option "0")
       (do
-        (println @initial-dataset)
+        (doseq [rec @initial-dataset]
+          (println rec))
         (main-menu username))
       (= option "1")
       (do
@@ -282,7 +288,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "3")
       (do
-        (println (u/get-favs-by-username username @initial-dataset))
+        (doseq [rec (u/get-favs-by-username username @initial-dataset)]
+          (println rec))
         (main-menu username))
 
       (= option "4")
@@ -296,7 +303,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
       (= option "6")
       (do
-        (generate-report (get-user-by-username username))
+        (println (generate-report (get-user-by-username username)))
         (main-menu username))
       (= option "7")
       (do
