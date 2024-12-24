@@ -2,8 +2,8 @@
   (:require [recipe-recommendation-system.core :as c]
             [recipe-recommendation-system.utils :as u]
             [clojure.string :as str]
-            [clojure.set :as set]))
-
+            [clojure.set :as set]
+            [recipe-recommendation-system.utils :as utils]))
 
 (defn users-recommend [selected-recipe username]
   (let [users-with-selected (filter
@@ -30,11 +30,12 @@
 
         (println "Please enter the full title of the recipe you're interested in:")
         (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
+              chosen-recipe (first (utils/find-by-title chosen-title results))]
           (if chosen-recipe
             (do
               (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
-              (doseq [rec (users-recommend (first (filter #(= (:title %) (:title chosen-recipe)) @c/initial-dataset)) username)]
+              (doseq [rec (users-recommend (first (utils/find-by-title (:title chosen-recipe) @c/initial-dataset))
+                                           username)]
                 (println rec)))
 
             (println "Error. Recipe not found or invalid input."))))

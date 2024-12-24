@@ -7,7 +7,8 @@
             [clojure.set :as set]
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
-            [recipe-recommendation-system.utils :as u])
+            [recipe-recommendation-system.utils :as u]
+            [recipe-recommendation-system.core :as c])
   (:import (java.security MessageDigest)))
 
 
@@ -253,7 +254,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-
 (defn main-menu [username]
   (println "--------------------------------------------")
   (println "\nMain Menu:")
@@ -288,7 +288,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "3")
       (do
-        (doseq [rec (u/get-favs-by-username username @initial-dataset)]
+        (doseq [rec (u/get-favs-by-username username @registered-users)]
           (println rec))
         (main-menu username))
 
@@ -371,5 +371,3 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       :else (do
               (println "Invalid option. Please try again.")
               (-main)))))
-
-(main-menu "ivana")

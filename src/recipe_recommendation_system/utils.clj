@@ -1,5 +1,6 @@
 (ns recipe-recommendation-system.utils
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [recipe-recommendation-system.core :as c]))
 
 
 (defn find-by-title [title dataset]

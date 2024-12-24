@@ -16361,3 +16361,492 @@ Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQue
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
+2
+clj꞉recipe-recommendation-system.users꞉> 
+()
+clj꞉recipe-recommendation-system.users꞉> 
+{:id 39,
+ :username "ivana",
+ :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+ :favs
+ ({:fav 2,
+   :difficulty "easy",
+   :instructions
+   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+   :title "Easy Mojitos",
+   :ingr
+   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+   :id 4,
+   :total-time "5",
+   :serving-size "1 cocktail"}
+  {:fav 1,
+   :difficulty "easy",
+   :instructions
+   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+   :title "Mojo Grilling Marinade",
+   :ingr
+   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+   :id 5,
+   :total-time "15",
+   :serving-size "3 cups"}
+  {:fav 1,
+   :difficulty "hard",
+   :instructions
+   "Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev",
+   :title "Coconut-Lime Cheesecake with Mango Coulis\r\n",
+   :ingr
+   "¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste",
+   :id 33,
+   :total-time "570",
+   :serving-size "1 9-inch cheesecake\r"})}
+clj꞉recipe-recommendation-system.core꞉> 
+({:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :serving-size "3 cups"}
+ {:fav 1,
+  :difficulty "hard",
+  :instructions
+  "Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev",
+  :title "Coconut-Lime Cheesecake with Mango Coulis\r\n",
+  :ingr
+  "¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste",
+  :id 33,
+  :total-time "570",
+  :serving-size "1 9-inch cheesecake\r"})
+clj꞉recipe-recommendation-system.utils꞉> 
+()
+clj꞉recipe-recommendation-system.users꞉> 
+(nil nil nil nil)
+clj꞉recipe-recommendation-system.users꞉> 
+{:id 39,
+ :username "ivana",
+ :password "feee3235626c079da26ff0ccbacba430f809cdf5a8dc7358aee52f05ae2e6ed0",
+ :favs
+ ({:fav 2,
+   :difficulty "easy",
+   :instructions
+   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+   :title "Easy Mojitos",
+   :ingr
+   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+   :id 4,
+   :total-time "5",
+   :serving-size "1 cocktail"}
+  {:fav 1,
+   :difficulty "easy",
+   :instructions
+   "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+   :title "Mojo Grilling Marinade",
+   :ingr
+   "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+   :id 5,
+   :total-time "15",
+   :serving-size "3 cups"}
+  {:fav 1,
+   :difficulty "hard",
+   :instructions
+   "Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev",
+   :title "Coconut-Lime Cheesecake with Mango Coulis\r\n",
+   :ingr
+   "¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste",
+   :id 33,
+   :total-time "570",
+   :serving-size "1 9-inch cheesecake\r"})}
+clj꞉recipe-recommendation-system.users꞉> 
+"ivana"
+clj꞉recipe-recommendation-system.users꞉> 
+({:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :serving-size "3 cups"}
+ {:fav 1,
+  :difficulty "hard",
+  :instructions
+  "Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev",
+  :title "Coconut-Lime Cheesecake with Mango Coulis\r\n",
+  :ingr
+  "¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste",
+  :id 33,
+  :total-time "570",
+  :serving-size "1 9-inch cheesecake\r"})
+clj꞉recipe-recommendation-system.users꞉> 
+#function[clojure.core/comp/fn--5876]
+clj꞉recipe-recommendation-system.users꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; The following recipes were recommended by other users that chose Easy Mojitos as well
+; {:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings}
+; {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
+; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
+; }
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\users.clj:44:31).
+; Unable to resolve symbol: chosen-recipe in this context
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+()
+clj꞉recipe-recommendation-system.users꞉> 
+"ivana"
+clj꞉recipe-recommendation-system.users꞉> 
+({:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "easy",
+  :instructions
+  "Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.\r\n",
+  :title "Mojo Grilling Marinade",
+  :ingr
+  "6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil\r\n",
+  :id 5,
+  :total-time "15",
+  :serving-size "3 cups"}
+ {:fav 1,
+  :difficulty "hard",
+  :instructions
+  "Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev",
+  :title "Coconut-Lime Cheesecake with Mango Coulis\r\n",
+  :ingr
+  "¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste",
+  :id 33,
+  :total-time "570",
+  :serving-size "1 9-inch cheesecake\r"})
+clj꞉recipe-recommendation-system.users꞉> 
+()
+clj꞉recipe-recommendation-system.users꞉> 
+()
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+{:id 4,
+ :title "Easy Mojitos",
+ :total-time "5",
+ :serving-size "1 cocktail",
+ :ingr
+ "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+ :instructions
+ "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+ :difficulty "easy",
+ :fav 2}
+clj꞉recipe-recommendation-system.users꞉> 
+({:id 4,
+  :title "Easy Mojitos",
+  :total-time "5",
+  :serving-size "1 cocktail",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+  :difficulty "easy",
+  :fav 2})
+clj꞉recipe-recommendation-system.users꞉> 
+{:id 4,
+ :title "Easy Mojitos",
+ :total-time "5",
+ :serving-size "1 cocktail",
+ :ingr
+ "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+ :instructions
+ "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
+ :difficulty "easy",
+ :fav 2}
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; The following recipes were recommended by other users that chose Easy Mojitos as well
+; {:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings}
+; {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
+; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
+; }
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; The following recipes were recommended by other users that chose nil as well
+; Execution error (NullPointerException) at (REPL:1).
+; null
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; The following recipes were recommended by other users that chose Easy Mojitos as well
+; {:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings}
+; {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
+; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
+; }
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+({:id 36,
+  :username "ivana10",
+  :password "40f03b3eb82aea157048232f75d4745e2f5846f2d0185ce1fc4b523ef892952b",
+  :favs
+  ({:fav 1,
+    :difficulty "easy",
+    :instructions
+    "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+    :title "Jamaican Fried Dumplings",
+    :ingr
+    "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+    :id 1,
+    :total-time "20",
+    :serving-size "6 servings"}
+   {:fav 2,
+    :difficulty "easy",
+    :instructions
+    "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+    :title "Easy Mojitos",
+    :ingr
+    "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+    :id 4,
+    :total-time "5",
+    :serving-size "1 cocktail"}
+   {:fav 1,
+    :difficulty "hard",
+    :instructions
+    "Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.\r\n",
+    :title "Limber de Coco (Coconut Ice)",
+    :ingr
+    "½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon",
+    :id 29,
+    :total-time "485",
+    :serving-size "4 servings\r\n"})})
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+(({:fav 1,
+   :difficulty "easy",
+   :instructions
+   "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+   :title "Jamaican Fried Dumplings",
+   :ingr
+   "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+   :id 1,
+   :total-time "20",
+   :serving-size "6 servings"}
+  {:fav 2,
+   :difficulty "easy",
+   :instructions
+   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+   :title "Easy Mojitos",
+   :ingr
+   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+   :id 4,
+   :total-time "5",
+   :serving-size "1 cocktail"}
+  {:fav 1,
+   :difficulty "hard",
+   :instructions
+   "Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.\r\n",
+   :title "Limber de Coco (Coconut Ice)",
+   :ingr
+   "½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon",
+   :id 29,
+   :total-time "485",
+   :serving-size "4 servings\r\n"}))
+clj꞉recipe-recommendation-system.users꞉> 
+({:fav 1,
+  :difficulty "easy",
+  :instructions
+  "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+  :title "Jamaican Fried Dumplings",
+  :ingr
+  "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+  :id 1,
+  :total-time "20",
+  :serving-size "6 servings"}
+ {:fav 2,
+  :difficulty "easy",
+  :instructions
+  "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+  :title "Easy Mojitos",
+  :ingr
+  "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+  :id 4,
+  :total-time "5",
+  :serving-size "1 cocktail"}
+ {:fav 1,
+  :difficulty "hard",
+  :instructions
+  "Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.\r\n",
+  :title "Limber de Coco (Coconut Ice)",
+  :ingr
+  "½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon",
+  :id 29,
+  :total-time "485",
+  :serving-size "4 servings\r\n"})
+clj꞉recipe-recommendation-system.users꞉> 
+(({:fav 1,
+   :difficulty "easy",
+   :instructions
+   "In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.\r\n",
+   :title "Jamaican Fried Dumplings",
+   :ingr
+   "4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying",
+   :id 1,
+   :total-time "20",
+   :serving-size "6 servings"}
+  {:fav 2,
+   :difficulty "easy",
+   :instructions
+   "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.\r\n",
+   :title "Easy Mojitos",
+   :ingr
+   "12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)\r\n",
+   :id 4,
+   :total-time "5",
+   :serving-size "1 cocktail"}
+  {:fav 1,
+   :difficulty "hard",
+   :instructions
+   "Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.\r\n",
+   :title "Limber de Coco (Coconut Ice)",
+   :ingr
+   "½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon",
+   :id 29,
+   :total-time "485",
+   :serving-size "4 servings\r\n"}))
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/users-recommend
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/print-recs
+clj꞉recipe-recommendation-system.users꞉> 
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Generate a report
+; 7. Recommendations by users that chose the same recipe
+; 8. Recommendations by similar users
+; 9. Content recommendation
+; 10. Logout
+; 11. Exit (without logout)
+; Please select an option:
+; Enter recipe title or part of title:
+; Found the following recipes:
+; Easy Mojitos
+; Please enter the full title of the recipe you're interested in:
+; The following recipes were recommended by other users that chose Easy Mojitos as well
+; {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
+; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
+; }
+; {:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings}
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Generate a report
+; 7. Recommendations by users that chose the same recipe
+; 8. Recommendations by similar users
+; 9. Content recommendation
+; 10. Logout
+; 11. Exit (without logout)
+; Please select an option:
+; The following recipes were chosen by users with similar taste in recipes as ivana
+; [:username ivana10]
+; [:favs ({:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
+; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings} {:fav 2, :difficulty easy, :instructions Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
+; , :title Easy Mojitos, :ingr 12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
+; , :id 4, :total-time 5, :serving-size 1 cocktail} {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
+; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
+; })]
+; [:username ivana101]
+; [:favs ()]
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Generate a report
+; 7. Recommendations by users that chose the same recipe
+; 8. Recommendations by similar users
+; 9. Content recommendation
+; 10. Logout
+; 11. Exit (without logout)
+; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
