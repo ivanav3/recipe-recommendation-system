@@ -11,4 +11,5 @@
                  [com.clojure-goes-fast/clj-memory-meter "0.3.0"]
                  [com.clojure-goes-fast/clj-java-decompiler "0.3.6"]]
   :repl-options {:init-ns recipe-recommendation-system.core}
-  :jvm-opts ["-Djdk.attach.allowAttachSelf"])
+  :jvm-opts ["-Djdk.attach.allowAttachSelf"]
+  :main recipe-recommendation-system.core)

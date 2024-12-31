@@ -1,9 +1,8 @@
 (ns recipe-recommendation-system.users
-  (:require [recipe-recommendation-system.core :as c]
+  (:require [recipe-recommendation-system.data :as d]
             [recipe-recommendation-system.utils :as u]
             [clojure.string :as str]
-            [clojure.set :as set]
-            [recipe-recommendation-system.utils :as utils]))
+            [clojure.set :as set]))
 
 (defn users-recommend [selected-recipe username]
   (let [users-with-selected (filter
@@ -11,7 +10,7 @@
                                (and
                                 (some #(= (:title %) (:title selected-recipe)) (:favs user))
                                 (not= (:username user) username)))
-                             @c/registered-users)
+                             @d/registered-users)
         all-favs (mapcat :favs users-with-selected)
         without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
         shuffled (shuffle without-selected)
@@ -21,7 +20,7 @@
 (defn by-users-recipe [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @c/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -30,11 +29,11 @@
 
         (println "Please enter the full title of the recipe you're interested in:")
         (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (first (utils/find-by-title chosen-title results))]
+              chosen-recipe (first (u/find-by-title chosen-title results))]
           (if chosen-recipe
             (do
               (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
-              (doseq [rec (users-recommend (first (utils/find-by-title (:title chosen-recipe) @c/initial-dataset))
+              (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) @d/initial-dataset))
                                            username)]
                 (println rec)))
 
@@ -82,10 +81,10 @@
 
 (defn get-user-favs [username]
   {:username username
-   :favs (u/get-favs-by-username username @c/registered-users)})
+   :favs (u/get-favs-by-username username @d/registered-users)})
 
 (defn most-similar-users [target-user]
-  (let [all-users (remove #(= (:username %) (:username target-user)) @c/registered-users)
+  (let [all-users (remove #(= (:username %) (:username target-user)) @d/registered-users)
 
         most-similar-jaccard  (most-similar-user all-users target-user jaccard-similarity)
 
@@ -102,6 +101,6 @@
 (defn print-recs [username]
   (do
     (println "The following recipes were chosen by users with similar taste in recipes as" username)
-    (doseq [s (map first (most-similar-users (c/get-user-by-username username)))]
+    (doseq [s (map first (most-similar-users (u/get-user-by-username username)))]
       (doseq [rec (get-user-favs s)]
         (println rec)))))

@@ -1,51 +1,52 @@
 (ns recipe-recommendation-system.core-test
   (:require [clojure.test :refer :all]
-            [recipe-recommendation-system.core :refer :all]
-            [midje.sweet :refer :all]
             [recipe-recommendation-system.core :as c]
+            [midje.sweet :refer :all]
+            [recipe-recommendation-system.utils :as utils]
+            [recipe-recommendation-system.data :as d]
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [clojure.test :as t]
             [criterium.core :as crit]))
 
 ;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
-(facts "test-adding-to-favs" (choose-fav "ivana") :truthy)
+(facts "test-adding-to-favs" (c/choose-fav "ivana") :truthy)
 
 ;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
-(facts "test-recommend-by-difficulty" (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)) @initial-dataset) =not=> nil)
+(facts "test-recommend-by-difficulty" (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) @d/initial-dataset) =not=> nil)
 
 ;;User wants to get report on recent activity. That way users can track their improvement. 
 (defn contains-more [my-map & keys]
   (every? #(contains? my-map %) keys))
 (facts "test-report"
-       (contains-more (generate-report (first (filter #(= (:username %) "ivana") @registered-users)))
+       (contains-more (c/generate-report (first (filter #(= (:username %) "ivana") @d/registered-users)))
                       :username :num-favs :difficulty-levels :avg-difficulty :report-time) => true)
 
 ;;User wants to get recipes that are recommended by other users. 
 ;;That way users can connect and discover recipes that are recommended by users with similar taste.
-(facts "test-recommend-by-favs" (users/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @initial-dataset)) "ivana") =not=> nil)
+(facts "test-recommend-by-favs" (users/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) "ivana") =not=> nil)
 
 ;;User wants to find out which recipes are the most popular. That way users can discover current trends in recipes. 
-(facts "test-recommend-by-popularity" (choose-by-popularity "ivana") =not=> nil)
+(facts "test-recommend-by-popularity" (c/choose-by-popularity "ivana") =not=> nil)
 
 ;;User wants to find another user with similar taste in recipes. That way users can connect and find recipes liked by similar users.
 (facts "test-jaccard-similarity"
-       (users/most-similar-user @registered-users (get-user-by-username "ivana") users/jaccard-similarity) => ["ivana2" 0.333])
+       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/jaccard-similarity) => ["ivana2" 0.333])
 
 
 (facts "test-cosine-similarity"
-       (users/most-similar-user @registered-users (get-user-by-username "ivana") users/cosine-similarity) => ["ivana2" 0.5])
+       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/cosine-similarity) => ["ivana2" 0.5])
 
 ;;User wants to find another users with similar taste in recipes. This time all similarities are included.
 (facts "test-most-similar-users"
-       (users/most-similar-users (get-user-by-username "ivana")) =not=> nil)
+       (users/most-similar-users (utils/get-user-by-username "ivana")) =not=> nil)
 
 
 ;;Functions that are needed for authentication.
 (facts "hash-password-test"
-       (hash-password "ivana") =not=> nil
+       (c/hash-password "ivana") =not=> nil
        "register-test"
-       (register) =not=> empty)
+       (c/register) =not=> empty)
 
 (facts "is-logged-in-test"
        (c/is-user-logged-in? "ivana" '({:username "ivana" :password "ivana"})) => true
@@ -59,22 +60,22 @@
          (c/clean-from-db ds)) => {:name "Ivana" :age 23}
        "removing-namespace-test"
        (let [ds (ref [{:user/id 10, :user/username "ivana10"}])]
-         (remove-ns-from-ref ds)
+         (c/remove-ns-from-ref ds)
          @ds) => '({:id 10, :username "ivana10"})
        "attach-favs-test"
-       (c/attach-favorites-to-user (c/get-user-by-username "ivana")) =not=> nil
+       (c/attach-favorites-to-user (utils/get-user-by-username "ivana")) =not=> nil
        "join-favs-test"
-       (c/join-favs @c/initial-dataset) =not=> nil
+       (c/join-favs @d/initial-dataset) =not=> nil
        "remove-user-id-from-favorites-test"
-       (c/remove-user-id-from-favorites (c/get-user-by-username "ivana")) :truthy
+       (c/remove-user-id-from-favorites (utils/get-user-by-username "ivana")) :truthy
        "clean-up-favs-test"
-       (c/clean-up-favs @c/registered-users) =not=> empty
+       (c/clean-up-favs @d/registered-users) =not=> empty
        "get-user-by-username-test"
-       (c/get-user-by-username "ivana") =not=> nil)
+       (utils/get-user-by-username "ivana") =not=> nil)
 
 ;;Functions related to adding to favorites.
 (facts "find-by-title-test"
-       (c/find-by-title "title1" '({:title "title1" :time 22}, {:title "title2" :time 32})) => '({:title "title1" :time 22})
+       (utils/find-by-title "title1" '({:title "title1" :time 22}, {:title "title2" :time 32})) => '({:title "title1" :time 22})
        "update-and-add-to-favs-test"
        (let [users '({:username "ivana" :favs ()})]
          (c/update-favs users "ivana" {:id 4,
@@ -240,9 +241,9 @@
 
 (facts "add-and-remove-from-favs"
        (do (with-in-str "Easy Mojitos\nEasy Mojitos"
-             (choose-fav "ivana101"))
+             (c/choose-fav "ivana101"))
            (with-in-str "Easy Mojitos\nEasy Mojitos"
-             (remove-fav "ivana101"))) =not=> nil)
+             (c/remove-fav "ivana101"))) =not=> nil)
 
 
 ;;Performances.
@@ -251,23 +252,23 @@
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/remove-ns-from-ref c/initial-dataset)))
+   (c/remove-ns-from-ref d/initial-dataset)))
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/remove-ns-from-ref c/registered-users)))
+   (c/remove-ns-from-ref d/registered-users)))
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/remove-ns-from-ref c/favorites-base)))
+   (c/remove-ns-from-ref d/favorites-base)))
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/join-favs c/registered-users)))
+   (c/join-favs d/registered-users)))
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/clean-up-favs c/registered-users)))
+   (c/clean-up-favs d/registered-users)))
 
 (crit/with-progress-reporting
   (crit/quick-bench

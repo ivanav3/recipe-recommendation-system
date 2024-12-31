@@ -2,15 +2,17 @@
   (:require
    [recipe-recommendation-system.core :as c]
    [recipe-recommendation-system.users :as u]
+   [recipe-recommendation-system.utils :as utils]
+   [recipe-recommendation-system.data :as d]
    [midje.sweet :refer :all]
    [criterium.core :as crit]))
 
 (facts
  "extract-favs-test"
- (u/extract-favs (c/get-user-by-username "ivana")) =>
- (set (map #(:title %) (:favs (c/get-user-by-username "ivana"))))
+ (u/extract-favs (utils/get-user-by-username "ivana")) =>
+ (set (map #(:title %) (:favs (utils/get-user-by-username "ivana"))))
  "users-recommend-test"
- (u/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @c/initial-dataset)) "ivana") =not=> nil
+ (u/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) "ivana") =not=> nil
  "by-users-recipe-test"
  (u/by-users-recipe "ivana") =not=> empty)
 
@@ -69,18 +71,18 @@
    (u/cosine-similarity u1 u2) => 0.5))
 
 (facts "most-similar-users-tests"
-       (u/most-similar-user @c/registered-users (c/get-user-by-username "ivana") u/jaccard-similarity) =not=> nil
-       (u/most-similar-users (c/get-user-by-username "ivana")) =not=> nil
+       (u/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") u/jaccard-similarity) =not=> nil
+       (u/most-similar-users (utils/get-user-by-username "ivana")) =not=> nil
        (u/print-recs "ivana") =not=> empty)
 
 ;;Performance of functions.
 
 ;; Fastest - 1.31 µs
 (crit/with-progress-reporting
-  (crit/quick-bench (u/extract-favs (c/get-user-by-username "ivana"))))
+  (crit/quick-bench (u/extract-favs (utils/get-user-by-username "ivana"))))
 
 (crit/with-progress-reporting
-  (crit/quick-bench (u/users-recommend (filter #(= (:title %) "Easy Mojitos") @c/initial-dataset) "ivana")))
+  (crit/quick-bench (u/users-recommend (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset) "ivana")))
 
 
 (crit/with-progress-reporting
@@ -190,7 +192,7 @@
 
 ;;Slowest - 14.43 µs
 (crit/with-progress-reporting
-  (crit/quick-bench (u/most-similar-user @c/registered-users (c/get-user-by-username "ivana") u/jaccard-similarity)))
+  (crit/quick-bench (u/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") u/jaccard-similarity)))
 
 (crit/with-progress-reporting
-  (crit/quick-bench (u/most-similar-users (c/get-user-by-username "ivana"))))
+  (crit/quick-bench (u/most-similar-users (utils/get-user-by-username "ivana"))))

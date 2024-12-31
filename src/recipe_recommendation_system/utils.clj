@@ -1,7 +1,10 @@
 (ns recipe-recommendation-system.utils
   (:require [clojure.string :as str]
-            [recipe-recommendation-system.core :as c]))
+            [recipe-recommendation-system.data :as d]))
 
+
+(defn get-user-by-username [username]
+  (first (filter #(= (:username %) username) @d/registered-users)))
 
 (defn find-by-title [title dataset]
   (let [lower-title (str/lower-case title)]

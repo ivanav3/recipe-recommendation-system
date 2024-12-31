@@ -4,31 +4,12 @@
             [next.jdbc :as jdbc]
             [clj-memory-meter.core :as mm]
             [clj-java-decompiler.core :refer [decompile]]
-            [clojure.set :as set]
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [recipe-recommendation-system.utils :as u]
-            [recipe-recommendation-system.core :as c])
+            [recipe-recommendation-system.core :as c]
+            [recipe-recommendation-system.data :as d])
   (:import (java.security MessageDigest)))
-
-
-(def db-spec {:dbtype "mysql"
-              :dbname "recipe-rs"
-              :host "localhost"
-              :port 3306
-              :user "root"
-              :password ""})
-
-(def initial-dataset
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])
-       :validator
-       (comp not nil?)))
-
-(def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
-JOIN favorites f ON r.id=f.recipe_id "])))
-
-(def registered-users
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
 
 
 (defn hash-password [password]
@@ -47,7 +28,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn attach-favorites-to-user [user]
   (let [user-id (:id user)]
     (assoc user :favs
-           (filter #(= user-id (:user_id %)) @favorites-base))))
+           (filter #(= user-id (:user_id %)) @d/favorites-base))))
 
 (defn join-favs [r]
   (dosync
@@ -66,7 +47,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn clean-strings [dataset]
   (dosync
    (alter dataset
-          (fn [d]
+          (fn [s]
             (map (fn [item]
                    (let [updated-title (str/replace (:title item) #"\n|\r" "")
                          updated-ingredients (str/replace (:ingr item) "\n|\r" "")
@@ -76,32 +57,33 @@ JOIN favorites f ON r.id=f.recipe_id "])))
                      (assoc item :title updated-title :serving-size updated-serving-size
                             :ingr updated-ingredients
                             :instructions updated-instructions)))
-                 d)))))
+                 s)))))
 
-(remove-ns-from-ref initial-dataset)
-(remove-ns-from-ref registered-users)
-(remove-ns-from-ref favorites-base)
-(join-favs registered-users)
-(clean-up-favs registered-users)
-(clean-strings initial-dataset)
+(remove-ns-from-ref d/initial-dataset)
+(remove-ns-from-ref d/registered-users)
+(remove-ns-from-ref d/favorites-base)
+(join-favs d/registered-users)
+(clean-up-favs d/registered-users)
+(clean-strings d/initial-dataset)
+
 (defn register []
   (println "Username:")
   (let [username (read-line)]
-    (if (some #(= username (:username %)) @registered-users)
+    (if (some #(= username (:username %)) @d/registered-users)
       (do
         (throw (ex-info (println "This username is taken, try again.") {:username username})))
       (dosync
        (println "Password:")
        (let [password (read-line)
              hashed-password (hash-password password)
-             _ (jdbc/execute! db-spec
+             _ (jdbc/execute! d/db-spec
                               ["INSERT INTO user (username, password) VALUES (?, ?)"
                                username hashed-password])]
 
 
-         (alter registered-users
+         (alter d/registered-users
                 (fn [users]
-                  (conj users {:id (:user/id  (first (jdbc/execute! db-spec
+                  (conj users {:id (:user/id  (first (jdbc/execute! d/db-spec
                                                                     ["SELECT id FROM user WHERE username = ?"
                                                                      username])))
                                :username username
@@ -148,7 +130,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn choose-fav [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (u/find-by-title title @initial-dataset)]
+        results (u/find-by-title title @d/initial-dataset)]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -159,20 +141,20 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (let [user (some #(if (= (:username %) username) %) @registered-users)
+            (let [user (some #(if (= (:username %) username) %) @d/registered-users)
                   user-id (:id user)
                   recipe-id (:id chosen-recipe)]
 
               (if (and user-id recipe-id)
                 (do
                   (dosync
-                   (jdbc/execute! db-spec
+                   (jdbc/execute! d/db-spec
                                   ["INSERT INTO favorites (`user_id`, `recipe_id`) VALUES (?, ?)" user-id recipe-id])
-                   (jdbc/execute! db-spec
+                   (jdbc/execute! d/db-spec
                                   ["UPDATE recipe SET fav = fav + 1 WHERE id = ?" recipe-id])
                    (println "Recipe added to favorites!")
-                   (alter registered-users update-favs username chosen-recipe)
-                   (alter initial-dataset update-rec chosen-recipe)))
+                   (alter d/registered-users update-favs username chosen-recipe)
+                   (alter d/initial-dataset update-rec chosen-recipe)))
                 (println "Error: Could not find user or recipe ID.")))
 
             (println "Error. Recipe not found or invalid input."))))
@@ -181,7 +163,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn choose-by-popularity [username]
   (do
     (doseq [rec (take 3
-                      (sort-by :fav > @initial-dataset))]
+                      (sort-by :fav > @d/initial-dataset))]
       (println rec))
     (choose-fav username)))
 
@@ -201,8 +183,8 @@ JOIN favorites f ON r.id=f.recipe_id "])))
      :avg-difficulty avg-difficulty
      :report-time report-time}))
 
-(defn get-user-by-username [username]
-  (first (filter #(= (:username %) username) @registered-users)))
+;; (defn get-user-by-username [username]
+;;   (first (filter #(= (:username %) username) @d/registered-users)))
 
 (defn remove-from-favs [favs chosen-recipe]
   (if (some #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
@@ -224,7 +206,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 (defn remove-fav [username]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -235,20 +217,20 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (some #(if (= (str/lower-case (:title %)) chosen-title) %) results)]
           (if chosen-recipe
-            (let [user (some #(if (= (:username %) username) %) @registered-users)
+            (let [user (some #(if (= (:username %) username) %) @d/registered-users)
                   user-id (:id user)
                   recipe-id (:id chosen-recipe)]
 
               (if (and user-id recipe-id)
                 (do
                   (dosync
-                   (jdbc/execute! db-spec
+                   (jdbc/execute! d/db-spec
                                   ["DELETE FROM favorites WHERE `user_id` = ? AND `recipe_id` = ?" user-id recipe-id])
-                   (jdbc/execute! db-spec
+                   (jdbc/execute! d/db-spec
                                   ["UPDATE recipe SET fav = fav - 1 WHERE id = ?" recipe-id])
                    (println "Recipe deleted from favorites!")
-                   (alter registered-users update-favs-when-removed username chosen-recipe)
-                   (alter initial-dataset dec-recipe chosen-recipe)))
+                   (alter d/registered-users update-favs-when-removed username chosen-recipe)
+                   (alter d/initial-dataset dec-recipe chosen-recipe)))
                 (println "Error: Could not find user or recipe ID.")))
 
             (println "Error. Recipe not found or invalid input."))))
@@ -275,12 +257,15 @@ JOIN favorites f ON r.id=f.recipe_id "])))
     (cond
       (= option "0")
       (do
-        (doseq [rec @initial-dataset]
+        (doseq [rec @d/initial-dataset]
           (println rec))
         (main-menu username))
       (= option "1")
       (do
-        (choose-fav username)
+        (try
+          (choose-fav username)
+          (catch Exception e
+            (println "This recipe has already been chosen.")))
         (main-menu username))
       (= option "2")
       (do
@@ -288,7 +273,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (main-menu username))
       (= option "3")
       (do
-        (doseq [rec (u/get-favs-by-username username @registered-users)]
+        (doseq [rec (u/get-favs-by-username username @d/registered-users)]
           (println rec))
         (main-menu username))
 
@@ -303,7 +288,7 @@ JOIN favorites f ON r.id=f.recipe_id "])))
 
       (= option "6")
       (do
-        (println (generate-report (get-user-by-username username)))
+        (println (generate-report (u/get-user-by-username username)))
         (main-menu username))
       (= option "7")
       (do
@@ -325,7 +310,6 @@ JOIN favorites f ON r.id=f.recipe_id "])))
               (println "Invalid option. Please try again.")
               (main-menu username)))))
 
-
 (defn login []
   (println "Username:")
   (let [username (read-line)]
@@ -335,19 +319,13 @@ JOIN favorites f ON r.id=f.recipe_id "])))
         (throw (ex-info "User is already logged in. Please logout first." {:username username}))
         (let [u (some #(when (and (= username (:username %))
                                   (= (hash-password password) (:password %))) %)
-                      @registered-users)]
+                      @d/registered-users)]
           (if u
             (do
               (println "Welcome, " username)
               (swap! logged-in-users conj {:username username})
               (main-menu username))
             (println "Error. Try again.")))))))
-
-(remove-ns-from-ref favorites-base)
-(remove-ns-from-ref initial-dataset)
-(remove-ns-from-ref registered-users)
-(join-favs registered-users)
-(clean-up-favs registered-users)
 
 (defn -main []
   (println "--------------------------------------------")
@@ -371,3 +349,5 @@ JOIN favorites f ON r.id=f.recipe_id "])))
       :else (do
               (println "Invalid option. Please try again.")
               (-main)))))
+
+(-main)

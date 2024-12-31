@@ -1,6 +1,6 @@
 (ns recipe-recommendation-system.content-test
   (:require
-   [recipe-recommendation-system.core :as c]
+   [recipe-recommendation-system.data :as d]
    [recipe-recommendation-system.content :as content]
    [recipe-recommendation-system.utils :as utils]
    [midje.sweet :refer :all]
@@ -18,12 +18,12 @@
 ;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
 (facts
  "recommend-by-difficulty-test"
- (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @c/initial-dataset)) @c/initial-dataset) =not=> nil)
+ (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) @d/initial-dataset) =not=> nil)
 
 (facts
  "recommend-by-content"
- (content/recommend-by-content @c/initial-dataset
-                               (utils/find-by-title @c/initial-dataset "Easy Mojitos"))
+ (content/recommend-by-content @d/initial-dataset
+                               (utils/find-by-title @d/initial-dataset "Easy Mojitos"))
  =not=> nil)
 
 (facts
@@ -51,9 +51,9 @@
 (crit/with-progress-reporting
   (crit/quick-bench
    (let [diff
-         (:difficulty (first (utils/find-by-title "Easy Mojitos" @c/initial-dataset)))]
-     (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @c/initial-dataset)) @c/initial-dataset))))
+         (:difficulty (first (utils/find-by-title "Easy Mojitos" @d/initial-dataset)))]
+     (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) @d/initial-dataset))))
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (content/recommend-by-content @c/initial-dataset (utils/find-by-title "Easy Mojitos" @c/initial-dataset))))
+   (content/recommend-by-content @d/initial-dataset (utils/find-by-title "Easy Mojitos" @d/initial-dataset))))

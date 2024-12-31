@@ -1,11 +1,9 @@
 (ns recipe-recommendation-system.content
   (:require
    [clojure.string :as str]
-   [recipe-recommendation-system.core :as c]
+   [recipe-recommendation-system.data :as d]
    [recipe-recommendation-system.utils :as u]
-   [clojure.set :as set]
-   [recipe-recommendation-system.utils :as utils]
-   [recipe-recommendation-system.content :as content]))
+   [clojure.set :as set]))
 
 (defn recommend-by-difficulty [chosen dataset]
   (let [diff (apply str (map :difficulty chosen))
@@ -16,7 +14,7 @@
 (defn by-dif [username]
   (println "Enter recipe title or part of title (from your favs):")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @c/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -25,11 +23,11 @@
 
         (println "Please enter the full title of the recipe you're interested in:")
         (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (utils/find-by-title chosen-title results)]
+              chosen-recipe (u/find-by-title chosen-title results)]
           (if chosen-recipe
             (do
               (println "Chosen difficulty of the recipe" (apply str (map :title chosen-recipe)) "is" (apply str (map :difficulty chosen-recipe)) ". The following recipes have the same level of difficulty: ")
-              (doseq [rec (recommend-by-difficulty (utils/find-by-title chosen-title results) @c/initial-dataset)]
+              (doseq [rec (recommend-by-difficulty (u/find-by-title chosen-title results) @d/initial-dataset)]
                 (println rec)))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
@@ -53,7 +51,7 @@
 (defn by-content [username]
   (println "Enter recipe title or part of title (from your favs):")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @c/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -62,9 +60,9 @@
 
         (println "Please enter the full title of the recipe you're interested in:")
         (let [chosen-title (str/lower-case (read-line))
-              chosen-recipe (utils/find-by-title chosen-title results)]
+              chosen-recipe (u/find-by-title chosen-title results)]
           (if chosen-recipe
-            (doseq [rec  (recommend-by-content @c/initial-dataset chosen-recipe)]
+            (doseq [rec  (recommend-by-content @d/initial-dataset chosen-recipe)]
               (println rec))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
