@@ -44,7 +44,6 @@ For example,
 ; Found the following recipes:
 ; Coconut-Lime Cheesecake with Mango Coulis
 ; Please enter the full title of the recipe you're interested in:
-; {:id 34, :title We Be Jammin ...}
 ; {:id 35, :title Chef John's ...}
 ; {:id 25, :title Pastelon ...}
 ```
@@ -53,8 +52,7 @@ Users can also get recommendations based on the difficulty of the recipes they c
 For example,
 ```
 ; Chosen difficulty of the recipe Coconut-Lime Cheesecake with Mango Coulis is hard . The following recipes have the same level of difficulty: 
-; {:id 29, :title Limber de Coco (Coconut Ice) ...}
-; {:id 16, :title Budin ...}
+; {:id 29, :title Coconut Ice ...}
 ```
 
 - Collaborative filtering:
@@ -65,7 +63,6 @@ For example,
 
 ```
 ; The following recipes were recommended by other users that chose Easy Mojitos as well
-; {:id 29, :title Limber de Coco (Coconut Ice) ...}
 ; {:id 1, :title Jamaican Fried Dumplings ...}
 ```
 
