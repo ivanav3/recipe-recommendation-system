@@ -81,10 +81,11 @@
 (crit/with-progress-reporting
   (crit/quick-bench (u/extract-favs (utils/get-user-by-username "ivana"))))
 
+;; 2.56 µs
 (crit/with-progress-reporting
   (crit/quick-bench (u/users-recommend (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset) "ivana")))
 
-
+;; 3.36 µs
 (crit/with-progress-reporting
   (crit/quick-bench (let [u1 {:id 39,
                               :username "ivana",
@@ -137,6 +138,7 @@
 
                       (u/jaccard-similarity u1 u2))))
 
+;; 10.028 µs
 
 (crit/with-progress-reporting
   (crit/quick-bench (let [u1 {:id 39,
@@ -190,9 +192,10 @@
 
                       (u/cosine-similarity u1 u2))))
 
-;;Slowest - 14.43 µs
+;; 14.43 µs
 (crit/with-progress-reporting
   (crit/quick-bench (u/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") u/jaccard-similarity)))
 
+;; Slowest 15.37 µs
 (crit/with-progress-reporting
   (crit/quick-bench (u/most-similar-users (utils/get-user-by-username "ivana"))))

@@ -39,7 +39,7 @@
 (crit/with-progress-reporting
   (crit/quick-bench (content/extract-keywords "some words that are extracted")))
 
-
+;; 5.17 µs
 (crit/with-progress-reporting
   (crit/quick-bench (content/content-similarity {:instructions
                                                  "Testing if this works."}
@@ -47,13 +47,14 @@
                                                  "If this works, the result should be 2."})))
 
 
-;; Slowest - 12.78 µs
+;; 12.78 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (let [diff
          (:difficulty (first (utils/find-by-title "Easy Mojitos" @d/initial-dataset)))]
      (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) @d/initial-dataset))))
 
+;; Slowest - 3.63 ms
 (crit/with-progress-reporting
   (crit/quick-bench
    (content/recommend-by-content @d/initial-dataset (utils/find-by-title "Easy Mojitos" @d/initial-dataset))))

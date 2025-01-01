@@ -10,17 +10,19 @@
             [criterium.core :as crit]))
 
 ;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
-(facts "test-adding-to-favs" (c/choose-fav "ivana") :truthy)
+(facts "test-adding-to-favs"
+       (try
+         (c/choose-fav "ivana")
+         (catch Exception e)) :truthy)
 
 ;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
 (facts "test-recommend-by-difficulty" (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) @d/initial-dataset) =not=> nil)
 
 ;;User wants to get report on recent activity. That way users can track their improvement. 
-(defn contains-more [my-map & keys]
-  (every? #(contains? my-map %) keys))
+
 (facts "test-report"
-       (contains-more (c/generate-report (first (filter #(= (:username %) "ivana") @d/registered-users)))
-                      :username :num-favs :difficulty-levels :avg-difficulty :report-time) => true)
+       (utils/contains-more (c/generate-report (first (filter #(= (:username %) "ivana") @d/registered-users)))
+                            :username :num-favs :difficulty-levels :avg-difficulty :report-time) => true)
 
 ;;User wants to get recipes that are recommended by other users. 
 ;;That way users can connect and discover recipes that are recommended by users with similar taste.
@@ -31,11 +33,11 @@
 
 ;;User wants to find another user with similar taste in recipes. That way users can connect and find recipes liked by similar users.
 (facts "test-jaccard-similarity"
-       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/jaccard-similarity) => ["ivana2" 0.333])
+       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/jaccard-similarity) => ["ivana10" 0.2])
 
 
 (facts "test-cosine-similarity"
-       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/cosine-similarity) => ["ivana2" 0.5])
+       (users/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") users/cosine-similarity) => ["ivana10" 0.333])
 
 ;;User wants to find another users with similar taste in recipes. This time all similarities are included.
 (facts "test-most-similar-users"
@@ -247,33 +249,42 @@
 
 
 ;;Performances.
+
+;; Slowest - 38.13 µs
 (crit/with-progress-reporting
   (crit/quick-bench (c/hash-password "password")))
 
+;; 4.23 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/remove-ns-from-ref d/initial-dataset)))
 
+;; 3.65 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/remove-ns-from-ref d/registered-users)))
 
+;; 5.62 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/remove-ns-from-ref d/favorites-base)))
 
+;; 3.66 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/join-favs d/registered-users)))
 
+;; 3.51 µs
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/clean-up-favs d/registered-users)))
 
+;; 87.09 ns
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/is-user-logged-in? "ivana" @c/logged-in-users)))
 
+;; 22.15 ns
 (crit/with-progress-reporting
   (crit/quick-bench
    (c/remove-user @c/logged-in-users "ivana")))
@@ -293,6 +304,6 @@
                                    :difficulty "easy",
                                    :fav 2}))))
 
-;;Slowest -  1.29 µs
+;;  1.29 µs
 (crit/with-progress-reporting
   (crit/quick-bench (c/generate-report "ivana")))

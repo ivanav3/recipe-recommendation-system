@@ -7,7 +7,6 @@
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [recipe-recommendation-system.utils :as u]
-            [recipe-recommendation-system.core :as c]
             [recipe-recommendation-system.data :as d])
   (:import (java.security MessageDigest)))
 

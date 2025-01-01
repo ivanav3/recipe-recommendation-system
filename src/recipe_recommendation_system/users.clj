@@ -75,7 +75,7 @@
               norm1 (Math/sqrt (reduce + (map #(* % %) vector1)))
               norm2 (Math/sqrt (reduce + (map #(* % %) vector2)))]
           (if (and (zero? norm1) (zero? norm2))
-            1.0
+            0.0
             (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
 
 
