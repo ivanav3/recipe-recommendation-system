@@ -15,4 +15,4 @@
   (every? #(contains? my-map %) keys))
 
 (defn get-favs-by-username [username dataset]
-  (some #(if (= (:username %) username) (:favs %)) @dataset))
+  (some #(if (= (:username %) username) (:favs %)) dataset))
