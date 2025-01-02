@@ -3,7 +3,7 @@
 
 
 (defn get-user-by-username [username users]
-  (first (filter #(= (:username %) username) users)))
+  (first (filter #(= (:username %) username) @users)))
 
 (defn find-by-title [title dataset]
   (let [lower-title (str/lower-case title)]

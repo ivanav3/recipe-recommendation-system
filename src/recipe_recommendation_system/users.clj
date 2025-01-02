@@ -9,7 +9,7 @@
                                (and
                                 (some #(= (:title %) (:title selected-recipe)) (:favs user))
                                 (not= (:username user) username)))
-                             users)
+                             @users)
         all-favs (mapcat :favs users-with-selected)
         without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
         shuffled (shuffle without-selected)
@@ -19,7 +19,7 @@
 (defn by-users-recipe [username users recipes]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username users))]
+        results (u/find-by-title title (u/get-favs-by-username username @users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -32,7 +32,7 @@
           (if chosen-recipe
             (do
               (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
-              (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) recipes))
+              (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) @recipes))
                                            username users)]
                 (println rec)))
 
@@ -80,10 +80,10 @@
 
 (defn get-user-favs [username users]
   {:username username
-   :favs (u/get-favs-by-username username users)})
+   :favs (u/get-favs-by-username username @users)})
 
 (defn most-similar-users [target-user users]
-  (let [all-users (remove #(= (:username %) (:username target-user)) users)
+  (let [all-users (remove #(= (:username %) (:username target-user)) @users)
 
         most-similar-jaccard  (most-similar-user all-users target-user jaccard-similarity)
 

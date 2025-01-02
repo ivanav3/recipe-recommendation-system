@@ -9,14 +9,14 @@
               :user "root"
               :password ""})
 
-(def initial-dataset
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])
-       :validator
-       (comp not nil?)))
+;; (def initial-dataset
+;;   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM recipe"])) [])
+;;        :validator
+;;        (comp not nil?)))
 
-(def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
-JOIN favorites f ON r.id=f.recipe_id "])))
+;; (def favorites-base (ref (jdbc/execute! db-spec ["SELECT r.*, f.user_id FROM recipe r
+;; JOIN favorites f ON r.id=f.recipe_id "])))
 
-(def registered-users
-  (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
+;; (def registered-users
+;;   (ref (or (seq (jdbc/execute! db-spec ["SELECT * FROM user"])) [])))
 
