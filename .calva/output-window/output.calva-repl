@@ -2069,3 +2069,261 @@ clj꞉recipe-recommendation-system.utils-test꞉> 
 ;                    Overhead used : 8.450078 ns
 nil
 clj꞉recipe-recommendation-system.utils-test꞉> 
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\content_test.clj:21:42).
+; No such var: d/initial-dataset
+clj꞉recipe-recommendation-system.content-test꞉> 
+nil
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\content_test.clj:20:1).
+; No such namespace: jdbc
+clj꞉recipe-recommendation-system.content-test꞉> 
+nil
+clj꞉recipe-recommendation-system.content-test꞉> 
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Enter recipe title or part of title (from your favs):
+; Enter recipe title or part of title (from your favs):
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Enter recipe title or part of title (from your favs):
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Enter recipe title or part of title (from your favs):
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Enter recipe title or part of title (from your favs):
+true
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 121514 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 540936 in 6 samples of 90156 calls.
+;              Execution time mean : 1.182295 µs
+;     Execution time std-deviation : 89.325979 ns
+;    Execution time lower quantile : 1.088916 µs ( 2.5%)
+;    Execution time upper quantile : 1.309351 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+nil
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 13428 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 67134 in 6 samples of 11189 calls.
+;              Execution time mean : 10.694639 µs
+;     Execution time std-deviation : 1.793859 µs
+;    Execution time lower quantile : 8.967026 µs ( 2.5%)
+;    Execution time upper quantile : 13.614204 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+; 
+; Found 1 outliers in 6 samples (16.6667 %)
+; 	low-severe	 1 (16.6667 %)
+;  Variance from outliers : 47.6860 % Variance is moderately inflated by outliers
+nil
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 222 iterations
+;   compilation occurred before 443 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 144 in 6 samples of 24 calls.
+;              Execution time mean : 3.318611 ms
+;     Execution time std-deviation : 654.807877 µs
+;    Execution time lower quantile : 2.668658 ms ( 2.5%)
+;    Execution time upper quantile : 4.000708 ms (97.5%)
+;                    Overhead used : 8.450078 ns
+nil
+clj꞉recipe-recommendation-system.content-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:10:1).
+; No such namespace: jdbc
+clj꞉recipe-recommendation-system.users-test꞉> 
+nil
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:29:28).
+; No such var: d/initial-dataset
+clj꞉recipe-recommendation-system.users-test꞉> 
+; 
+; FAIL extract-favs-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:25)
+; Actual result was NOT supposed to agree with the checking function.
+; Actual result:
+; #{"Coconut-Lime Cheesecake with Mango Coulis\r\n"
+;   "Easy Mojitos"
+;   "Mojo Grilling Marinade"}
+; Checking function: empty
+false
+clj꞉recipe-recommendation-system.users-test꞉> 
+; 
+; FAIL extract-favs-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:13)
+; Actual result was NOT supposed to agree with the checking function.
+; Actual result:
+; #{"Coconut-Lime Cheesecake with Mango Coulis\r\n"
+;   "Easy Mojitos"
+;   "Mojo Grilling Marinade"}
+; Checking function: empty
+false
+clj꞉recipe-recommendation-system.users-test꞉> 
+#{"Easy Mojitos" "Coconut-Lime Cheesecake with Mango Coulis\r\n" "Mojo Grilling Marinade"}
+clj꞉recipe-recommendation-system.users-test꞉> 
+; 
+; FAIL extract-favs-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:13)
+; Actual result was NOT supposed to agree with the checking function.
+; Actual result:
+; #{"Coconut-Lime Cheesecake with Mango Coulis\r\n"
+;   "Easy Mojitos"
+;   "Mojo Grilling Marinade"}
+; Checking function: empty
+false
+clj꞉recipe-recommendation-system.users-test꞉> 
+; 
+; FAIL extract-favs-test at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:13)
+; Actual result was NOT supposed to agree with the checking function.
+; Actual result:
+; #{"Coconut-Lime Cheesecake with Mango Coulis\r\n"
+;   "Easy Mojitos"
+;   "Mojo Grilling Marinade"}
+; Checking function: empty
+false
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Enter recipe title or part of title:
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; The following recipes were chosen by users with similar taste in recipes as ivana
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; The following recipes were chosen by users with similar taste in recipes as ivana
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Enter recipe title or part of title:
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; The following recipes were chosen by users with similar taste in recipes as ivana
+true
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 33473 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 477966 in 6 samples of 79661 calls.
+;              Execution time mean : 1.397177 µs
+;     Execution time std-deviation : 149.486359 ns
+;    Execution time lower quantile : 1.260729 µs ( 2.5%)
+;    Execution time upper quantile : 1.627247 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+; 
+; Found 1 outliers in 6 samples (16.6667 %)
+; 	low-severe	 1 (16.6667 %)
+;  Variance from outliers : 30.8056 % Variance is moderately inflated by outliers
+nil
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\test\recipe_recommendation_system\users_test.clj:194:40).
+; Unable to resolve symbol: recipes in this context
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 42471 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 189456 in 6 samples of 31576 calls.
+;              Execution time mean : 2.564083 µs
+;     Execution time std-deviation : 962.989199 ns
+;    Execution time lower quantile : 1.971598 µs ( 2.5%)
+;    Execution time upper quantile : 4.083585 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+; 
+; Found 1 outliers in 6 samples (16.6667 %)
+; 	low-severe	 1 (16.6667 %)
+;  Variance from outliers : 82.0512 % Variance is severely inflated by outliers
+nil
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 10753 iterations
+;   compilation occurred before 21505 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 37818 in 6 samples of 6303 calls.
+;              Execution time mean : 16.119145 µs
+;     Execution time std-deviation : 1.793430 µs
+;    Execution time lower quantile : 14.547381 µs ( 2.5%)
+;    Execution time upper quantile : 18.320945 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+nil
+clj꞉recipe-recommendation-system.users-test꞉> 
+; Warming up for JIT optimisations 5000000000 ...
+;   compilation occurred before 1 iterations
+;   compilation occurred before 4339 iterations
+;   compilation occurred before 8677 iterations
+;   compilation occurred before 13015 iterations
+;   compilation occurred before 17353 iterations
+; Estimating execution count ...
+; Sampling ...
+; Final GC...
+; Checking GC...
+; Finding outliers ...
+; Bootstrapping ...
+; Checking outlier significance
+; Evaluation count : 45774 in 6 samples of 7629 calls.
+;              Execution time mean : 15.583272 µs
+;     Execution time std-deviation : 1.698660 µs
+;    Execution time lower quantile : 13.842002 µs ( 2.5%)
+;    Execution time upper quantile : 18.215968 µs (97.5%)
+;                    Overhead used : 8.450078 ns
+; 
+; Found 1 outliers in 6 samples (16.6667 %)
+; 	low-severe	 1 (16.6667 %)
+;  Variance from outliers : 30.8982 % Variance is moderately inflated by outliers
+nil
+clj꞉recipe-recommendation-system.users-test꞉> 

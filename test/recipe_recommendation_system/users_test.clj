@@ -5,16 +5,58 @@
    [recipe-recommendation-system.utils :as utils]
    [recipe-recommendation-system.data :as d]
    [midje.sweet :refer :all]
-   [criterium.core :as crit]))
+   [criterium.core :as crit]
+   [next.jdbc :as jdbc]))
 
 (facts
  "extract-favs-test"
- (u/extract-favs (utils/get-user-by-username "ivana")) =>
- (set (map #(:title %) (:favs (utils/get-user-by-username "ivana"))))
+ (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+       recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                    :validator
+                    (comp not nil?))
+       favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                            JOIN favorites f ON r.id=f.recipe_id "]))]
+   (c/remove-ns-from-ref users)
+   (c/remove-ns-from-ref recipes)
+   (c/remove-ns-from-ref favorites-base)
+   (c/join-favs users favorites-base)
+   (c/clean-up-favs users)
+   (c/clean-strings recipes)
+   (u/extract-favs (utils/get-user-by-username "ivana" users))) =not=> nil)
+
+(facts
  "users-recommend-test"
- (u/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset)) "ivana") =not=> nil
+
+ (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+       recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                    :validator
+                    (comp not nil?))
+       favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+   (c/remove-ns-from-ref users)
+   (c/remove-ns-from-ref recipes)
+   (c/remove-ns-from-ref favorites-base)
+   (c/join-favs users favorites-base)
+   (c/clean-up-favs users)
+   (c/clean-strings recipes)
+   (u/users-recommend (first (filter #(= (:title %) "Easy Mojitos") @recipes)) "ivana" users) =not=> nil))
+
+(facts
  "by-users-recipe-test"
- (u/by-users-recipe "ivana") =not=> empty)
+ (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+       recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                    :validator
+                    (comp not nil?))
+       favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                               JOIN favorites f ON r.id=f.recipe_id "]))]
+   (c/remove-ns-from-ref users)
+   (c/remove-ns-from-ref recipes)
+   (c/remove-ns-from-ref favorites-base)
+   (c/join-favs users favorites-base)
+   (c/clean-up-favs users)
+   (c/clean-strings recipes)
+
+   (u/by-users-recipe "ivana" users recipes) =not=> empty))
 
 (facts
  "similarities-tests"
@@ -70,22 +112,89 @@
      (u/jaccard-similarity u1 u2) => 0.333)
    (u/cosine-similarity u1 u2) => 0.5))
 
-(facts "most-similar-users-tests"
-       (u/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") u/jaccard-similarity) =not=> nil
-       (u/most-similar-users (utils/get-user-by-username "ivana")) =not=> nil
-       (u/print-recs "ivana") =not=> empty)
+(facts "most-similar-users-fn-test"
+       (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+             recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                          :validator
+                          (comp not nil?))
+             favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                                    JOIN favorites f ON r.id=f.recipe_id "]))]
+         (c/remove-ns-from-ref users)
+         (c/remove-ns-from-ref recipes)
+         (c/remove-ns-from-ref favorites-base)
+         (c/join-favs users favorites-base)
+         (c/clean-up-favs users)
+         (c/clean-strings recipes)
+
+         (u/most-similar-user @users (utils/get-user-by-username "ivana" users) u/jaccard-similarity) =not=> nil))
+
+(facts "most-similar-users-test"
+       (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+             recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                          :validator
+                          (comp not nil?))
+             favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                                    JOIN favorites f ON r.id=f.recipe_id "]))]
+         (c/remove-ns-from-ref users)
+         (c/remove-ns-from-ref recipes)
+         (c/remove-ns-from-ref favorites-base)
+         (c/join-favs users favorites-base)
+         (c/clean-up-favs users)
+         (c/clean-strings recipes)
+
+         (u/most-similar-users (utils/get-user-by-username "ivana" users) users) =not=> nil))
+(facts
+ (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+       recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                    :validator
+                    (comp not nil?))
+       favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                              JOIN favorites f ON r.id=f.recipe_id "]))]
+   (c/remove-ns-from-ref users)
+   (c/remove-ns-from-ref recipes)
+   (c/remove-ns-from-ref favorites-base)
+   (c/join-favs users favorites-base)
+   (c/clean-up-favs users)
+   (c/clean-strings recipes)
+   (u/print-recs "ivana" users) =not=> empty))
 
 ;;Performance of functions.
 
 ;; Fastest - 1.31 µs
-(crit/with-progress-reporting
-  (crit/quick-bench (u/extract-favs (utils/get-user-by-username "ivana"))))
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/extract-favs (utils/get-user-by-username "ivana" users)))))
 
 ;; 2.56 µs
-(crit/with-progress-reporting
-  (crit/quick-bench (u/users-recommend (filter #(= (:title %) "Easy Mojitos") @d/initial-dataset) "ivana")))
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/users-recommend (filter #(= (:title %) "Easy Mojitos") @recipes) "ivana" users))))
 
 ;; 3.36 µs
+
 (crit/with-progress-reporting
   (crit/quick-bench (let [u1 {:id 39,
                               :username "ivana",
@@ -193,9 +302,52 @@
                       (u/cosine-similarity u1 u2))))
 
 ;; 14.43 µs
-(crit/with-progress-reporting
-  (crit/quick-bench (u/most-similar-user @d/registered-users (utils/get-user-by-username "ivana") u/jaccard-similarity)))
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/most-similar-user @users (utils/get-user-by-username "ivana" users) u/jaccard-similarity))))
+
+;; 15.58 µs
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/most-similar-user @users (utils/get-user-by-username "ivana" users) u/cosine-similarity))))
 
 ;; Slowest 15.37 µs
-(crit/with-progress-reporting
-  (crit/quick-bench (u/most-similar-users (utils/get-user-by-username "ivana"))))
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/most-similar-users (utils/get-user-by-username "ivana" users) users))))
