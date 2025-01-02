@@ -1,26 +1,25 @@
 (ns recipe-recommendation-system.users
-  (:require [recipe-recommendation-system.data :as d]
-            [recipe-recommendation-system.utils :as u]
+  (:require [recipe-recommendation-system.utils :as u]
             [clojure.string :as str]
             [clojure.set :as set]))
 
-(defn users-recommend [selected-recipe username]
+(defn users-recommend [selected-recipe username users]
   (let [users-with-selected (filter
                              (fn [user]
                                (and
                                 (some #(= (:title %) (:title selected-recipe)) (:favs user))
                                 (not= (:username user) username)))
-                             @d/registered-users)
+                             users)
         all-favs (mapcat :favs users-with-selected)
         without-selected (remove #(= (:title %) (:title selected-recipe)) all-favs)
         shuffled (shuffle without-selected)
         top-3 (take 3 shuffled)]
     top-3))
 
-(defn by-users-recipe [username]
+(defn by-users-recipe [username users recipes]
   (println "Enter recipe title or part of title:")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -33,8 +32,8 @@
           (if chosen-recipe
             (do
               (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
-              (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) @d/initial-dataset))
-                                           username)]
+              (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) recipes))
+                                           username users)]
                 (println rec)))
 
             (println "Error. Recipe not found or invalid input."))))
@@ -79,12 +78,12 @@
             (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
 
 
-(defn get-user-favs [username]
+(defn get-user-favs [username users]
   {:username username
-   :favs (u/get-favs-by-username username @d/registered-users)})
+   :favs (u/get-favs-by-username username users)})
 
-(defn most-similar-users [target-user]
-  (let [all-users (remove #(= (:username %) (:username target-user)) @d/registered-users)
+(defn most-similar-users [target-user users]
+  (let [all-users (remove #(= (:username %) (:username target-user)) users)
 
         most-similar-jaccard  (most-similar-user all-users target-user jaccard-similarity)
 
@@ -98,9 +97,9 @@
       [most-similar-jaccard])))
 
 
-(defn print-recs [username]
+(defn print-recs [username users]
   (do
     (println "The following recipes were chosen by users with similar taste in recipes as" username)
-    (doseq [s (map first (most-similar-users (u/get-user-by-username username)))]
-      (doseq [rec (get-user-favs s)]
+    (doseq [s (map first (most-similar-users (u/get-user-by-username username users) users))]
+      (doseq [rec (get-user-favs s users)]
         (println rec)))))

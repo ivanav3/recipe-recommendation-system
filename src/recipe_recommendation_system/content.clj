@@ -1,7 +1,6 @@
 (ns recipe-recommendation-system.content
   (:require
    [clojure.string :as str]
-   [recipe-recommendation-system.data :as d]
    [recipe-recommendation-system.utils :as u]
    [clojure.set :as set]))
 
@@ -11,10 +10,10 @@
         others (remove #(= (:title %) (map :title chosen)) same-diff)]
     (take 3 (shuffle others))))
 
-(defn by-dif [username]
+(defn by-dif [username users]
   (println "Enter recipe title or part of title (from your favs):")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -27,7 +26,7 @@
           (if chosen-recipe
             (do
               (println "Chosen difficulty of the recipe" (apply str (map :title chosen-recipe)) "is" (apply str (map :difficulty chosen-recipe)) ". The following recipes have the same level of difficulty: ")
-              (doseq [rec (recommend-by-difficulty (u/find-by-title chosen-title results) @d/initial-dataset)]
+              (doseq [rec (recommend-by-difficulty (u/find-by-title chosen-title results) users)]
                 (println rec)))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
@@ -48,10 +47,10 @@
         top-recommendations (take 3 (rest sorted-similarities))]
     (map #(nth recipes (first %)) top-recommendations)))
 
-(defn by-content [username]
+(defn by-content [username users recipes]
   (println "Enter recipe title or part of title (from your favs):")
   (let [title (read-line)
-        results (u/find-by-title title (u/get-favs-by-username username @d/registered-users))]
+        results (u/find-by-title title (u/get-favs-by-username username users))]
     (if (seq results)
       (do
         (println "Found the following recipes:")
@@ -62,7 +61,7 @@
         (let [chosen-title (str/lower-case (read-line))
               chosen-recipe (u/find-by-title chosen-title results)]
           (if chosen-recipe
-            (doseq [rec  (recommend-by-content @d/initial-dataset chosen-recipe)]
+            (doseq [rec  (recommend-by-content recipes chosen-recipe)]
               (println rec))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
