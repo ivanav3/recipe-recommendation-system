@@ -159,12 +159,11 @@
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-(defn choose-by-popularity [username users recipes]
+(defn choose-by-popularity [recipes]
   (do
     (doseq [rec (take 3
                       (sort-by :fav > @recipes))]
-      (println rec))
-    (choose-fav username users recipes)))
+      (println rec))))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -269,7 +268,7 @@
         (select-option username users recipes))
       (= option "2")
       (do
-        (choose-by-popularity username users recipes)
+        (choose-by-popularity recipes)
         (select-option username users recipes))
       (= option "3")
       (do
