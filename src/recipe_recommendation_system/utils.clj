@@ -16,3 +16,10 @@
 
 (defn get-favs-by-username [username dataset]
   (some #(if (= (:username %) username) (:favs %)) dataset))
+
+(defn print-recipe [recipe]
+  (println "-----------------------\nRecipe: " (:title recipe)
+           "\nTime: about " (:total-time recipe)
+           " minutes \nIngredients: " (:ingr recipe)
+           "\nInstructions: " (:instructions recipe)
+           "\nServing size: " (:serving-size recipe)))

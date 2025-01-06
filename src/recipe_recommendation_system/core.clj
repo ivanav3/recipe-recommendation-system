@@ -7,7 +7,8 @@
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [recipe-recommendation-system.utils :as u]
-            [recipe-recommendation-system.data :as d])
+            [recipe-recommendation-system.data :as d]
+            [recipe-recommendation-system.utils :as utils])
   (:import (java.security MessageDigest)))
 
 
@@ -48,22 +49,25 @@
    (alter dataset
           (fn [s]
             (map (fn [item]
-                   (let [updated-title (str/replace (:title item) #"\n|\r" "")
-                         updated-ingredients (str/replace (:ingr item) #"\n|\r" "")
-                         updated-serving-size (str/replace (:serving-size item) #"\n|\r" "")
-                         updated-instructions (str/replace (:instructions item) #"\n|\r" "")]
+                   (let [updated-title (str/replace (:title item) #"\r\n|\r|\n" "")
+                         updated-ingredients (str/replace (:ingr item) #"\r\n|\r|\n" "")
+                         updated-serving-size (str/replace (:serving-size item) #"\r\n|\r|\n" "")
+                         updated-instructions (str/replace (:instructions item) #"\r\n|\r|\n" "")
+                         updated-difficulty (str/replace (:difficulty item) #"\r\n|\r|\n" "")]
 
                      (assoc item :title updated-title :serving-size updated-serving-size
                             :ingr updated-ingredients
-                            :instructions updated-instructions)))
+                            :instructions updated-instructions
+                            :difficulty updated-difficulty)))
                  s)))))
 
-;; (remove-ns-from-ref d/initial-dataset)
+
+;; (remove-ns-from-ref initial-dataset)
 ;; (remove-ns-from-ref d/registered-users)
 ;; (remove-ns-from-ref d/favorites-base)
 ;; (join-favs d/registered-users)
 ;; (clean-up-favs d/registered-users)
-;; (clean-strings d/initial-dataset)
+;; (clean-strings initial-dataset)
 
 (defn register [users]
   (println "Username:")
@@ -163,7 +167,7 @@
   (do
     (doseq [rec (take 3
                       (sort-by :fav > @recipes))]
-      (println rec))))
+      (utils/print-recipe rec))))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -257,7 +261,7 @@
       (= option "0")
       (do
         (doseq [rec @recipes]
-          (println rec))
+          (utils/print-recipe rec))
         (select-option username users recipes))
       (= option "1")
       (do
@@ -273,7 +277,7 @@
       (= option "3")
       (do
         (doseq [rec (u/get-favs-by-username username @users)]
-          (println rec))
+          (utils/print-recipe rec))
         (select-option username users recipes))
 
       (= option "4")
@@ -368,3 +372,5 @@
                 (-main))))))
 
 (-main)
+
+(logout)

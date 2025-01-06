@@ -27,7 +27,7 @@
             (do
               (println "Chosen difficulty of the recipe" (apply str (map :title chosen-recipe)) "is" (apply str (map :difficulty chosen-recipe)) ". The following recipes have the same level of difficulty: ")
               (doseq [rec (recommend-by-difficulty (u/find-by-title chosen-title results) @recipes)]
-                (println rec)))
+                (u/print-recipe rec)))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
@@ -62,6 +62,6 @@
               chosen-recipe (u/find-by-title chosen-title results)]
           (if chosen-recipe
             (doseq [rec  (recommend-by-content @recipes chosen-recipe)]
-              (println rec))
+              (u/print-recipe rec))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))

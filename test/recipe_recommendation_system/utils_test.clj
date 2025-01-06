@@ -56,7 +56,7 @@
        :instructions
        "Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.",
        :difficulty "easy",
-       :fav 2}))
+       :fav 3}))
 
 ;;Performance of functions.
 
