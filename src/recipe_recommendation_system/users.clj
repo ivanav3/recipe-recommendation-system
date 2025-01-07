@@ -58,7 +58,9 @@
 (defn most-similar-user [users-to-compare target-user similarity-fn]
   (let [all-users (remove #(= (:username %) (:username target-user)) users-to-compare)
         similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
-        most-similar (apply max-key second similarities)]
+        most-similar (if (= similarity-fn "euclidean")
+                       (apply min-key second similarities)
+                       (apply max-key second similarities))]
     most-similar))
 
 
@@ -76,6 +78,21 @@
           (if (and (zero? norm1) (zero? norm2))
             0.0
             (Float/parseFloat (format "%.3f" (/ dot-product (* norm1 norm2))))))))))
+
+(defn euclidean [user1 user2]
+  (let [favs1 (extract-favs user1)
+        favs2 (extract-favs user2)]
+    (if (or (empty? favs1) (empty? favs2))
+      0.0
+      (let [all-recipes (set/union favs1 favs2)
+            vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
+            vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)
+            sum-of-squares (reduce
+                            (fn [acc [a b]]
+                              (+ acc (Math/pow (- a b) 2)))
+                            0
+                            (map vector vector1 vector2))]
+        (Math/sqrt sum-of-squares)))))
 
 
 (defn get-user-favs [username users]
@@ -95,10 +112,16 @@
         remaining-users (remove #(= (:username %) (first most-similar-jaccard)) all-users)
         most-similar-cosine (if (empty? remaining-users)
                               nil
-                              (most-similar-user remaining-users target-user cosine-similarity))]
+                              (most-similar-user remaining-users target-user cosine-similarity))
+        final-users (remove #(= (:username %) (first most-similar-cosine)) remaining-users)
+        most-similar-euclidean (if (empty? final-users)
+                                 nil
+                                 (most-similar-user final-users target-user euclidean))]
 
     (if most-similar-cosine
-      [most-similar-jaccard most-similar-cosine]
+      (if most-similar-euclidean
+        [most-similar-jaccard most-similar-cosine most-similar-euclidean]
+        [most-similar-jaccard most-similar-cosine])
       [most-similar-jaccard])))
 
 

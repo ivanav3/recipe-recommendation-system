@@ -110,7 +110,8 @@
               :serving-size "1 cocktail"})}]
    (do
      (u/jaccard-similarity u1 u2) => 0.333)
-   (u/cosine-similarity u1 u2) => 0.5))
+   (u/cosine-similarity u1 u2) => 0.5
+   (u/euclidean u1 u2) =not=> nil))
 
 (facts "most-similar-users-fn-test"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
@@ -335,7 +336,24 @@
   (crit/with-progress-reporting
     (crit/quick-bench (u/most-similar-user @users (utils/get-user-by-username "ivana" users) u/cosine-similarity))))
 
-;; Slowest 15.37 µs
+;; Slowest 19.23 µs
+(let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+      recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                   :validator
+                   (comp not nil?))
+      favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                             JOIN favorites f ON r.id=f.recipe_id "]))]
+  (c/remove-ns-from-ref users)
+  (c/remove-ns-from-ref recipes)
+  (c/remove-ns-from-ref favorites-base)
+  (c/join-favs users favorites-base)
+  (c/clean-up-favs users)
+  (c/clean-strings recipes)
+
+  (crit/with-progress-reporting
+    (crit/quick-bench (u/most-similar-user @users (utils/get-user-by-username "ivana" users) u/euclidean))))
+
+;; 15.37 µs
 (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
       recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
                    :validator
