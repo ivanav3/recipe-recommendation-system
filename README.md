@@ -1,10 +1,10 @@
-# recipe-recommendation-system
+# Recipe recommender
 
 The database encompasses a sample of 50 recipes.
 
 Each instance contains the following attributes:
 
-- title 
+- title
 - total-time
 - serving-size
 - ingr
@@ -16,7 +16,7 @@ By adding and removing recipes from favorites, users can get recipes recommended
 
 ```; Welcome,  user
 ; --------------------------------------------
-; 
+;
 ; Main Menu:
 ; 0. View all recipes
 ; 1. Choose a recipe
@@ -32,13 +32,15 @@ By adding and removing recipes from favorites, users can get recipes recommended
 ; 11. Exit (without logout)
 ; Please select an option:
 ```
+
 There are two main aspects: content-based filtering and collaborative filtering.
 
-- Content-based filtering: 
+- Content-based filtering:
 
-In this context, recipes can be recommended by their similarity in keywords that appear in the instructions of each recipe. This way users can discover more recipes that are similar and likely to be added to favorites. 
+In this context, recipes can be recommended by their similarity in keywords that appear in the instructions of each recipe. This way users can discover more recipes that are similar and likely to be added to favorites.
 
 For example,
+
 ```
 ; Enter recipe title or part of title (from your favs):
 ; Found the following recipes:
@@ -47,11 +49,13 @@ For example,
 ; {:id 35, :title Chef John's ...}
 ; {:id 25, :title Pastelon ...}
 ```
+
 Users can also get recommendations based on the difficulty of the recipes they chose. That way they can discover new recipes with the similar level of difficultiy as the recipes they have already chosen.
 
 For example,
+
 ```
-; Chosen difficulty of the recipe Coconut-Lime Cheesecake with Mango Coulis is hard . The following recipes have the same level of difficulty: 
+; Chosen difficulty of the recipe Coconut-Lime Cheesecake with Mango Coulis is hard . The following recipes have the same level of difficulty:
 ; {:id 29, :title Coconut Ice ...}
 ```
 

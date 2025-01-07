@@ -4,11 +4,9 @@
    [recipe-recommendation-system.utils :as u]
    [clojure.set :as set]))
 
-(defn recommend-by-difficulty [chosen dataset]
-  (let [diff (apply str (map :difficulty chosen))
-        same-diff (filter #(= (:difficulty %) diff) dataset)
-        others (remove #(= (:title %) (map :title chosen)) same-diff)]
-    (take 3 (shuffle others))))
+(defn recommend-by-difficulty [diff dataset]
+  (let [same-diff (filter #(= (:difficulty %) diff) dataset)]
+    (take 3 (shuffle same-diff))))
 
 (defn by-dif [username users recipes]
   (println "Enter recipe title or part of title (from your favs):")
@@ -26,7 +24,7 @@
           (if chosen-recipe
             (do
               (println "Chosen difficulty of the recipe" (apply str (map :title chosen-recipe)) "is" (apply str (map :difficulty chosen-recipe)) ". The following recipes have the same level of difficulty: ")
-              (doseq [rec (recommend-by-difficulty (u/find-by-title chosen-title results) @recipes)]
+              (doseq [rec (recommend-by-difficulty (apply str (map :difficulty chosen-recipe)) (remove #(= (:title %) (map :title chosen-recipe)) @recipes))]
                 (u/print-recipe rec)))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
@@ -65,3 +63,10 @@
               (u/print-recipe rec))
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
+
+(defn most-common-difficulty [favs]
+  (if (empty? favs)
+    "easy"
+    (let [difficulties (map #(get % :difficulty) favs)
+          counts (frequencies difficulties)]
+      (key (apply max-key val counts)))))

@@ -7,8 +7,7 @@
             [recipe-recommendation-system.content :as content]
             [recipe-recommendation-system.users :as users]
             [recipe-recommendation-system.utils :as u]
-            [recipe-recommendation-system.data :as d]
-            [recipe-recommendation-system.utils :as utils])
+            [recipe-recommendation-system.data :as d])
   (:import (java.security MessageDigest)))
 
 
@@ -167,7 +166,7 @@
   (do
     (doseq [rec (take 3
                       (sort-by :fav > @recipes))]
-      (utils/print-recipe rec))))
+      (u/print-recipe rec))))
 
 (defn generate-report [user]
   (let [favs (count (:favs user))
@@ -248,12 +247,13 @@
   (println "3. View favorites")
   (println "4. Remove from favorites")
   (println "5. Recommend by difficulty")
-  (println "6. Generate a report")
-  (println "7. Recommendations by users that chose the same recipe")
-  (println "8. Recommendations by similar users")
-  (println "9. Content recommendation")
-  (println "10. Logout")
-  (println "11. Exit (without logout)")
+  (println "6. Recommend by currently most common difficulty")
+  (println "7. Generate a report")
+  (println "8. Recommendations by users that chose the same recipe")
+  (println "9. Recommendations by similar users")
+  (println "10. Content recommendation")
+  (println "11. Logout")
+  (println "12. Exit (without logout)")
   (println "Please select an option:")
 
   (let [option (read-line)]
@@ -261,7 +261,7 @@
       (= option "0")
       (do
         (doseq [rec @recipes]
-          (utils/print-recipe rec))
+          (u/print-recipe rec))
         (select-option username users recipes))
       (= option "1")
       (do
@@ -277,7 +277,7 @@
       (= option "3")
       (do
         (doseq [rec (u/get-favs-by-username username @users)]
-          (utils/print-recipe rec))
+          (u/print-recipe rec))
         (select-option username users recipes))
 
       (= option "4")
@@ -291,22 +291,27 @@
 
       (= option "6")
       (do
-        (println (generate-report (u/get-user-by-username username users)))
+        (content/recommend-by-difficulty (content/most-common-difficulty (u/get-favs-by-username username @users)) @recipes)
         (select-option username users recipes))
+
       (= option "7")
       (do
-        (users/by-users-recipe username users recipes)
+        (println (generate-report (u/get-user-by-username username users)))
         (select-option username users recipes))
       (= option "8")
       (do
-        (users/print-recs username users)
+        (users/by-users-recipe username users recipes)
         (select-option username users recipes))
       (= option "9")
       (do
+        (users/print-recs username users)
+        (select-option username users recipes))
+      (= option "10")
+      (do
         (content/by-content username users recipes)
         (select-option username users recipes))
-      (= option "10") (logout)
-      (= option "11")
+      (= option "11") (logout)
+      (= option "12")
       (do
         (println "Goodbye!"))
       :else (do
