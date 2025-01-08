@@ -51,7 +51,7 @@
                    (let [updated-title (str/replace (:title item) #"\r\n|\r|\n" "")
                          updated-ingredients (str/replace (:ingr item) #"\r\n|\r|\n" "")
                          updated-serving-size (str/replace (:serving-size item) #"\r\n|\r|\n" "")
-                         updated-instructions (str/replace (:instructions item) #"\r\n|\r|\n" "")
+                         updated-instructions (str/replace (str/replace (:instructions item) #"\r\n|\r|\n" "") #"\." ".\n")
                          updated-difficulty (str/replace (:difficulty item) #"\r\n|\r|\n" "")]
 
                      (assoc item :title updated-title :serving-size updated-serving-size
@@ -184,9 +184,6 @@
      :avg-difficulty avg-difficulty
      :report-time report-time}))
 
-;; (defn get-user-by-username [username]
-;;   (first (filter #(= (:username %) username) @d/registered-users)))
-
 (defn remove-from-favs [favs chosen-recipe]
   (if (some #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
     (remove #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
@@ -291,12 +288,21 @@
 
       (= option "6")
       (do
-        (content/recommend-by-difficulty (content/most-common-difficulty (u/get-favs-by-username username @users)) @recipes)
+        (println "Currently most common difficulty is: " (content/most-common-difficulty (u/get-favs-by-username username @users)))
+        (doseq [rec (content/recommend-by-difficulty (content/most-common-difficulty (u/get-favs-by-username username @users)) @recipes)]
+          (u/print-recipe rec))
         (select-option username users recipes))
 
       (= option "7")
       (do
-        (println (generate-report (u/get-user-by-username username users)))
+        (let [report (generate-report (u/get-user-by-username username users))]
+          (println "\nUsername: " (:username report)
+                   "\nNumber of chosen recipes: " (:num-favs report)
+                   "\nDifficulties in numbers: Easy - " (get-in report [:difficulty-levels "easy"])
+                   ", Medium - " (get-in report [:difficulty-levels "medium"] 0)
+                   ", Hard - " (get-in report [:difficulty-levels "hard"] 0)
+                   "\nAverage difficulty: " (format "%.3f" (float (:avg-difficulty report)))
+                   "\nCurrent time: " (:report-time report)))
         (select-option username users recipes))
       (= option "8")
       (do
@@ -327,6 +333,7 @@
 
     (remove-ns-from-ref recipes)
     (remove-ns-from-ref favorites-base)
+    (clean-strings favorites-base)
     (join-favs users favorites-base)
     (clean-up-favs users)
     (clean-strings recipes)

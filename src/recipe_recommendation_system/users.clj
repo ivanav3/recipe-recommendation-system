@@ -34,7 +34,7 @@
               (println "The following recipes were recommended by other users that chose" (:title chosen-recipe) "as well")
               (doseq [rec (users-recommend (first (u/find-by-title (:title chosen-recipe) @recipes))
                                            username users)]
-                (println rec)))
+                (u/print-recipe rec)))
 
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))

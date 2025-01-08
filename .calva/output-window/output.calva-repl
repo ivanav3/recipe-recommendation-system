@@ -1,155 +1,6 @@
-; This is the Calva REPL Window.
-; It's just a file, really, with some special treatment from Calva.
-; Use it as a REPL input prompt if you like. (When the REPL is connected.)
-; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
-; Please see https://calva.io/repl-window/ for more info.
-; Happy coding! ♥️
-
-; TIPS: As with any Clojure file when the REPL is connected:
-; - `alt+enter` evaluates the current top level form.
-; - `ctrl+enter` evaluates the current form.
-; Special for this file:
-; - `alt+up` and `alt+down` traverse up and down the REPL command history
-;    when the cursor is after the last contents at the prompt
-; 
-; See also the Calva Inspector: https://calva.io/inspector/
-
-PLEASE NOTE
-We will update the default location of this file.
-The new default location will be
-  "<projectRootPath>/.calva/repl.calva-repl"
-For now the legacy path is used by default.
-To give yourself a smooth transition, you can opt in
-to the change, by configuring this setting as false:
-  "calva.useLegacyReplWindowPath"
-and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
-
-
-This file is configured as the output destination for all REPL output.
-You can configure this with the setting:
-  "calva.outputDestinations"
-
-
-; Connecting ...
-; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
-; Using host:port localhost:54282 ...
-; Hooking up nREPL sessions ...
-; Connected session: clj
-; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+; Enter username to logout:
+; ivana has been logged out.
 nil
-clj꞉cas10.core꞉> 
-"Please see https://calva.io/output/#about-stdout-in-the-repl-window
-about why stdout printed to this file is prepended with `;` to be line comments."
-clj꞉cas10.core꞉> 
-#'recipe-recommendation-system.data/db-spec
-clj꞉recipe-recommendation-system.data꞉> 
-nil
-clj꞉recipe-recommendation-system.data꞉> 
-nil
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/get-user-by-username
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/find-by-title
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/contains-more
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/get-favs-by-username
-clj꞉recipe-recommendation-system.utils꞉> 
-#'recipe-recommendation-system.utils/print-recipe
-clj꞉recipe-recommendation-system.utils꞉> 
-nil
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/recommend-by-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-dif
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/extract-keywords
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/content-similarity
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/recommend-by-content
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-content
-clj꞉recipe-recommendation-system.content꞉> 
-nil
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/users-recommend
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/by-users-recipe
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/extract-favs
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/jaccard-similarity
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-user
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/cosine-similarity
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/euclidean
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/get-user-favs
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/most-similar-users
-clj꞉recipe-recommendation-system.users꞉> 
-#'recipe-recommendation-system.users/print-recs
-clj꞉recipe-recommendation-system.users꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/hash-password
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/clean-from-db
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-ns-from-ref
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/attach-favorites-to-user
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/join-favs
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-user-id-from-favorites
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/clean-up-favs
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/clean-strings
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/register
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/logged-in-users
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/is-user-logged-in?
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-user
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/logout
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/add-to-favs
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/update-favs
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/update-rec
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/choose-fav
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/choose-by-popularity
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/generate-report
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-from-favs
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/update-favs-when-removed
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/dec-recipe
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/remove-fav
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/main-menu
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/login
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/-main
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
@@ -170,63 +21,20 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 3. View favorites
 ; 4. Remove from favorites
 ; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; 11. Exit (without logout)
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
 ; Please select an option:
-; The following recipes were chosen by users with similar taste in recipes as ivana
-; ***********************
-; User:  ivana101
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-;  
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-;  
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Hot Banana Salsa 
-; Time: about  30  minutes 
-; Ingredients:  1 large firm banana peeled and diced, ½ cup red bell pepper seeded and diced, ½ cup green bell pepper seeded and diced, ½ cup yellow bell pepper seeded and diced, 3 tablespoons chopped fresh cilantro, 2 green onions chopped, 2 tablespoons fresh lime juice, 1 tablespoon brown sugar, 2 teaspoons minced fresh ginger root, 2 teaspoons olive oil, 1 teaspoon minced habanero pepper, salt to taste
-;  
-; Instructions:  Mix together the banana, red pepper, green pepper, yellow pepper, cilantro, green onion, lime juice, brown sugar, ginger, olive oil, and habanero pepper in a bowl, season with salt. Serve within 1 hour.
-;  
-; Serving size:  24 cups
 ; 
-; ***********************
-; User:  ivana10
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Jamaican Fried Dumplings 
-; Time: about  20  minutes 
-; Ingredients:  4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying 
-; Instructions:  In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-;  
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-;  
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-;  
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Limber de Coco (Coconut Ice) 
-; Time: about  485  minutes 
-; Ingredients:  ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon 
-; Instructions:  Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
-;  
-; Serving size:  4 servings
-; 
-; ***********************
-; User:  ivana13
-; Favorite recipes: 
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy -  nil Medium -  nil Hard -  nil 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:52:17.200643400
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -236,136 +44,18 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 3. View favorites
 ; 4. Remove from favorites
 ; 5. Recommend by difficulty
-; 6. Generate a report
-; 7. Recommendations by users that chose the same recipe
-; 8. Recommendations by similar users
-; 9. Content recommendation
-; 10. Logout
-; 11. Exit (without logout)
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
 ; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
+; Enter username to logout:
+; ivana has been logged out.
+nil
 clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-true
-clj꞉recipe-recommendation-system.users-test꞉> 
-true
-clj꞉recipe-recommendation-system.users-test꞉> 
-; Estimating sampling overhead
-; Warming up for JIT optimisations 10000000000 ...
-;   compilation occurred before 244132 iterations
-;   compilation occurred before 488198 iterations
-;   compilation occurred before 976330 iterations
-;   compilation occurred before 1220396 iterations
-;   compilation occurred before 10983036 iterations
-;   compilation occurred before 12691498 iterations
-;   compilation occurred before 13179630 iterations
-;   compilation occurred before 14399960 iterations
-;   compilation occurred before 15132158 iterations
-;   compilation occurred before 20501610 iterations
-;   compilation occurred before 23674468 iterations
-;   compilation occurred before 30264250 iterations
-;   compilation occurred before 30508316 iterations
-;   compilation occurred before 31484580 iterations
-;   compilation occurred before 32704910 iterations
-;   compilation occurred before 33681174 iterations
-;   compilation occurred before 34169306 iterations
-;   compilation occurred before 34413372 iterations
-;   compilation occurred before 36609966 iterations
-;   compilation occurred before 36854032 iterations
-;   compilation occurred before 46128540 iterations
-;   compilation occurred before 52474256 iterations
-;   compilation occurred before 52718322 iterations
-;   compilation occurred before 57355576 iterations
-;   compilation occurred before 61504698 iterations
-;   compilation occurred before 61748764 iterations
-;   compilation occurred before 62236896 iterations
-;   compilation occurred before 77368988 iterations
-;   compilation occurred before 78589318 iterations
-;   compilation occurred before 93477344 iterations
-;   compilation occurred before 102507786 iterations
-;   compilation occurred before 124717792 iterations
-;   compilation occurred before 134236366 iterations
-;   compilation occurred before 134480432 iterations
-;   compilation occurred before 140582082 iterations
-;   compilation occurred before 213313750 iterations
-;   compilation occurred before 250167716 iterations
-;   compilation occurred before 306058830 iterations
-;   compilation occurred before 306302896 iterations
-;   compilation occurred before 306791028 iterations
-;   compilation occurred before 327048506 iterations
-;   compilation occurred before 397583580 iterations
-;   compilation occurred before 415644464 iterations
-;   compilation occurred before 622124300 iterations
-;   compilation occurred before 628225950 iterations
-;   compilation occurred before 654341012 iterations
-;   compilation occurred before 654585078 iterations
-;   compilation occurred before 661174860 iterations
-;   compilation occurred before 662151124 iterations
-;   compilation occurred before 686557724 iterations
-;   compilation occurred before 747086092 iterations
-;   compilation occurred before 780279068 iterations
-;   compilation occurred before 781987530 iterations
-;   compilation occurred before 782963794 iterations
-;   compilation occurred before 783207860 iterations
-;   compilation occurred before 811763582 iterations
-;   compilation occurred before 812007648 iterations
-;   compilation occurred before 817865232 iterations
-;   compilation occurred before 818109298 iterations
-; Estimating execution count ...
-; Sampling ...
-; Final GC...
-; Checking GC...
-; Finding outliers ...
-; Bootstrapping ...
-; Checking outlier significance
-; Warming up for JIT optimisations 5000000000 ...
-;   compilation occurred before 7693 iterations
-;   compilation occurred before 15385 iterations
-;   compilation occurred before 276913 iterations
-;   compilation occurred before 284605 iterations
-; Estimating execution count ...
-; Sampling ...
-; Final GC...
-; Checking GC...
-; Finding outliers ...
-; Bootstrapping ...
-; Checking outlier significance
-; Evaluation count : 40398 in 6 samples of 6733 calls.
-;              Execution time mean : 19.231236 µs
-;     Execution time std-deviation : 8.253731 µs
-;    Execution time lower quantile : 13.188810 µs ( 2.5%)
-;    Execution time upper quantile : 31.829229 µs (97.5%)
-;                    Overhead used : 8.397465 ns
-nil
-clj꞉recipe-recommendation-system.users-test꞉> 
-; Warming up for JIT optimisations 5000000000 ...
-;   compilation occurred before 23555 iterations
-;   compilation occurred before 70659 iterations
-;   compilation occurred before 1012739 iterations
-; Estimating execution count ...
-; Sampling ...
-; Final GC...
-; Checking GC...
-; Finding outliers ...
-; Bootstrapping ...
-; Checking outlier significance
-; Evaluation count : 137286 in 6 samples of 22881 calls.
-;              Execution time mean : 4.754002 µs
-;     Execution time std-deviation : 854.885974 ns
-;    Execution time lower quantile : 3.871179 µs ( 2.5%)
-;    Execution time upper quantile : 5.752410 µs (97.5%)
-;                    Overhead used : 8.397465 ns
-nil
-clj꞉recipe-recommendation-system.users-test꞉> 
-#'recipe-recommendation-system.content/most-common-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/recommend-by-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/by-dif
-clj꞉recipe-recommendation-system.content꞉> 
-#'recipe-recommendation-system.content/most-common-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
 #'recipe-recommendation-system.core/select-option
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
@@ -377,7 +67,126 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; Please select an option:
 ; Username:
 ; Password:
-; Execution error (ExceptionInfo) at recipe-recommendation-system.core/login (form-init11481663296503995147.clj:335).
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; 
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy -  nil Medium -  nil Hard -  nil 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:52:26.306498800
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/select-option
+clj꞉recipe-recommendation-system.core꞉> 
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; 
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy jeste -  nil Medium -  nil Hard -  nil 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:54:10.148112900
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:327:1).
+; Unable to resolve symbol: easy in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/select-option
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Execution error (ExceptionInfo) at recipe-recommendation-system.core/login (form-init1313097342052160044.clj:341).
 ; User is already logged in. Please logout first.
 clj꞉recipe-recommendation-system.core꞉> 
 ; Enter username to logout:
@@ -411,63 +220,12 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
-; Enter recipe title or part of title (from your favs):
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; Chosen difficulty of the recipe Easy Mojitos is easy . The following recipes have the same level of difficulty: 
-; -----------------------
-; Recipe:  Puerto Rican Steamed Rice 
-; Time: about  35  minutes 
-; Ingredients:  2 tablespoons vegetable oil, 3 cups water, 1 teaspoon salt, 2 cups uncooked calrose rice rinsed 
-; Instructions:  Bring vegetable oil, water, and salt to a boil in a saucepan over high heat. Add rice, and cook until the water has just about cooked out stir. Reduce heat to medium-low. Cover, and cook for 20 to 25 minutes. Stir again, and serve. Rice may be a little sticky and may stick to bottom of pot. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Jamaican Fried Dumplings 
-; Time: about  20  minutes 
-; Ingredients:  4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying 
-; Instructions:  In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Mojito Perfecto 
-; Time: about  5  minutes 
-; Ingredients:  6 mint leaves, 4 teaspoons white sugar, 1 lime, cut into 6 wedges, 2 (1.5 fluid ounce) jiggers lemon-flavored rum, 1 cup ice cubes or as needed, ½ cup carbonated water or as needed 
-; Instructions:  Put 3 mint leaves and 2 teaspoons sugar into each of 2 glass tumblers, vigorously stir sugar and mint together, crushing mint with the back of a spoon to release oils. Add 3 lime wedges to each glass, again stir vigorously to release some lime juice. Pour 1 jigger rum into each glass. Fill glasses with ice cubes and top with carbonated water stir. 
-; Serving size:  2 cocktails
-; --------------------------------------------
 ; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy jeste -  2 Medium -  nil Hard -  nil 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:55:17.254324500
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -491,280 +249,8 @@ Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQue
 ; null
 #'recipe-recommendation-system.core/select-option
 clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Execution error (ExceptionInfo) at recipe-recommendation-system.core/login (form-init11481663296503995147.clj:335).
-; User is already logged in. Please logout first.
-clj꞉recipe-recommendation-system.core꞉> 
-; Enter username to logout:
-; ivana has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; -----------------------
-; Recipe:  Trinidad's Ponche-de-Creme (Punch with Cream) 
-; Time: about  15  minutes 
-; Ingredients:  6 eggs beaten, 2 teaspoons grated lime zest, 3 (14 ounce) cans, sweetened condensed milk, ¾ cup canned evaporated milk, 1 ½ cups rum, 1 tablespoon aromatic bitters, 1 pinch freshly grated nutmeg 
-; Instructions:  In a large bowl, beat eggs and lime zest using an electric mixer until light and fluffy. Gradually pour in the condensed milk while continuing to mix, and then pour in the evaporated milk. Stir in the rum and bitters, and sprinkle with nutmeg. Transfer to a bottle and chill for at least 1 hour before serving. Serve over crushed ice. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Puerto Rican Steamed Rice 
-; Time: about  35  minutes 
-; Ingredients:  2 tablespoons vegetable oil, 3 cups water, 1 teaspoon salt, 2 cups uncooked calrose rice rinsed 
-; Instructions:  Bring vegetable oil, water, and salt to a boil in a saucepan over high heat. Add rice, and cook until the water has just about cooked out stir. Reduce heat to medium-low. Cover, and cook for 20 to 25 minutes. Stir again, and serve. Rice may be a little sticky and may stick to bottom of pot. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Cuban Mojito 
-; Time: about  10  minutes 
-; Ingredients:  2 teaspoons white sugar, 1 lime cut into 4 wedges, 4 sprigs fresh mint, ½ cup white rum, 2 cups club soda, 2 cups crushed ice, 2 wedges lime as garnish 
-; Instructions:  Place 1 teaspoon of sugar into each of two 12 ounce glasses. Squeeze the juice from a lime wedge into each glass, drop in the wedge, and add 2 sprigs of mint. Use a spoon or muddler to mash the sugar, lime juice, and mint together in the bottom of the glasses. Fill each glass about half full with crushed ice. Pour 1/4 cup rum into each glass. Fill the glasses with club soda, stir, and garnish with additional lime wedges. 
-; Serving size:  2 servings
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-; Enter username to logout:
-; ivana has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/select-option
 clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Currently most common difficulty is:  easy
-; -----------------------
-; Recipe:  Puerto Rican Garlic Marinade 
-; Time: about  5  minutes 
-; Ingredients:  ½ cup olive oil, 4 teaspoons crushed garlic, 1 tablespoon salt, 2 ½ teaspoons black pepper 
-; Instructions:  In a blender or food processor, combine olive oil, garlic, salt, and pepper. Process for 3 to 5 minutes. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Mojo Grilling Marinade 
-; Time: about  15  minutes 
-; Ingredients:  6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil 
-; Instructions:  Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth. 
-; Serving size:  3 cups
-; -----------------------
-; Recipe:  Puerto Rican Steamed Rice 
-; Time: about  35  minutes 
-; Ingredients:  2 tablespoons vegetable oil, 3 cups water, 1 teaspoon salt, 2 cups uncooked calrose rice rinsed 
-; Instructions:  Bring vegetable oil, water, and salt to a boil in a saucepan over high heat. Add rice, and cook until the water has just about cooked out stir. Reduce heat to medium-low. Cover, and cook for 20 to 25 minutes. Stir again, and serve. Rice may be a little sticky and may stick to bottom of pot. 
-; Serving size:  8 servings
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter recipe title or part of title:
-; No recipes found.
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; The following recipes were chosen by users with similar taste in recipes as ivana
-; ***********************
-; User:  ivana101
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-;  
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-;  
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Hot Banana Salsa 
-; Time: about  30  minutes 
-; Ingredients:  1 large firm banana peeled and diced, ½ cup red bell pepper seeded and diced, ½ cup green bell pepper seeded and diced, ½ cup yellow bell pepper seeded and diced, 3 tablespoons chopped fresh cilantro, 2 green onions chopped, 2 tablespoons fresh lime juice, 1 tablespoon brown sugar, 2 teaspoons minced fresh ginger root, 2 teaspoons olive oil, 1 teaspoon minced habanero pepper, salt to taste
-;  
-; Instructions:  Mix together the banana, red pepper, green pepper, yellow pepper, cilantro, green onion, lime juice, brown sugar, ginger, olive oil, and habanero pepper in a bowl, season with salt. Serve within 1 hour.
-;  
-; Serving size:  24 cups
-; 
-; ***********************
-; User:  ivana10
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Jamaican Fried Dumplings 
-; Time: about  20  minutes 
-; Ingredients:  4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying 
-; Instructions:  In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-;  
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®)
-;  
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir.
-;  
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Limber de Coco (Coconut Ice) 
-; Time: about  485  minutes 
-; Ingredients:  ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon 
-; Instructions:  Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
-;  
-; Serving size:  4 servings
-; 
-; ***********************
-; User:  ivana13
-; Favorite recipes: 
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; The following recipes were recommended by other users that chose Easy Mojitos as well
-; {:fav 1, :difficulty hard, :instructions Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight.
-; , :title Limber de Coco (Coconut Ice), :ingr ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon, :id 29, :total-time 485, :serving-size 4 servings
-; }
-; {:fav 1, :difficulty easy, :instructions In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving.
-; , :title Jamaican Fried Dumplings, :ingr 4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying, :id 1, :total-time 20, :serving-size 6 servings}
-; {:fav 1, :difficulty medium, :instructions Mix together the banana, red pepper, green pepper, yellow pepper, cilantro, green onion, lime juice, brown sugar, ginger, olive oil, and habanero pepper in a bowl, season with salt. Serve within 1 hour.
-; , :title Hot Banana Salsa, :ingr 1 large firm banana peeled and diced, ½ cup red bell pepper seeded and diced, ½ cup green bell pepper seeded and diced, ½ cup yellow bell pepper seeded and diced, 3 tablespoons chopped fresh cilantro, 2 green onions chopped, 2 tablespoons fresh lime juice, 1 tablespoon brown sugar, 2 teaspoons minced fresh ginger root, 2 teaspoons olive oil, 1 teaspoon minced habanero pepper, salt to taste
-; , :id 48, :total-time 30, :serving-size 24 cups
-; }
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-#'recipe-recommendation-system.users/by-users-recipe
-clj꞉recipe-recommendation-system.users꞉> 
 ; Enter username to logout:
 ; ivana has been logged out.
 nil
@@ -796,383 +282,12 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
-; -----------------------
-; Recipe:  Jamaican Fried Dumplings 
-; Time: about  20  minutes 
-; Ingredients:  4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying 
-; Instructions:  In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Cuban Ropa Vieja 
-; Time: about  255  minutes 
-; Ingredients:  1 tablespoon vegetable oil, 2 pounds beef flank steak, 1 cup beef broth, 1 (8 ounce) can tomato sauce, 1 small onion sliced, 1 green bell pepper seeded and sliced into strips, 2 cloves garlic chopped, 1 (6 ounce) can tomato paste, 1 teaspoon ground cumin, 1 teaspoon chopped fresh cilantro, 1 tablespoon olive oil, 1 tablespoon white vinegar 
-; Instructions:  Heat vegetable oil in a large skillet over medium-high heat. Brown the flank steak on each side, about 4 minutes per side. Transfer beef to a slow cooker. Pour in the beef broth and tomato sauce, then add the onion, bell pepper, garlic, tomato paste, cumin, cilantro, olive oil and vinegar. Stir until well blended. Cover, and cook on High for 4 hours, or on Low for up to 10 hours. When ready to serve, shred meat and serve with tortillas or rice. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Conch Fritters 
-; Time: about  35  minutes 
-; Ingredients:  1 quart oil for frying, ¾ cup all-purpose flour, 1 egg, ½ cup milk, ground cayenne pepper to taste, seasoned salt to taste, salt and pepper to taste, 1 cup chopped conch meat, ½ onion chopped, ½ green bell pepper chopped, 2 stalks celery chopped, 2 cloves garlic chopped, 2 tablespoons ketchup, 2 tablespoons lime juice, 1 tablespoon mayonnaise, 1 tablespoon hot sauce 
-; Instructions:  Heat the oil in a large pot or deep fryer to 365 degrees F (185 degrees C). In a bowl, mix the flour, egg, and milk. Season with cayenne pepper, seasoned salt, salt, and pepper. Mix in the conch meat, onion, bell pepper, celery, and garlic. Drop the batter by rounded tablespoons into the hot oil, and fry until golden brown. Drain on paper towels. In a bowl, mix the ketchup, lime juice, mayonnaise, hot sauce, salt, and pepper. Serve dipping sauce on the side with the fritters. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®) 
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Mojo Grilling Marinade 
-; Time: about  15  minutes 
-; Ingredients:  6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil 
-; Instructions:  Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth. 
-; Serving size:  3 cups
-; -----------------------
-; Recipe:  Cuban Mojito 
-; Time: about  10  minutes 
-; Ingredients:  2 teaspoons white sugar, 1 lime cut into 4 wedges, 4 sprigs fresh mint, ½ cup white rum, 2 cups club soda, 2 cups crushed ice, 2 wedges lime as garnish 
-; Instructions:  Place 1 teaspoon of sugar into each of two 12 ounce glasses. Squeeze the juice from a lime wedge into each glass, drop in the wedge, and add 2 sprigs of mint. Use a spoon or muddler to mash the sugar, lime juice, and mint together in the bottom of the glasses. Fill each glass about half full with crushed ice. Pour 1/4 cup rum into each glass. Fill the glasses with club soda, stir, and garnish with additional lime wedges. 
-; Serving size:  2 servings
-; -----------------------
-; Recipe:  Sofrito 
-; Time: about  20  minutes 
-; Ingredients:  2 green bell peppers seeded and chopped, 1 red bell peppers seeded and chopped, 10 ajies dulces peppers tops removed, 3 medium tomatoes chopped, 4 onions cut into large chunks, 3 medium heads garlic peeled, 25 cilantro stems (with leaves), 25 recao stems (with leaves), 1 tablespoon salt, 1 tablespoon black pepper 
-; Instructions:  In a food processor, combine green peppers, red peppers ajies dulces, tomatoes, onions, and garlic. Add cilantro, recao, salt, and pepper. Process to the consistency of semi-chunky salsa (not watery). Place in a resealable plastic freezer bag, and use as needed, or freeze in portions. 
-; Serving size:  5 cups
-; -----------------------
-; Recipe:  Fresh Banana Daiquiri 
-; Time: about  5  minutes 
-; Ingredients:  ½ large banana sliced, 1 ½ fluid ounces light rum, 1 fluid ounce fresh lime juice, ½ fluid ounce triple sec, 1 teaspoon white sugar or to taste, 1 cup ice cubes 
-; Instructions:  Combine banana, light rum, lime juice, triple sec, and sugar in a blender 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Jerk Chicken Wings 
-; Time: about  550  minutes 
-; Ingredients:  ½ yellow onion chopped, ½ cup green onions sliced, 6 cloves garlic, 3 habanero peppers seeded and chopped, 2 tablespoons fresh thyme leaves, 1 tablespoon kosher salt, 2 teaspoons ground black pepper, 2 teaspoons ground allspice, 1 teaspoon dried thyme, ½ teaspoon ground cinnamon, ½ teaspoon ground cumin, ½ teaspoon freshly grated nutmeg, 2 tablespoons vegetable oil, 3 tablespoons soy sauce, 2 tablespoons brown sugar, ? cup lime juice, 3 pounds chicken wing drumettes, cooking spray 
-; Instructions:  Put yellow onion, green onions, garlic, habanero peppers, fresh thyme, kosher salt, black pepper, allspice, dried thyme, cinnamon, cumin, nutmeg, vegetable oil, soy sauce, brown sugar, and lime juice, respectively, in a blender and blend until marinade is completely smooth.Place chicken in a large bowl. Pour marinade over chicken and toss to coat completely. Cover the bowl with plastic wrap and marinate in the refrigerator for at least 8 hours or overnight. Preheat oven to 450 degrees F (230 degrees C). Line a baking sheet with aluminum foil and spray with cooking spray. Place chicken drumettes on prepared baking sheet and reserve marinade left in the bowl. Bake in the preheated oven for 25 minutes. Brush 1/2 the reserved marinade onto chicken and turn wings over. Bake for 15 minutes. Turn chicken and brush on remaining 1/2 the reserved marinade. Bake until tender and caramelized, 10 to 15 minutes more. An instant-read thermometer inserted near the bone should read 165 degrees F (74 de 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Mahi Mahi with Coconut Rice and Mango Salsa 
-; Time: about  120  minutes 
-; Ingredients:  2 tablespoons olive oil, 1 ½ teaspoons soy sauce, 2 teaspoons lemon juice, 1 clove garlic crushed, 2 teaspoons red pepper flakes, 1 teaspoon fresh ground black pepper, ½ teaspoon minced fresh ginger root, 2 tablespoons chopped green onion, salt to taste, 4 (4 ounce) mahi mahi fillets, 2 cups uncooked jasmine rice, 2 cups water, 1 cube chicken bouillon, 1 tablespoon butter, ¾ (14 ounce) can coconut milk, 2 tablespoons white sugar, 1 ½ teaspoons butter, 1 ½ tablespoons white sugar, 1 ½ cups fresh  
-; Instructions:  Whisk together the olive oil, soy sauce, lemon juice, garlic, red pepper flakes, black pepper, ginger, green onion, and salt in a bowl. Add the mahi mahi and toss to evenly coat. Cover the bowl with plastic wrap, and marinate in the refrigerator for 1 hour. Preheat the oven's broiler and set the oven rack in the middle of the oven. Bring the rice, water, chicken bouillon, and 1 tablespoon butter to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until the liquid has been absorbed, about 20 minutes. Pour in the coconut milk and 2 tablespoons of sugar. Stir, and simmer uncovered until the rice has absorbed most of the coconut milk. While the rice is cooking, remove the mahi mahi from the marinade, and shake off excess. Discard the remaining marinade. Place fish in a large baking dish in a single layer. Broil in the preheated oven until the fish flakes easily with a fork, 10 to 15 minutes. If the fish browns too quickly, cover the baking dish with a sheet 
-; Serving size:  4 servings
-; -----------------------
-; Recipe:  Cuban-Style Yuca 
-; Time: about  30  minutes 
-; Ingredients:  2 pounds yuca peeled and sliced lengthwise, ½ teaspoon salt, ¼ cup olive oil, ½ onion diced, 4 cloves garlic minced, ½ teaspoon fresh lemon juice 
-; Instructions:  Place the yuca into a pan and fill with enough water to cover. Stir in salt. Bring to a boil over medium-high heat, cover, and cook until tender, about 15 minutes. Drain, and place yucca on a serving plate. Meanwhile, place the olive oil, onion, garlic, and lemon juice into a pan. Cook over medium heat about 5 minutes. Pour the hot olive oil mixture over the yuca, and serve immediately. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Puerto Rican Steamed Rice 
-; Time: about  35  minutes 
-; Ingredients:  2 tablespoons vegetable oil, 3 cups water, 1 teaspoon salt, 2 cups uncooked calrose rice rinsed 
-; Instructions:  Bring vegetable oil, water, and salt to a boil in a saucepan over high heat. Add rice, and cook until the water has just about cooked out stir. Reduce heat to medium-low. Cover, and cook for 20 to 25 minutes. Stir again, and serve. Rice may be a little sticky and may stick to bottom of pot. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Chef John's Cuban Bread 
-; Time: about  735  minutes 
-; Ingredients:  ½ teaspoon active dry yeast, ½ cup warm water, ½ cup flour, 1 package active dry yeast, 2 teaspoons white sugar, ¾ cup warm water, 3 tablespoons lard, 2 teaspoons fine salt, 3 cups all-purpose flour or as needed divided, 1 tablespoon cornmeal, Water to spray tops of loaves 
-; Instructions:  Combine 1/2 cup warm water, 1/2 teaspoon yeast, and 1/2 cup flour in a bowl or measuring cup. Whisk the starter until well blended. Cover with plastic wrap and refrigerate overnight. Place 1 package active dry yeast and 2 teaspoons sugar in a mixing bowl. Pour in 3/4 cup warm water. Let rest 15 minutes to ensure yeast is alive (bubbles will form on surface). Add lard and salt to bowl, add 1 cup of the flour. Mix until all ingredients are incorporated and dough forms a sticky ball. Add the starter (reserving 1/4 cup if you want to keep the starter going, if desired. Otherwise add it all.). Sprinkle most of the rest of the flour on the dough, reserving 1/2 cup to be used if needed when kneading. Turn dough out onto a lightly floured work surface and knead until dough comes together in a firm ball, adding additional flour only as needed. Dough should be soft and supple with just a bit of tackiness on the surface. Place dough in a bowl and coat surface with a little vegetable oil. Cover bo 
-; Serving size:  2 loaves
-; -----------------------
-; Recipe:  Tembleque Puerto Rican Coconut Pudding 
-; Time: about  195  minutes 
-; Ingredients:  2 (14 ounce) cans coconut milk, ¾ cup sugar, ¼ teaspoon kosher salt, ½ cup cornstarch, 1 pinch ground cinnamon 
-; Instructions:  Stir coconut milk, sugar, and salt together in a saucepan. Spoon a few tablespoons of the coconut milk mixture into a small bowl and stir cornstarch into the mixture to dissolve, pour into the mixture in the saucepan. Bring the mixture to a boil while stirring constantly, cook until smooth and thick, about 5 minutes. Pour the coconut milk mixture into molds, cover each with plastic wrap, and refrigerate until cold and firm, 3 hours to 2 days. Run a thin knife around the edges of the mold and invert onto a plate to remove putting. Garnish tops with cinnamon. 
-; Serving size:  6 4-ounce servings
-; -----------------------
-; Recipe:  Jamaican Jerked Chicken 
-; Time: about  510  minutes 
-; Ingredients:  ½ green onion, minced, ¼ cup orange juice, 1 tablespoon minced fresh ginger root, 1 tablespoon minced jalapeno peppers, 1 tablespoon lime juice, 1 tablespoon soy sauce, 1 clove garlic minced, 1 teaspoon ground allspice, ¼ teaspoon ground cinnamon, ½ teaspoon ground cloves, 1 ½ pounds boneless skinless chicken thighs 
-; Instructions:  Combine green onion, orange juice, ginger, jalapeno, lime juice, soy sauce, garlic, allspice, cinnamon, and cloves in resealable container. Seal and shake to combine. Add chicken and coat, marinate for 8 hours. Preheat an outdoor grill for medium heat and lightly oil the grate. Remove chicken, reserve marinade. Cook chicken on the preheated grill until no longer pink in the center and juices run clear, turning halfway through, 12 to 15 minutes. An instant-read thermometer inserted into the center should read at least 170 degrees F (77 degrees C). Meanwhile, bring reserved marinade to a boil in a small saucepan. Reduce heat, simmer, uncovered, until slightly thickened, about 5 minutes. Drizzle over cooked chicken. 
-; Serving size:  4 servings
-; -----------------------
-; Recipe:  Budin (Puerto Rican Bread Pudding) 
-; Time: about  300  minutes 
-; Ingredients:  1 cup water, 2 (3 inch) cinnamon sticks, 15 whole cloves, 1 teaspoon anise seed, 2 tablespoons water, ½ cup white sugar, 1 (1 pound) loaf day-old bread, 4 cups evaporated milk, 4 eggs, 1 ½ cups white sugar, 1 teaspoon vanilla extract, ¾ teaspoon salt, ¼ cup butter melted 
-; Instructions:  Bring 1 cup of water to a boil in a small saucepan over high heat. Add the cinnamon sticks, cloves, and anise seeds. Cover, and set aside to steep for 15 minutes. Meanwhile, combine 2 tablespoons water with 1/2 cup sugar in a saucepan over medium-high heat. Stir occasionally to dissolve the sugar completely, but stop stirring once the mixture comes to a boil. Stay near the stove to monitor the color, swirling the pan gently to redistribute the caramel as the sugar begins to darken. Cook to about 310 degrees F (160 degrees C), or until the sugar turns light golden brown, then pour into a 9x5 inch loaf pan. Set aside to allow the caramel to harden. Preheat an oven to 350 degrees F (175 degrees C). Remove the crusts from the day-old bread, tear the bread into cubes, and place into a large mixing bowl. Strain the spice tea through a fine mesh sieve to remove the spices. Add to the bread along with the evaporated milk. Stir to evenly moisten, and set aside for 10 minutes. Whisk the eggs in  
-; Serving size:  1 budin
-; -----------------------
-; Recipe:  Mojito Perfecto 
-; Time: about  5  minutes 
-; Ingredients:  6 mint leaves, 4 teaspoons white sugar, 1 lime, cut into 6 wedges, 2 (1.5 fluid ounce) jiggers lemon-flavored rum, 1 cup ice cubes or as needed, ½ cup carbonated water or as needed 
-; Instructions:  Put 3 mint leaves and 2 teaspoons sugar into each of 2 glass tumblers, vigorously stir sugar and mint together, crushing mint with the back of a spoon to release oils. Add 3 lime wedges to each glass, again stir vigorously to release some lime juice. Pour 1 jigger rum into each glass. Fill glasses with ice cubes and top with carbonated water stir. 
-; Serving size:  2 cocktails
-; -----------------------
-; Recipe:  Caribbean Fish Soup 
-; Time: about  125  minutes 
-; Ingredients:  2 whole fish, scaled and cleaned or more to taste, 1 lemon juiced, 8 cups water, 4 green bananas chopped, 1 pound pumpkin cut into 1-inch pieces or more to taste, 2 potatoes chopped, 2 ears corn cut into 1-inch pieces, 4 ounces carrots cut into 1/2-inch pieces, ½ cup chopped okra, 4 scallions chopped, 1 hot chile pepper, 2 cloves garlic chopped, 1 teaspoon salt, 1 teaspoon ground black pepper, 4 sprigs fresh thyme leaves stripped 
-; Instructions:  Rinse fish with lemon juice drain. Bring water to a boil in a large bowl. Add fish, simmer until soft, about 30 minutes. Strain fish, reserving broth. Let fish cool. Remove bones, trying to keep large pieces of fish intact. Bring broth to a boil. Add green bananas, pumpkin, potatoes, corn, carrots, okra, scallions, chile pepper, garlic, salt, pepper, and thyme. Bring back to a boil. Reduce heat to low, simmer until potatoes are almost tender, about 10 minutes. Stir in fish. Simmer until flavors combine, about 5 minutes more. Remove soup from heat and let stand before serving, about 30 minutes. Discard chile pepper. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Dark n Stormy Cocktail 
-; Time: about  5  minutes 
-; Ingredients:  2 fluid ounces dark rum, 4 fluid ounces ginger beer, ½ cup ice 
-; Instructions:  Combine rum and ginger beer in an old-fashioned glass. Add ice and stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Jamaican Cabbage 
-; Time: about  40  minutes 
-; Ingredients:  1 head cabbage, 2 tablespoons olive oil or as needed, 1 small onion thinly sliced, ½ chopped green bell pepper, 1 green onion sliced, 2 sprigs fresh thyme, 1 whole Scotch bonnet chile pepper, 1 teaspoon salt, 1 cup shredded carrots, ¼ cup white vinegar, 2 tablespoons white sugar 
-; Instructions:  Peel tough outer leaves from cabbage, core the head, and shred cabbage. Heat olive oil in a large skillet over medium high heat. Raise heat to high. Stir onion, green bell pepper, and green onion in the hot oil and cook until vegetables have softened, about 5 minutes, stirring often. Stir thyme, Scotch bonnet pepper, and salt into onion mixture. Mix shredded cabbage and carrots into onion mixture until thoroughly combined, cover skillet, and reduce heat to medium-low. Cook until cabbage has started to soften, about 10 minutes, stirring occasionally. Uncover skillet and stir vinegar and sugar into cabbage mixture, cook and stir until cabbage is tender, about 3 more minutes. Discard Scotch bonnet pepper and thyme sprigs before serving. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Cuban-Style Yellow Rice 
-; Time: about  30  minutes 
-; Ingredients:  4 cups long grain rice, 8 cups water, 1 small onion minced, 2 teaspoons salt, ? teaspoon annatto powder, ? teaspoon paprika, black pepper to taste, 1 cup frozen peas thawed, 1 (4 ounce) jar sliced pimento peppers for garnish 
-; Instructions:  Place the rice in a sieve and rinse under cold water until the water runs clear. Shake sieve to remove excess water from rice. Place rice in a large saucepan with a tightly fitting lid and add water. Stir in the onion, salt, annatto powder, paprika, and pepper. Bring the mixture to a boil over medium-high heat. Reduce heat to low, cover pan, and simmer. After cooking for 10 minutes, gently stir the peas into the rice. Cook until all the water is evaporated and the rice is tender, 15 to 20 minutes longer. Serve garnished with pimento slices. 
-; Serving size:  12 cups
-; -----------------------
-; Recipe:  Jerk Seasoning 
-; Time: about  10  minutes 
-; Ingredients:  2 tablespoons dried minced onion, 2 ½ teaspoons dried thyme, 2 teaspoons ground allspice, 2 teaspoons ground black pepper, ½ teaspoon ground cinnamon, ½ teaspoon cayenne pepper, ½ teaspoon salt, 2 tablespoons vegetable oil 
-; Instructions:  In a small bowl, stir together the dried onion, thyme, allspice, ground black pepper, cinnamon, cayenne pepper, and salt. Coat meat lightly with oil, then rub seasoning onto meat. 
-; Serving size:  1/4 cup
-; -----------------------
-; Recipe:  Dark 'n' Stormy Cocktail 
-; Time: about  5  minutes 
-; Ingredients:  2 fluid ounces dark rum, 4 fluid ounces ginger beer, ½ cup ice 
-; Instructions:  Combine rum and ginger beer in an old-fashioned glass. Add ice and stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Puerto Rican Breakfast Custard 
-; Time: about  30  minutes 
-; Ingredients:  2 tablespoons cornstarch, ? teaspoon salt, 3 tablespoons white sugar, ? teaspoon ground cinnamon, 2 cups whole milk 
-; Instructions:  Whisk together the cornstarch, salt, sugar, and cinnamon in a large saucepan. Stir in the milk to evenly blend ingredients, and set over medium-high heat. Continue whisking and cooking until custard reaches a thick consistency, 25 to 30 minutes. It is important to stir the entire time, or the custard can easily burn or clump. The custard will continue to thicken as it cools. Spoon into bowls to serve. 
-; Serving size:  2 servings
-; -----------------------
-; Recipe:  Pastelon de Platano Maduro (Dominican-Style Yellow Plantain Pie) 
-; Time: about  55  minutes 
-; Ingredients:  cooking spray, 10 plantains peeled and broken into chunks, ½ teaspoon salt, ½ cup milk, ¼ cup butter, 1 tablespoon canola oil, 1 pound ground beef, 1 yellow onion chopped, 1 green bell pepper chopped, ½ cup tomato sauce, 1 teaspoon crushed garlic, ½ cube chicken bouillon, ½ pound shredded Cheddar cheese 
-; Instructions:  Preheat oven to 400 degrees F (200 degrees C). Spray a baking dish with cooking spray. Place plantains and salt into a large pot and cover with water, bring to a boil. Reduce heat to medium-low and simmer until plantains turn a darker yellow, add 1 cup water to the pot, bring to a boil, and cook until tender, about 15 minutes. Drain. Mash plantains, milk, and butter together in the pot until smooth. Heat oil in a large skillet over medium heat. Cook and stir ground beef, onion, bell pepper, tomato sauce, garlic, and chicken bouillon, adding water if mixture gets too dry, in hot oil until beef is browned and cooked through, 10 to 12 minutes. Spread 1/2 of the mashed plantains into the bottom of the prepared baking dish. Pour meat mixture over the plantains and top with Cheddar cheese. Spread remaining mashed plantains over the cheese. Bake in the preheated oven until plantains are golden and filling is bubbling, about 10 minutes. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Mofongo 
-; Time: about  30  minutes 
-; Ingredients:  3 cups canola oil for frying, 3 cloves garlic or to taste, 3 tablespoons olive oil, ? cup crushed fried pork skins, 2 green plantains peeled and sliced into 1/2 inch rounds, salt to taste 
-; Instructions:  Heat canola oil in a deep-fryer or large saucepan to 350 degrees F (175 degrees C). Mash the garlic with the olive oil in a mortar and pestle. Combine garlic mixture with the pork rinds in a large bowl, set aside. Fry the plantain chunks until golden and crispy, but not brown, about 15 minutes. Transfer the fried plantains into the bowl with the garlic mixture. Toss to coat. Mash the coated plantains with the mortar and pestle until smooth. Season with salt. Roll the plantain mixture into two large balls or several small balls before serving. 
-; Serving size:  2 servings
-; -----------------------
-; Recipe:  Quick and Easy Black Beans and Rice 
-; Time: about  40  minutes 
-; Ingredients:  2 tablespoons olive oil, 1 small onion chopped, 3 cloves garlic minced, 2 cups water, 1 (15.5 ounce) can black beans, 1 teaspoon ground cumin, 1 beef bouillon cube, 1 cup rice, ½ teaspoon Creole seasoning or to taste, ½ teaspoon dried cilantro 
-; Instructions:  Heat olive oil in a saucepan over medium heat. Cook and stir onion and garlic in hot oil until softened, 5 to 7 minutes. Stir water, black beans, cumin, and beef bouillon cube into the onion and garlic mixture, bring to a boil, add rice, cover, and simmer until the rice is tender and the moisture is absorbed, about 20 minutes. Gently stir Creole seasoning and cilantro into the beans and rice. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Mangu 
-; Time: about  40  minutes 
-; Ingredients:  3 green plantains, 1 quart water, ¼ cup olive oil, 1 cup sliced white onion, 1 ½ tablespoons salt, 1 cup sliced Anaheim peppers 
-; Instructions:  Place the plantains and water in a saucepan. Bring to a boil, and cook 20 minutes, until plantains are tender but slightly firm. Drain, reserving 1 cup of the liquid. Cool plantains, and peel. Heat the olive oil in a skillet over medium heat, and saute the onion until tender. In a bowl, mash the plantains with the reserved liquid and salt. Transfer to a food processor, mix in the peppers, and puree. Serve the pureed plantain mixture topped with the onions. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Limber de Coco (Coconut Ice) 
-; Time: about  485  minutes 
-; Ingredients:  ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon 
-; Instructions:  Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight. 
-; Serving size:  4 servings
-; -----------------------
-; Recipe:  Horchata de Arroz (Rice Drink) 
-; Time: about  735  minutes 
-; Ingredients:  1 cup uncooked long grain white rice, 3 ½ cups cold water, 1 (12 fluid ounce) can evaporated milk, ½ cup white sugar, ½ teaspoon ground cinnamon, 1 teaspoon vanilla extract 
-; Instructions:  Combine tequila, mint leaves, sugar, and lime wedges in a tall glass vigorously stir the mixture, crushing mint with the back of a spoon to release oils and squeezing juice from the lemon wedges. Top with club soda and stir gently to serve. 
-; Serving size:  1 quart
-; -----------------------
-; Recipe:  Mango Pudding (Flan de Mango) 
-; Time: about  60  minutes 
-; Ingredients:  1 cup white sugar, 1 tablespoon lemon juice, 2 cups pureed mango, 1 (14 ounce) can sweetened condensed milk, 2 tablespoons cornstarch, 1 tablespoon rum, 1 cup evaporated milk, 6 eggs beaten, 1 pinch salt 
-; Instructions:  Preheat oven to 350 degrees F (175 degrees C). Fill a large, shallow baking pan with about 1 1/2 inches water. In an 8x13 inch aluminum baking pan over medium heat, mix the sugar and lemon juice. Cook and stir until caramelized. Remove from heat, and blend in mango, sweetened condensed milk, cornstarch, rum, evaporated milk, eggs, and salt. Set pan with the mango mixture into the pan with water. Place in the preheated oven, and bake 45 minutes, or until firm. Cool before turning out onto a platter. 
-; Serving size:  12 servings
-; -----------------------
-; Recipe:  Trinidad's Ponche-de-Creme (Punch with Cream) 
-; Time: about  15  minutes 
-; Ingredients:  6 eggs beaten, 2 teaspoons grated lime zest, 3 (14 ounce) cans, sweetened condensed milk, ¾ cup canned evaporated milk, 1 ½ cups rum, 1 tablespoon aromatic bitters, 1 pinch freshly grated nutmeg 
-; Instructions:  In a large bowl, beat eggs and lime zest using an electric mixer until light and fluffy. Gradually pour in the condensed milk while continuing to mix, and then pour in the evaporated milk. Stir in the rum and bitters, and sprinkle with nutmeg. Transfer to a bottle and chill for at least 1 hour before serving. Serve over crushed ice. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Coconut-Lime Cheesecake with Mango Coulis 
-; Time: about  570  minutes 
-; Ingredients:  ¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste 
-; Instructions:  Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev 
-; Serving size:  1 9-inch cheesecake
-; -----------------------
-; Recipe:  We Be Jammin' Jamaican Banana Bread 
-; Time: about  165  minutes 
-; Ingredients:  2 tablespoons unsalted butter softened, 2 tablespoons cream cheese, 1 cup white sugar, 1 egg, 2 cups all-purpose flour, 2 teaspoons baking powder, ½ teaspoon baking soda, ? teaspoon salt, 1 cup mashed overripe bananas, ½ cup milk, 2 tablespoons dark rum or rum flavoring, ½ teaspoon lime zest, 2 teaspoons lime juice, 1 teaspoon vanilla extract, ¼ cup chopped toasted pecans, ¼ cup flaked coconut, ¼ cup brown sugar, 2 teaspoons unsalted butter, 2 teaspoons dark rum or rum flavoring, 2 tablespoons c 
-; Instructions:  Preheat oven to 375  degrees F (190 degrees C).  Lightly grease two 8x4 inch loaf pans. Beat together 2 tablespoons of softened butter and cream cheese in a large bowl until fluffy.  Slowly beat in sugar until well incorporated.  Add the egg and mix well.  Sift together the flour, baking powder, baking soda, and salt in a separate bowl.  In a different bowl, mix together the bananas, milk, 2 tablespoons rum, lime zest, lime juice, and vanilla extract, stir well.  Pour 1/3 of the flour mixture into the butter and mix well.  Mix in 1/2 of the mashed bananas.  Continue with another 1/3 of the flour, followed by the remaining banana mixture, and finally the remaining flour.  Fold in 1/4 cup pecans and 1/4 cup coconut flakes.Pour the mixture into the loaf pans, and bake in the preheated oven until a toothpick inserted into the center comes out clean, about one hour.  When finished, cool for 10 minutes in the pan, remove, and finish cooling on a wire rack. After you take the banana bread out 
-; Serving size:  2 loaves
-; -----------------------
-; Recipe:  Chef John's Hummingbird Cake 
-; Time: about  200  minutes 
-; Ingredients:  2 cups white sugar, 3 cups all-purpose flour, 1 teaspoon ground cinnamon, 1 teaspoon baking soda, 1 ¼ teaspoons kosher salt, 1 ½ cups vegetable oil, 3 large eggs beaten, 1 ½ teaspoons vanilla extract, 1 cup crushed pineapple, 3 medium ripe bananas sliced, 1 cup chopped pecans toasted, 2 (8 ounce) packages cream cheese, softened, ½ cup unsalted butter at room temperature, 1 teaspoon vanilla extract, 1 (16 ounce) package powdered sugar, ½ cup white sugar, or as needed, ¼ cup edible flowers assorte 
-; Instructions:  Preheat the oven to 350 degrees F (175 degrees C). Butter two 9-inch round cake pans, then dust with flour. Set aside. Combine sugar, flour, cinnamon, baking soda, and salt in a large mixing bowl, whisk quickly to combine. Add oil and eggs and mix with a spatula until just combined. Add vanilla, pineapple, bananas, and toasted pecans, and mix until thoroughly combined. Divide batter evenly between the prepared pans. Shake each pan then tap on the counter to settle the batter and bring any air bubbles to the top. Bake in the preheated oven until a wooden skewer inserted in center comes out clean, about 35 minutes. Let cakes cool in pan for 10 minutes before removing to a wire rack. Let cool completely, at least 1 hour. Combine cream cheese, butter, and vanilla in the bowl of a stand mixer. Using the whisk attachment on high speed, mix until smooth and creamy, scraping down the sides as necessary with a spatula. Mix in the powdered sugar on a lower speed in 3 or 4 additions until mostly  
-; Serving size:  1 9-inch layer cake
-; -----------------------
-; Recipe:  Caribbean Slaw 
-; Time: about  80  minutes 
-; Ingredients:  ½ head green cabbage shredded, 1 red bell pepper thinly sliced, ½ red onion thinly sliced, 2 carrots peeled and shredded, 1 mango - peeled seeded and diced, ½ cup fresh cilantro chopped, ? cup nonfat plain yogurt, 2 tablespoons reduced-fat mayonnaise, 1 tablespoon prepared yellow mustard, 1 tablespoon apple cider vinegar, 1 teaspoon agave nectar, salt and black pepper to taste, 1 dash habanero hot sauce or more to taste 
-; Instructions:  Toss the cabbage, red bell pepper, red onion, carrots, mango, and cilantro together in a large bowl. Whisk the yogurt, mayonnaise, mustard, cider vinegar, agave nectar, salt, pepper, and hot sauce together in a small bowl, pour over the cabbage mixture and toss to coat. Allow the slaw to marinate in the refrigerator for at least 1 hour to allow the flavors to combine. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Easy Cold Green Bean Salad 
-; Time: about  80  minutes 
-; Ingredients:  2 pounds fresh green beans trimmed, ½ cup balsamic vinegar, ? cup extra-virgin olive oil, 1 small sweet onion thinly sliced, 1 clove garlic minced, 2 teaspoons chopped fresh parsley, 1 teaspoon white sugar, 1 teaspoon salt, freshly ground black pepper to taste. Bring a large pot with lightly salted water to a boil over high heat. Add beans and cook, uncovered, until soft but still firm to the bite, 7 to 10 minutes. Check often so beans don't overcook. Combine vinegar, olive oil, onion, garlic, p 
-; Instructions:  Bring a large pot with lightly salted water to a boil over high heat. Add beans and cook, uncovered, until soft but still firm to the bite, 7 to 10 minutes. Check often so beans don't overcook. Combine vinegar, olive oil, onion, garlic, parsley, sugar, salt, and pepper in a large bowl. Drain cooked green beans and mix with dressing in the bowl while still warm. Allow to marinate at room temperature for at least 1 hour. Serve at room temperature or chilled. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Vegan Mofongo (Fried Mashed Plantains) 
-; Time: about  45  minutes 
-; Ingredients:  5 large green plantains coarsely chopped, 1 can organic tomato sauce, 1 small bunch cilantro chopped or to taste, 2 tablespoons homemade sofrito, 2 tablespoons olive oil or to taste divided, 1 clove garlic minced, 1 packet sazon seasoning, ½ cup vegetable broth or to taste, salt and ground black pepper to taste 
-; Instructions:  Fill a 1-quart pot with water, boil plantains with a pinch of salt until easily pierced with a fork, about 25 minutes. Mash plantains with tomato sauce, cilantro, sofrito, 1 tablespoon olive oil, garlic, and sazon in a mortar or glass bowl. Incorporate the remaining 1 tablespoon olive oil and enough vegetable broth to ensure that mofongo sticks together but is dry enough to easily slip out of a container. Season with salt and pepper. Serve mofongo on top of the remaining 5 tablespoons vegetable broth in a bowl. 
-; Serving size:  4 servings
-; -----------------------
-; Recipe:  Cuban Inspired Millet 
-; Time: about  55  minutes 
-; Ingredients:  1 carrot, chopped, 2 cloves garlic crushed, 1 tablespoon olive oil, 1 onion chopped, 1 green bell pepper chopped, 1 cup millet, 2 cups vegetable broth, salt and ground black pepper to taste, ¼ cup chopped fresh cilantro or more to taste 
-; Instructions:  Blend carrot and garlic in a food processor until finely chopped. Heat olive oil in a pot over medium heat, cook and stir carrot mixture, onion, and green bell pepper until softened, about 10 minutes. Add millet, stir until fragrant and toasted, about 3 minutes. Pour vegetable broth into millet mixture, season with salt and black pepper. Reduce heat and simmer until all the broth is absorbed and millet is tender, about 20 minutes. Stir in cilantro. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Surullitos de Maiz (Cornmeal Sticks) 
-; Time: about  35  minutes 
-; Ingredients:  2 cups water, 1 ¼ teaspoons salt, 1 ½ cups yellow cornmeal, 5 tablespoons white sugar or to taste, 4 ounces Edam cheese shredded, 2 cups oil for deep frying, 1 cup ketchup, 1 cup mayonnaise 
-; Instructions:  Combine the water and salt in a saucepan, and bring to a boil. Remove from the heat, and stir in the cornmeal and sugar. Return to medium heat, and cook stirring constantly until the mixture pulls away from the sides of the pan. Remove from heat, and stir in the Edam cheese until well blended. Roll tablespoonfuls of the cornmeal mixture into balls. Then roll the balls into small fat sticks about 3 inches long. In a medium bowl, mix together the ketchup and mayonnaise to make the dipping sauce. Set aside.  Heat oil in a large heavy skillet to 375 degrees F (190 degrees C). Carefully place some of the corn sticks into the oil so they are not crowded. Fry until golden brown, 3 to 4 minutes. Remove from hot oil, and drain on paper towels. Serve immediately with the sauce. 
-; Serving size:  50 sticks
-; -----------------------
-; Recipe:  Basil-Cucumber Mojito 
-; Time: about  10  minutes 
-; Ingredients:  3 slices 1/4 inch thick slices cucumber, 8 leaves basil or more to taste, 2 lime slices, 2 (1.5 fluid ounce) jiggers rum, 2 raw sugar cubes, ice cubes as desired, 1 splash club soda, 1 cucumber wedge for garnish, 1 sprig fresh basil for garnish 
-; Instructions:  Put cucumbers, basil leaves, lime slices, rum, and raw sugar cubes into a metal cocktail shaker. Mash mixture together with a muddler until the sugar cubes have dissolved. Add ice, place lid onto the shaker, and shake vigorously, strain into a chilled glass tumbler filled with ice. Top cocktail with club soda and garnish with cucumber wedge and basil sprig. 
-; Serving size:  1 mojito
-; -----------------------
-; Recipe:  Puerto Rican Garlic Marinade 
-; Time: about  5  minutes 
-; Ingredients:  ½ cup olive oil, 4 teaspoons crushed garlic, 1 tablespoon salt, 2 ½ teaspoons black pepper 
-; Instructions:  In a blender or food processor, combine olive oil, garlic, salt, and pepper. Process for 3 to 5 minutes. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  The Real Mojito 
-; Time: about  10  minutes 
-; Ingredients:  10 fresh mint leaves, ½ lime cut into 4 wedges, 2 tablespoons white sugar or to taste, 1 cup ice cubes, 1 ½ fluid ounces white rum, ½ cup club soda 
-; Instructions:  Place mint leaves and 1 lime wedge into a sturdy glass. Use a muddler to crush the mint and lime to release the mint oils and lime juice. Add 2 more lime wedges and the sugar, and muddle again to release the lime juice. Do not strain the mixture. Fill the glass almost to the top with ice. Pour the rum over the ice, and fill the glass with carbonated water. Stir, taste, and add more sugar if desired. Garnish with the remaining lime wedge. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Sazon 
-; Time: about  5  minutes 
-; Ingredients:  1 tablespoon ground coriander, 1 tablespoon ground cumin, 1 tablespoon garlic powder, 1 tablespoon ground annatto seed, 1 ½ teaspoons ground turmeric, 1 teaspoon ground black pepper, 1 tablespoon kosher salt, 1 ½ teaspoons dried Mexican oregano 
-; Instructions:  Combine coriander, cumin, garlic powder, annatto, turmeric, black pepper, salt, and Mexican oregano in an air-tight container and mix well. 
-; Serving size:  10 servings
-; -----------------------
-; Recipe:  Corn and Rice 
-; Time: about  70  minutes 
-; Ingredients:  1 slice bacon chopped, ½ onion chopped, ¼ green bell pepper chopped, ½ teaspoon chopped fresh thyme, ½ cup tomato sauce, 1 teaspoon browning sauce, 1 teaspoon salt, ½ teaspoon ground black pepper, 1 pinch red pepper flakes, 2 (14 ounce) cans whole kernel corn drained, 3 ½ cups water, 2 cups white rice 
-; Instructions:  Cook the bacon in a large saucepan over medium heat until the grease begins to render. Stir in the onion, bell pepper, and thyme, cook until the onion is nearly translucent. Reduce heat to medium-low and add the tomato sauce, browning sauce, salt, black pepper, and red pepper flakes, stir, simmer another 3 minutes. Add the corn, simmer another 3 minutes. Slowly pour the water into the mixture while stirring. Raise the heat to high and stir in the rice, bring to a boil, cover and reduce heat to low. Simmer until the rice has absorbed all the moisture, about 30 minutes, fluff with a fork to serve. 
-; Serving size:  5 servings
-; -----------------------
-; Recipe:  Caribbean Coconut Bread 
-; Time: about  90  minutes 
-; Ingredients:  1 teaspoon butter softened, 1 ¾ cups all-purpose flour, 1 ½ cups white sugar, 1 cup shredded coconut, 1 teaspoon baking powder, ¾ teaspoon salt, 2 eggs, ? cup low-fat milk, ¼ cup water, ¼ cup canola oil, 1 ¼ teaspoons coconut extract, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon 
-; Instructions:  Preheat oven to 350 degrees F (175 degrees C). Grease a loaf pan with butter. Combine flour, sugar, coconut, baking powder, and salt in a large bowl, stir once or twice with a wooden spoon. Add eggs, milk, water, oil, coconut extract, vanilla extract, and cinnamon. Mix well until batter is blended. Pour batter into the greased loaf pan. Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 1 hour. Cool in the pan for 15 minutes. Invert onto a wire rack to cool completely. 
-; Serving size:  1 loaf
-; -----------------------
-; Recipe:  Easy Cuban Salad 
-; Time: about  15  minutes 
-; Ingredients:  ½ cup extra virgin olive oil, ¼ cup fresh lemon juice, 2 tablespoons fresh orange juice, 2 tablespoons fresh lime juice, 1 teaspoon minced garlic, 1 teaspoon salt or to taste, ¼ teaspoon ground black pepper, 1 head romaine lettuce rinsed dried and chopped, 2 medium tomatoes, cut into 8 wedges, 8 medium radishes thinly sliced, 1 medium red onion thinly sliced, 1 avocado peeled pitted and chopped 
-; Instructions:  Combine olive oil, lemon juice, orange juice, lime juice, minced garlic, salt, and pepper in a 1-pint container or jar with tight-fitting lid. Tightly close the lid and shake until the ingredients are well blended. Refrigerate until ready to toss with the salad, or up to 3 days. Combine chopped romaine, tomato wedges, sliced radishes, sliced red onion, and chopped avocado in a large bowl. Add as much dressing as you like, and toss all ingredients. Refrigerate unused salad dressing. Serve dressed, tossed salads on individual salad plates. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Hot Banana Salsa 
-; Time: about  30  minutes 
-; Ingredients:  1 large firm banana peeled and diced, ½ cup red bell pepper seeded and diced, ½ cup green bell pepper seeded and diced, ½ cup yellow bell pepper seeded and diced, 3 tablespoons chopped fresh cilantro, 2 green onions chopped, 2 tablespoons fresh lime juice, 1 tablespoon brown sugar, 2 teaspoons minced fresh ginger root, 2 teaspoons olive oil, 1 teaspoon minced habanero pepper, salt to taste 
-; Instructions:  Mix together the banana, red pepper, green pepper, yellow pepper, cilantro, green onion, lime juice, brown sugar, ginger, olive oil, and habanero pepper in a bowl, season with salt. Serve within 1 hour. 
-; Serving size:  24 cups
-; -----------------------
-; Recipe:  Coconut Conch Chowder 
-; Time: about  65  minutes 
-; Ingredients:  1 pound conch meat, ¼ cup margarine divided, 2 green onions chopped, 1 carrot diced, 1 stalk celery diced, 1 small sweet potato peeled and diced, 1 small red bell pepper diced, ½ cup fresh corn kernels, 2 tablespoons all-purpose flour, 1 quart half-and-half, 1 (14 ounce) can unsweetened coconut milk, 2 cups fish stock, 1 ½ tablespoons grated fresh ginger root, salt and pepper to taste, 1 ½ teaspoons hot sauce, 1 bunch fresh cilantro chopped 
-; Instructions:  Place conch meat in a pot with enough water to cover, and bring to a boil. Cook 15 minutes. Drain, and finely chop in a food processor. Melt 2 tablespoons margarine in a skillet over medium heat, and mix in the green onions, carrot, celery, sweet potato, red pepper, and corn. Cook and stir 5 minutes. Melt remaining 2 tablespoons margarine in a large pot, and whisk in the flour to create a roux. Pour in the half and half, coconut milk, and fish stock. Mix in the ginger, and season with salt and pepper. Stir the conch and vegetables into the pot. Bring to a boil, reduce heat to low, and simmer 15 minutes. Mix in the hot sauce and cilantro. Continue cooking 15 minutes, or to desired consistency. 
-; Serving size:  8 servings
-; -----------------------
-; Recipe:  Authentic Bahamian Peas and Rice 
-; Time: about  55  minutes 
-; Ingredients:  1 tablespoon vegetable oil, 1 onion chopped, ½ green bell pepper chopped, 8 ounces cubed cooked ham, 1 tablespoon tomato paste, 1 tomato chopped, 2 slices bacon cooked and crumbled, 8 ounces corned beef chopped, 1 (15 ounce) can pigeon peas drained, 2 sprigs fresh thyme, salt and pepper to taste, 1 (10 ounce) can coconut milk, 6 cups water, 1 teaspoon browning sauce, 3 cups uncooked brown rice 
-; Instructions:  Heat oil in a large pot over medium heat. Add the onion, and fry until transparent. Stir in the green pepper, ham, tomato paste, tomato, bacon, corned beef, and pigeon peas. Season with thyme, salt, and pepper. Bring to a simmer. Stir in the coconut milk, water and browning sauce, and bring to a boil. Stir in the rice. Return to a boil, then stir, cover, and reduce the heat to low. Simmer for about 45 minutes, until rice is tender. Stir occasionally. 
-; Serving size:  8 servings
-; --------------------------------------------
 ; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; Recipe deleted from favorites!
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; -----------------------
-; Recipe:  Mojo Grilling Marinade 
-; Time: about  15  minutes 
-; Ingredients:  6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil
-;  
-; Instructions:  Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth.
-;  
-; Serving size:  3 cups
-; -----------------------
-; Recipe:  Coconut-Lime Cheesecake with Mango Coulis
-;  
-; Time: about  570  minutes 
-; Ingredients:  ¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste 
-; Instructions:  Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev 
-; Serving size:  1 9-inch cheesecake
-
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter recipe title or part of title:
-; Found the following recipes:
-; Easy Mojitos
-; Please enter the full title of the recipe you're interested in:
-; Recipe added to favorites!
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy -  2 , Medium -  nil , Hard -  1 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:56:01.406257300
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -1194,7 +309,12 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
-#'recipe-recommendation-system.core/main-menu
+; Enter username to logout:
+; Sending interrupt.; Evaluation was interrupted
+clj꞉recipe-recommendation-system.core꞉> 
+Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
+; null
+#'recipe-recommendation-system.core/select-option
 clj꞉recipe-recommendation-system.core꞉> 
 ; Enter username to logout:
 ; ivana has been logged out.
@@ -1227,237 +347,12 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®) 
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Mojo Grilling Marinade 
-; Time: about  15  minutes 
-; Ingredients:  6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil 
-; Instructions:  Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth. 
-; Serving size:  3 cups
-; -----------------------
-; Recipe:  Coconut-Lime Cheesecake with Mango Coulis 
-; Time: about  570  minutes 
-; Ingredients:  ¾ cup sweetened flaked coconut, ¾ cup crushed gingersnap cookies, 3 tablespoons melted butter, 2 (8 ounce) packages cream cheese softened, 1 (10 ounce) can sweetened condensed milk, 2 eggs, 1 tablespoon lime zest, 2 tablespoons lime juice, 1 tablespoon coconut extract, 2 cups cubed fresh mango, 1 teaspoon white sugar or more to taste 
-; Instructions:  Preheat oven to 325 degrees F (165 degrees C). Lightly grease a 9-inch springform pan. Combine the coconut, gingersnap cookies, and melted butter in a bowl, mix until evenly moistened. Press the cookie mixture into the bottom and slightly up the sides of the prepared pan. Bake the crust in the preheated oven until browned and set, about 10 minutes. Set aside to cool. Reduce oven heat to 300 degrees F (150 degrees C). Beat the softened cream cheese in mixer bowl until smooth. With beater set to medium-low, slowly pour the condensed milk into the bowl, mixing only until just blended, stopping to scrape the sides of the bowl as necessary. Add the eggs, individually, allowing the first to blend into the mixture before adding the second, again, scrape the sides of the bowl as necessary. Pour about half of the cream cheese batter into a separate bowl. Stir the lime juice and lime zest into the portion in the new bowl, pour the batter over the crust in the springform pan, smoothing into an ev 
-; Serving size:  1 9-inch cheesecake
-; --------------------------------------------
 ; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; The following recipes were chosen by users with similar taste in recipes as ivana
-; ***********************
-; User:  ivana101
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®) 
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Hot Banana Salsa 
-; Time: about  30  minutes 
-; Ingredients:  1 large firm banana peeled and diced, ½ cup red bell pepper seeded and diced, ½ cup green bell pepper seeded and diced, ½ cup yellow bell pepper seeded and diced, 3 tablespoons chopped fresh cilantro, 2 green onions chopped, 2 tablespoons fresh lime juice, 1 tablespoon brown sugar, 2 teaspoons minced fresh ginger root, 2 teaspoons olive oil, 1 teaspoon minced habanero pepper, salt to taste 
-; Instructions:  Mix together the banana, red pepper, green pepper, yellow pepper, cilantro, green onion, lime juice, brown sugar, ginger, olive oil, and habanero pepper in a bowl, season with salt. Serve within 1 hour. 
-; Serving size:  24 cups
-; ***********************
-; User:  ivana10
-; Favorite recipes: 
-; -----------------------
-; Recipe:  Jamaican Fried Dumplings 
-; Time: about  20  minutes 
-; Ingredients:  4 cups all-purpose flour, 2 teaspoons baking powder, 1 ½ teaspoons salt, ½ cup butter, ½ cup cold water, 1 cup vegetable oil for frying 
-; Instructions:  In a large bowl, stir together the flour, baking powder and salt. Rub in the butter until it is in pieces no larger than peas. Mix in water 1 tablespoon at a time just until the mixture is wet enough to form into a ball. The dough should be a firm consistency. Knead briefly. Heat the oil in a large heavy skillet over medium heat until hot. Break off pieces of the dough and shape into a patty - kind of like a flat biscuit. Place just enough of the dumplings in the pan so they are not crowded. Fry on each side until golden brown, about 3 minutes per side. Remove from the pan and drain on paper towels before serving. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®) 
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Limber de Coco (Coconut Ice) 
-; Time: about  485  minutes 
-; Ingredients:  ½ (14 ounce) can coconut milk, ½ (12 fluid ounce) can evaporated milk, ¼ cup white sugar, 1 teaspoon vanilla extract, ½ teaspoon ground cinnamon 
-; Instructions:  Mix coconut milk, evaporated milk, sugar, vanilla extract, and cinnamon together in a bowl or blender until sugar dissolves and mixture is thoroughly combined.Pour mixture into ice trays or popsicle molds. Freeze 8 hours to overnight. 
-; Serving size:  4 servings
-; ***********************
-; User:  ivana13
-; Favorite recipes: 
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Currently most common difficulty is:  easy
-; -----------------------
-; Recipe:  Basil-Cucumber Mojito 
-; Time: about  10  minutes 
-; Ingredients:  3 slices 1/4 inch thick slices cucumber, 8 leaves basil or more to taste, 2 lime slices, 2 (1.5 fluid ounce) jiggers rum, 2 raw sugar cubes, ice cubes as desired, 1 splash club soda, 1 cucumber wedge for garnish, 1 sprig fresh basil for garnish 
-; Instructions:  Put cucumbers, basil leaves, lime slices, rum, and raw sugar cubes into a metal cocktail shaker. Mash mixture together with a muddler until the sugar cubes have dissolved. Add ice, place lid onto the shaker, and shake vigorously, strain into a chilled glass tumbler filled with ice. Top cocktail with club soda and garnish with cucumber wedge and basil sprig. 
-; Serving size:  1 mojito
-; -----------------------
-; Recipe:  Cuban-Style Yuca 
-; Time: about  30  minutes 
-; Ingredients:  2 pounds yuca peeled and sliced lengthwise, ½ teaspoon salt, ¼ cup olive oil, ½ onion diced, 4 cloves garlic minced, ½ teaspoon fresh lemon juice 
-; Instructions:  Place the yuca into a pan and fill with enough water to cover. Stir in salt. Bring to a boil over medium-high heat, cover, and cook until tender, about 15 minutes. Drain, and place yucca on a serving plate. Meanwhile, place the olive oil, onion, garlic, and lemon juice into a pan. Cook over medium heat about 5 minutes. Pour the hot olive oil mixture over the yuca, and serve immediately. 
-; Serving size:  6 servings
-; -----------------------
-; Recipe:  Sofrito 
-; Time: about  20  minutes 
-; Ingredients:  2 green bell peppers seeded and chopped, 1 red bell peppers seeded and chopped, 10 ajies dulces peppers tops removed, 3 medium tomatoes chopped, 4 onions cut into large chunks, 3 medium heads garlic peeled, 25 cilantro stems (with leaves), 25 recao stems (with leaves), 1 tablespoon salt, 1 tablespoon black pepper 
-; Instructions:  In a food processor, combine green peppers, red peppers ajies dulces, tomatoes, onions, and garlic. Add cilantro, recao, salt, and pepper. Process to the consistency of semi-chunky salsa (not watery). Place in a resealable plastic freezer bag, and use as needed, or freeze in portions. 
-; Serving size:  5 cups
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter username to logout:
-; ivana has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana13
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Execution error (ArityException) at recipe-recommendation-system.content/most-common-difficulty (form-init11481663296503995147.clj:70).
-; Wrong number of args (1) passed to: clojure.core/max-key
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.content/most-common-difficulty
-clj꞉recipe-recommendation-system.content꞉> 
-; Enter username to logout:
-; ivana13 has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana13
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Currently most common difficulty is:  easy
-; -----------------------
-; Recipe:  Mojo Grilling Marinade 
-; Time: about  15  minutes 
-; Ingredients:  6 cloves garlic coarsely chopped, ½ cup minced yellow onion, 1 cup freshly squeezed orange juice, ½ cup freshly squeezed lime juice, ½ teaspoon ground cumin, 1 teaspoon dried oregano flakes, ½ teaspoon lemon-pepper seasoning, ½ teaspoon freshly ground black pepper, 1 teaspoon kosher salt, ¼ cup chopped cilantro, 1 teaspoon hot pepper sauce (e.g. Tabasco™), 1 cup olive oil 
-; Instructions:  Pulse the garlic and onion in a blender until very finely chopped.  Pour in orange juice, lime juice season with cumin, oregano, lemon-pepper, black pepper, salt, cilantro, and hot pepper sauce.  Blend until thoroughly incorporated.  Pour in the olive oil, and blend until smooth. 
-; Serving size:  3 cups
-; -----------------------
-; Recipe:  Easy Mojitos 
-; Time: about  5  minutes 
-; Ingredients:  12 leaves mint, 2 lime slices, 1 teaspoon white sugar or more to taste, ¼ cup ice cubes or as needed, 1 (1.5 fluid ounce) jigger rum (such as Bacardi®), 4 ½ ounces diet lemon-lime soda (such as Diet Sprite®) 
-; Instructions:  Place mint leaves, lime slice, and sugar in bottom of a glass and muddle with a spoon until mint is crushed. Fill glass with ice cubes. Pour rum and soda over the ice stir. 
-; Serving size:  1 cocktail
-; -----------------------
-; Recipe:  Sofrito 
-; Time: about  20  minutes 
-; Ingredients:  2 green bell peppers seeded and chopped, 1 red bell peppers seeded and chopped, 10 ajies dulces peppers tops removed, 3 medium tomatoes chopped, 4 onions cut into large chunks, 3 medium heads garlic peeled, 25 cilantro stems (with leaves), 25 recao stems (with leaves), 1 tablespoon salt, 1 tablespoon black pepper 
-; Instructions:  In a food processor, combine green peppers, red peppers ajies dulces, tomatoes, onions, and garlic. Add cilantro, recao, salt, and pepper. Process to the consistency of semi-chunky salsa (not watery). Place in a resealable plastic freezer bag, and use as needed, or freeze in portions. 
-; Serving size:  5 cups
+; Username:  ivana 
+; Number of chosen recipes:  3 
+; Difficulties in numbers: Easy -  2 , Medium -  0 , Hard -  1 
+; Average difficulty:  1.667 
+; Current time:  2025-01-08T22:56:51.567320300
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -1479,5 +374,3 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
-true
-clj꞉recipe-recommendation-system.content-test꞉> 
