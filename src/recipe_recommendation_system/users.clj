@@ -101,8 +101,6 @@
     (println "Favorite recipes: ")
     (doseq [rec (u/get-favs-by-username username @users)]
       (u/print-recipe rec))))
-  ;; {:username username
-  ;;  :favs (u/get-favs-by-username username @users)})
 
 (defn most-similar-users [target-user users]
   (let [all-users (remove #(= (:username %) (:username target-user)) @users)

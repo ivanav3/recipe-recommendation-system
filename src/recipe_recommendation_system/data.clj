@@ -2,7 +2,7 @@
   (:require [next.jdbc :as jdbc]))
 
 
-(def db-spec {:dbtype "mysql"
+(defonce db-spec {:dbtype "mysql"
               :dbname "recipe-rs"
               :host "localhost"
               :port 3306

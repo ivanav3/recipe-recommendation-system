@@ -19,7 +19,7 @@
 
 (defn print-recipe [recipe]
   (println "-----------------------\nRecipe: " (:title recipe)
-           "\nTime: about " (:total-time recipe)
-           " minutes \nIngredients: " (:ingr recipe)
-           "\nInstructions: " (:instructions recipe)
+           "\n\nTime: about " (:total-time recipe)
+           " minutes \n\nIngredients: " (:ingr recipe)
+           "\n\nInstructions: " (:instructions recipe)
            "\nServing size: " (:serving-size recipe)))

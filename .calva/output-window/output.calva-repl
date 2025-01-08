@@ -1,63 +1,167 @@
-; Enter username to logout:
-; ivana has been logged out.
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+; 
+; See also the Calva Inspector: https://calva.io/inspector/
+
+PLEASE NOTE
+We will update the default location of this file.
+The new default location will be
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false:
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting jack-in.
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:54282 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉cas10.core꞉> 
+nil
+clj꞉recipe-recommendation-system.data꞉> 
+#'recipe-recommendation-system.data/db-spec
+clj꞉recipe-recommendation-system.data꞉> 
+; Execution error (FileNotFoundException) at recipe-recommendation-system.users/eval12092$loading (form-init12401749824039227746.clj:1).
+; Could not locate recipe_recommendation_system/utils__init.class, recipe_recommendation_system/utils.clj or recipe_recommendation_system/utils.cljc on classpath. Please check that namespaces with dashes use underscores in the Clojure file name.
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/get-user-by-username
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/find-by-title
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/contains-more
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/get-favs-by-username
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/print-recipe
+clj꞉recipe-recommendation-system.utils꞉> 
+nil
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/recommend-by-difficulty
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-dif
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/extract-keywords
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/content-similarity
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/recommend-by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/most-common-difficulty
+clj꞉recipe-recommendation-system.content꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/users-recommend
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/euclidean
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/print-recs
+clj꞉recipe-recommendation-system.users꞉> 
 nil
 clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy -  nil Medium -  nil Hard -  nil 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:52:17.200643400
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Enter username to logout:
-; ivana has been logged out.
-nil
+#'recipe-recommendation-system.core/hash-password
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-from-db
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-ns-from-ref
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/attach-favorites-to-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/join-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user-id-from-favorites
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-up-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-strings
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logged-in-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-rec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-by-popularity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/generate-report
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-from-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs-when-removed
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
 clj꞉recipe-recommendation-system.core꞉> 
 #'recipe-recommendation-system.core/select-option
 clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/-main
+clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
 ; Start:
@@ -85,12 +189,93 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
 ; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy -  nil Medium -  nil Hard -  nil 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:52:26.306498800
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Console not available.
+; Execution error (NullPointerException) at recipe-recommendation-system.core/hash-password (form-init12401749824039227746.clj:16).
+; Cannot invoke "Object.getClass()" because "target" is null
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Console not available.
+; Error. Try again.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:1:1).
+; [java.io Console] - failed: simple-symbol? at: [:ns-clauses :import :classes :package-list :classes] spec: :clojure.core.specs.alpha/package-list
+; (quote [java.io Console]) - failed: simple-symbol? at: [:ns-clauses :import :classes :class] spec: :clojure.core.specs.alpha/ns-import
+; :import - failed: #{:refer-clojure} at: [:ns-clauses :refer-clojure :clause] spec: :clojure.core.specs.alpha/ns-refer-clojure
+; :import - failed: #{:require} at: [:ns-clauses :require :clause] spec: :clojure.core.specs.alpha/ns-require
+; :import - failed: #{:use} at: [:ns-clauses :use :clause] spec: :clojure.core.specs.alpha/ns-use
+; :import - failed: #{:refer} at: [:ns-clauses :refer :clause] spec: :clojure.core.specs.alpha/ns-refer
+; :import - failed: #{:load} at: [:ns-clauses :load :clause] spec: :clojure.core.specs.alpha/ns-load
+; :import - failed: #{:gen-class} at: [:ns-clauses :gen-class
+;  :clause] spec: :clojure.core.specs.alpha/ns-gen-class
+clj꞉recipe-recommendation-system.core꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Console not available.
+; Error. Try again.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Console not available.
+; Error. Try again.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
 ; --------------------------------------------
 ; 
 ; Main Menu:
@@ -107,16 +292,221 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 10. Content recommendation
 ; 11. Logout
 ; 12. Exit (without logout)
+; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:54282 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉cas10.core꞉> 
+nil
+clj꞉recipe-recommendation-system.data꞉> 
+nil
+clj꞉recipe-recommendation-system.data꞉> 
+nil
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/get-user-by-username
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/find-by-title
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/contains-more
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/get-favs-by-username
+clj꞉recipe-recommendation-system.utils꞉> 
+#'recipe-recommendation-system.utils/print-recipe
+clj꞉recipe-recommendation-system.utils꞉> 
+nil
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/recommend-by-difficulty
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-dif
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/extract-keywords
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/content-similarity
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/recommend-by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/by-content
+clj꞉recipe-recommendation-system.content꞉> 
+#'recipe-recommendation-system.content/most-common-difficulty
+clj꞉recipe-recommendation-system.content꞉> 
+nil
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/users-recommend
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/by-users-recipe
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/extract-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/jaccard-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-user
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/cosine-similarity
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/euclidean
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/get-user-favs
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/most-similar-users
+clj꞉recipe-recommendation-system.users꞉> 
+#'recipe-recommendation-system.users/print-recs
+clj꞉recipe-recommendation-system.users꞉> 
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/hash-password
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-from-db
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-ns-from-ref
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/attach-favorites-to-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/join-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user-id-from-favorites
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-up-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/clean-strings
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/register
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logged-in-users
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/is-user-logged-in?
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-user
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/add-to-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-rec
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/choose-by-popularity
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/generate-report
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-from-favs
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/update-favs-when-removed
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/dec-recipe
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/remove-fav
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/select-option
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/main-menu
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/login
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/-main
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
+; Please select an option:
+; Username:
+; Password:
+; Welcome,  ivana
+; --------------------------------------------
+; 
+; Main Menu:
+; 0. View all recipes
+; 1. Choose a recipe
+; 2. View popular recipes
+; 3. View favorites
+; 4. Remove from favorites
+; 5. Recommend by difficulty
+; 6. Recommend by currently most common difficulty
+; 7. Generate a report
+; 8. Recommendations by users that chose the same recipe
+; 9. Recommendations by similar users
+; 10. Content recommendation
+; 11. Logout
+; 12. Exit (without logout)
+; Please select an option:
+; Enter username to logout:
+; ivana has been logged out.
+; Execution error (ExceptionInfo) at recipe-recommendation-system.core/logout (form-init12401749824039227746.clj:106).
+; No such user is logged in.
+clj꞉recipe-recommendation-system.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:106:13).
+; Unable to resolve symbol: username in this context
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
+clj꞉recipe-recommendation-system.core꞉> 
+; --------------------------------------------
+; 
+; Start:
+; 0. Register
+; 1. Login
+; 2. Exit
 ; Please select an option:
 ; Sending interrupt.; Evaluation was interrupted
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
 ; Enter username to logout:
-; ivana has been logged out.
-nil
+; Execution error (ExceptionInfo) at recipe-recommendation-system.core/logout (form-init12401749824039227746.clj:106).
+; No such user is logged in.
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
@@ -145,53 +535,12 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
-; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy jeste -  nil Medium -  nil Hard -  nil 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:54:10.148112900
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:327:1).
-; Unable to resolve symbol: easy in this context
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Execution error (ExceptionInfo) at recipe-recommendation-system.core/login (form-init1313097342052160044.clj:341).
-; User is already logged in. Please logout first.
-clj꞉recipe-recommendation-system.core꞉> 
 ; Enter username to logout:
 ; ivana has been logged out.
-nil
+; Execution error (ExceptionInfo) at recipe-recommendation-system.core/logout (form-init12401749824039227746.clj:106).
+; No such user is logged in.
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
@@ -220,40 +569,11 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 11. Logout
 ; 12. Exit (without logout)
 ; Please select an option:
-; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy jeste -  2 Medium -  nil Hard -  nil 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:55:17.254324500
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
 ; Enter username to logout:
 ; ivana has been logged out.
 nil
+clj꞉recipe-recommendation-system.core꞉> 
+#'recipe-recommendation-system.core/logout
 clj꞉recipe-recommendation-system.core꞉> 
 ; --------------------------------------------
 ; 
@@ -261,114 +581,6 @@ clj꞉recipe-recommendation-system.core꞉> 
 ; 0. Register
 ; 1. Login
 ; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy -  2 , Medium -  nil , Hard -  1 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:56:01.406257300
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-; Enter username to logout:
-; Sending interrupt.; Evaluation was interrupted
-clj꞉recipe-recommendation-system.core꞉> 
-Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
-; null
-#'recipe-recommendation-system.core/select-option
-clj꞉recipe-recommendation-system.core꞉> 
-; Enter username to logout:
-; ivana has been logged out.
-nil
-clj꞉recipe-recommendation-system.core꞉> 
-; --------------------------------------------
-; 
-; Start:
-; 0. Register
-; 1. Login
-; 2. Exit
-; Please select an option:
-; Username:
-; Password:
-; Welcome,  ivana
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
-; Please select an option:
-; 
-; Username:  ivana 
-; Number of chosen recipes:  3 
-; Difficulties in numbers: Easy -  2 , Medium -  0 , Hard -  1 
-; Average difficulty:  1.667 
-; Current time:  2025-01-08T22:56:51.567320300
-; --------------------------------------------
-; 
-; Main Menu:
-; 0. View all recipes
-; 1. Choose a recipe
-; 2. View popular recipes
-; 3. View favorites
-; 4. Remove from favorites
-; 5. Recommend by difficulty
-; 6. Recommend by currently most common difficulty
-; 7. Generate a report
-; 8. Recommendations by users that chose the same recipe
-; 9. Recommendations by similar users
-; 10. Content recommendation
-; 11. Logout
-; 12. Exit (without logout)
 ; Please select an option:
 ; Sending interrupt.; Evaluation was interrupted
 clj꞉recipe-recommendation-system.core꞉> 

@@ -21,8 +21,7 @@
   (into {} (map (fn [[k v]] [(keyword (name k)) v]) data)))
 
 (defn remove-ns-from-ref [r]
-  (dosync
-   (alter r #(map clean-from-db %))))
+  (dosync (alter r #(map clean-from-db %))))
 
 (defn attach-favorites-to-user [user favorites-base]
   (let [user-id (:id user)]
@@ -60,13 +59,6 @@
                             :difficulty updated-difficulty)))
                  s)))))
 
-
-;; (remove-ns-from-ref initial-dataset)
-;; (remove-ns-from-ref d/registered-users)
-;; (remove-ns-from-ref d/favorites-base)
-;; (join-favs d/registered-users)
-;; (clean-up-favs d/registered-users)
-;; (clean-strings initial-dataset)
 
 (defn register [users]
   (println "Username:")
@@ -115,7 +107,6 @@
   (if (not-any? #(= (str/lower-case (:title %)) (str/lower-case (:title chosen-recipe))) favs)
     (conj favs chosen-recipe)
     (do (println "Already marked as fav.") favs)))
-
 
 (defn update-favs [users username chosen-recipe]
   (map #(if (= username (:username %))
@@ -383,6 +374,3 @@
                 (println "Invalid option. Please try again.")
                 (-main))))))
 
-(-main)
-
-(logout)
