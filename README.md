@@ -1,5 +1,19 @@
 # Recipe recommender
 
+This project was written in Clojure.
+
+Clone the project with the command:
+
+`git clone https://github.com/ivanav3/recipe-recommendation-system`
+
+It is necessary to import the database. If you are using XAMPP, make sure the MySQL module is running.
+
+This project was created using Leiningen, therefore we can run this Clojure application from the command line by entering the following command:
+
+`lein run`
+
+## Usage
+
 The database encompasses a sample of 50 recipes.
 
 Each instance contains the following attributes:
@@ -127,10 +141,6 @@ Average difficulty: 1.667 (max 3)
 Current time: 2025-01-09T20:25:33.028498200
 -------------------------------------------
 ```
-
-## Usage
-
-FIXME
 
 ## License
 
