@@ -86,15 +86,13 @@
 
          (println "Registered!" username))))))
 
-(def logged-in-users (atom []))
-
 (defn is-user-logged-in? [username dataset]
   (some #(= username (:username %)) dataset))
 
 (defn remove-user [users username]
   (filter #(not= username (:username %)) users))
 
-(defn logout []
+(defn logout [logged-in-users]
   (println "Enter username to logout:")
   (let [username (read-line)]
     (if (is-user-logged-in? username @logged-in-users)
@@ -225,7 +223,7 @@
             (println "Error. Recipe not found or invalid input."))))
       (println "No recipes found."))))
 
-(defn select-option [username users recipes]
+(defn select-option [username users recipes logged-in-users]
 
   (println "--------------------------------------------")
   (println "\nMain Menu:")
@@ -250,39 +248,39 @@
       (do
         (doseq [rec @recipes]
           (u/print-recipe rec))
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "1")
       (do
         (try
           (choose-fav username users recipes)
           (catch Exception e
             (println "This recipe has already been chosen.")))
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "2")
       (do
         (choose-by-popularity recipes)
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "3")
       (do
         (doseq [rec (u/get-favs-by-username username @users)]
           (u/print-recipe rec))
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
 
       (= option "4")
       (do
         (remove-fav username users recipes)
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "5")
       (do
         (content/by-dif username users recipes)
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
 
       (= option "6")
       (do
         (println "Currently most common difficulty is: " (content/most-common-difficulty (u/get-favs-by-username username @users)))
         (doseq [rec (content/recommend-by-difficulty (content/most-common-difficulty (u/get-favs-by-username username @users)) @recipes)]
           (u/print-recipe rec))
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
 
       (= option "7")
       (do
@@ -294,28 +292,28 @@
                    ", Hard - " (get-in report [:difficulty-levels "hard"] 0)
                    "\nAverage difficulty: " (format "%.3f" (float (:avg-difficulty report)))
                    "\nCurrent time: " (:report-time report)))
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "8")
       (do
         (users/by-users-recipe username users recipes)
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "9")
       (do
         (users/print-recs username users)
-        (select-option username users recipes))
+        (select-option username users recipes logged-in-users))
       (= option "10")
       (do
         (content/by-content username users recipes)
-        (select-option username users recipes))
-      (= option "11") (logout)
+        (select-option username users recipes logged-in-users))
+      (= option "11") (logout logged-in-users)
       (= option "12")
       (do
         (println "Goodbye!"))
       :else (do
               (println "Invalid option. Please try again.")
-              (select-option username users recipes)))))
+              (select-option username users recipes logged-in-users)))))
 
-(defn main-menu [username users]
+(defn main-menu [username users logged-in-users]
   (let [recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
                      :validator
                      (comp not nil?))
@@ -328,11 +326,13 @@
     (join-favs users favorites-base)
     (clean-up-favs users)
     (clean-strings recipes)
-    (select-option username users recipes)))
+    (select-option username users recipes logged-in-users)))
 
 (defn login [users]
   (println "Username:")
-  (let [username (read-line)]
+
+  (let [logged-in-users (atom [])
+        username (read-line)]
     (println "Password:")
     (let [password (read-line)]
       (if (some #(= username (:username %)) @logged-in-users)
@@ -344,7 +344,7 @@
             (do
               (println "Welcome, " username)
               (swap! logged-in-users conj {:username username})
-              (main-menu username users))
+              (main-menu username users logged-in-users))
             (println "Error. Try again.")))))))
 
 (defn -main []
@@ -374,3 +374,4 @@
                 (println "Invalid option. Please try again.")
                 (-main))))))
 
+(-main)

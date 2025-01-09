@@ -338,7 +338,8 @@
                           :validator
                           (comp not nil?))
              favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
-                                                JOIN favorites f ON r.id=f.recipe_id "]))]
+                                                JOIN favorites f ON r.id=f.recipe_id "]))
+             logged-in-users (atom [])]
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
@@ -347,7 +348,7 @@
          (c/clean-strings recipes)
 
          (with-in-str "10\nivana"
-           (c/main-menu "ivana" users))) =not=> empty)
+           (c/main-menu "ivana" users logged-in-users))) =not=> empty)
 (facts
  "main-test"
  (with-in-str "2\n"
@@ -378,13 +379,14 @@
              (is (= {:username "ivana"} (ex-data e))))) => true))
 
 (facts "logout-test"
-       (try
-         (with-in-str "ivanalogout\n"
-           (c/logout))
+       (let [logged-in-users (atom [])]
+         (try
+           (with-in-str "ivanalogout\n"
+             (c/logout logged-in-users))
 
-         (catch Exception e
-           (is (= "No such user is logged in.") (ex-message e))
-           (is (= {:username "ivanalogout"} (ex-data e))))) => true)
+           (catch Exception e
+             (is (= "No such user is logged in.") (ex-message e))
+             (is (= {:username "ivanalogout"} (ex-data e)))))) => true)
 
 (facts "register-test"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
@@ -506,12 +508,12 @@
 
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/is-user-logged-in? "ivana" @c/logged-in-users)))
+   (c/is-user-logged-in? "ivana" (atom []))))
 
 ;; 22.15 ns
 (crit/with-progress-reporting
   (crit/quick-bench
-   (c/remove-user @c/logged-in-users "ivana")))
+   (c/remove-user (atom [{:username "ivana"}]) "ivana")))
 
 ;;Fastest - 18.68 ns
 (crit/with-progress-reporting
