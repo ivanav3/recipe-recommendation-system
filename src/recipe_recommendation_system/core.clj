@@ -290,7 +290,7 @@
                    "\nDifficulties in numbers: Easy - " (get-in report [:difficulty-levels "easy"])
                    ", Medium - " (get-in report [:difficulty-levels "medium"] 0)
                    ", Hard - " (get-in report [:difficulty-levels "hard"] 0)
-                   "\nAverage difficulty: " (format "%.3f" (float (:avg-difficulty report)))
+                   "\nAverage difficulty: " (format "%.3f" (float (:avg-difficulty report))) " (max 3)"
                    "\nCurrent time: " (:report-time report)))
         (select-option username users recipes logged-in-users))
       (= option "8")

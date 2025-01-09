@@ -1512,3 +1512,22 @@ clj꞉recipe-recommendation-system.core꞉> 
 clj꞉recipe-recommendation-system.core꞉> 
 Execution error (InterruptedException) at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject/await (AbstractQueuedSynchronizer.java:1638).
 ; null
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///c%3A/Users/HP/Desktop/recipe-recommendation-system/.nrepl-port ...
+; Using host:port localhost:54282 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉cas10.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉cas10.core꞉> 
+; Syntax error compiling at (c:\Users\HP\Desktop\recipe-recommendation-system\src\recipe_recommendation_system\core.clj:250:11).
+; No such namespace: u
+clj꞉recipe-recommendation-system.core꞉> 

@@ -20,6 +20,9 @@
 (defn print-recipe [recipe]
   (println "-----------------------\nRecipe: " (:title recipe)
            "\n\nTime: about " (:total-time recipe)
-           " minutes \n\nIngredients: " (:ingr recipe)
-           "\n\nInstructions: " (:instructions recipe)
+           " minutes \n\nIngredients: ")
+  (let [ingredients (str/split (:ingr recipe) #", ")]
+    (doseq [i ingredients]
+      (println i)))
+  (println "\n\nInstructions: " (:instructions recipe)
            "\nServing size: " (:serving-size recipe)))
