@@ -8,6 +8,8 @@
    [criterium.core :as crit]
    [next.jdbc :as jdbc]))
 
+
+
 (facts
  "recommend-by-keywords-test"
  (content/extract-keywords "some words that are extracted") => #{"are" "words" "that" "some" "extracted"}
@@ -16,8 +18,6 @@
                                 "Testing if this works."})
                              {:instructions
                               "If this works, the result should be 2."}) => 2)
-
-;;User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
 (facts
 
  "recommend-by-difficulty-test"

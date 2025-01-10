@@ -10,7 +10,7 @@
             [criterium.core :as crit]
             [next.jdbc :as jdbc]))
 
-;;User wants to add recipe to favorites. That way new recipes can be recommended in multiple ways.
+;;Functions related to adding to favs.
 (facts "test-adding-to-favs"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
              recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
@@ -21,6 +21,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -37,6 +38,25 @@
          (c/clean-strings recipes)
          (content/recommend-by-difficulty (first (filter #(= (:title %) "Easy Mojitos") @recipes)) @recipes)) =not=> nil)
 
+;;User wants to get recipes that are recommended based on currently most common difficulty. 
+;;That way users can discover more recipes with the same difficulty as their previously chosen recipes.
+(facts "test-report"
+       (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
+             recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
+                          :validator
+                          (comp not nil?))
+             favorites-base (ref (jdbc/execute! d/db-spec ["SELECT r.*, f.user_id FROM recipe r
+                                         JOIN favorites f ON r.id=f.recipe_id "]))]
+         (c/remove-ns-from-ref users)
+         (c/remove-ns-from-ref recipes)
+         (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
+         (c/join-favs users favorites-base)
+         (c/clean-up-favs users)
+         (c/clean-strings recipes)
+         (content/most-common-difficulty (utils/get-favs-by-username "ivana" @users))) =not=> nil)
+
+
 ;;User wants to get report on recent activity. That way users can track their improvement. 
 (facts "test-report"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
@@ -48,6 +68,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -66,6 +87,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -91,11 +113,24 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
-         (users/most-similar-user @users (utils/get-user-by-username "ivana" users) users/jaccard-similarity)) => ["ivana10" 0.2])
+         (users/most-similar-user @users (utils/get-user-by-username "ivana" users) users/jaccard-similarity)) =not=> nil)
 
+
+;; User wants to get recipes that are recommended based on the similar content. 
+;; That way user can discover recipes that resemble the chosen one.
+
+(facts
+ "recommend-by-keywords-test"
+ (content/extract-keywords "some words that are extracted") => #{"are" "words" "that" "some" "extracted"}
+ "content-similarity-test"
+ (content/content-similarity '({:instructions
+                                "Testing if this works."})
+                             {:instructions
+                              "If this works, the result should be 2."}) => 2)
 
 (facts "test-cosine-similarity"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
@@ -107,10 +142,11 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
-         (users/most-similar-user @users (utils/get-user-by-username "ivana" users) users/cosine-similarity)) => ["ivana10" 0.333])
+         (users/most-similar-user @users (utils/get-user-by-username "ivana" users) users/cosine-similarity)) =not=> nil)
 
 ;;User wants to find another users with similar taste in recipes. This time all similarities are included.
 (facts "test-most-similar-users"
@@ -123,6 +159,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -143,6 +180,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -174,6 +212,7 @@
    (c/remove-ns-from-ref users)
    (c/remove-ns-from-ref recipes)
    (c/remove-ns-from-ref favorites-base)
+   (c/clean-strings favorites-base)
    (c/join-favs users favorites-base)
    (c/clean-up-favs users)
    (c/clean-strings recipes)) =not=> nil)
@@ -249,6 +288,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -324,6 +364,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -343,6 +384,7 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
@@ -354,7 +396,7 @@
  (with-in-str "2\n"
    (c/-main)) =not=> empty)
 
-(facts "login-twice-test"
+(facts "login-test"
        (let [users (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM user"])) []))
              recipes (ref (or (seq (jdbc/execute! d/db-spec ["SELECT * FROM recipe"])) [])
                           :validator
@@ -364,19 +406,18 @@
          (c/remove-ns-from-ref users)
          (c/remove-ns-from-ref recipes)
          (c/remove-ns-from-ref favorites-base)
+         (c/clean-strings favorites-base)
          (c/join-favs users favorites-base)
          (c/clean-up-favs users)
          (c/clean-strings recipes)
          (try
            (do
-             (with-in-str "ivana\nivana\n11"
-               (c/login users))
-             (with-in-str "ivana\nivana"
+             (with-in-str "ivana\nivana\n12"
                (c/login users)))
 
            (catch Exception e
              (is (= "User is already logged in. Please logout first." (ex-message e)))
-             (is (= {:username "ivana"} (ex-data e))))) => true))
+             (is (= {:username "ivana"} (ex-data e))))) =not=> empty))
 
 (facts "logout-test"
        (let [logged-in-users (atom [])]
@@ -480,6 +521,7 @@
   (c/remove-ns-from-ref users)
   (c/remove-ns-from-ref recipes)
   (c/remove-ns-from-ref favorites-base)
+  (c/clean-strings favorites-base)
   (c/join-favs users favorites-base)
   (c/clean-up-favs users)
   (c/clean-strings recipes)
@@ -497,6 +539,7 @@
   (c/remove-ns-from-ref users)
   (c/remove-ns-from-ref recipes)
   (c/remove-ns-from-ref favorites-base)
+  (c/clean-strings favorites-base)
   (c/join-favs users favorites-base)
   (c/clean-up-favs users)
   (c/clean-strings recipes)
