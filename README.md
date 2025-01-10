@@ -12,6 +12,22 @@ This project was created using Leiningen, therefore we can run this Clojure appl
 
 `lein run`
 
+## User stories
+
+- User wants to find out which recipes are the most popular. That way users can discover current trends in recipes.
+
+- User wants to get recipes that are recommended by difficulty. That way user can discover new recipes with the same difficulty as chosen recipe.
+
+- User wants to get recipes that are recommended based on currently most common difficulty. That way users can discover more recipes with the same difficulty as their previously chosen recipes.
+
+- User wants to get report on recent activity. That way users can track their improvement.
+
+- User wants to get recipes that are recommended by other users. That way users can connect and discover recipes that are recommended by users with similar taste.
+
+- User wants to find another user with similar taste in recipes. That way users can connect and find recipes liked by similar users.
+
+- User wants to get recipes that are recommended based on the similar content. That way user can discover recipes that resemble the chosen one.
+
 ## Usage
 
 The database encompasses a sample of 50 recipes.
