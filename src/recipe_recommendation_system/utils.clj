@@ -25,4 +25,5 @@
     (doseq [i ingredients]
       (println i)))
   (println "\n\nInstructions: " (:instructions recipe)
-           "\nServing size: " (:serving-size recipe)))
+           "\nServing size: " (:serving-size recipe)
+           "\n\nDifficulty: " (:difficulty recipe)))

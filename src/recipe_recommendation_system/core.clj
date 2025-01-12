@@ -235,7 +235,7 @@
   (println "5. Recommend by difficulty")
   (println "6. Recommend by currently most common difficulty")
   (println "7. Generate a report")
-  (println "8. Recommendations by users that chose the same recipe")
+  (println "8. Recommendations by users that have chosen the same recipe")
   (println "9. Recommendations by similar users")
   (println "10. Content recommendation")
   (println "11. Logout")

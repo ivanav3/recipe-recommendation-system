@@ -389,8 +389,7 @@
          (c/clean-up-favs users)
          (c/clean-strings recipes)
 
-         (with-in-str "10\nivana"
-           (c/main-menu "ivana" users logged-in-users))) =not=> empty)
+         (c/main-menu "ivana" users logged-in-users)) =not=> empty)
 (facts
  "main-test"
  (with-in-str "2\n"

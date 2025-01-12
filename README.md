@@ -54,7 +54,7 @@ Main Menu:
 5. Recommend by difficulty
 6. Recommend by currently most common difficulty
 7. Generate a report
-8. Recommendations by users that chose the same recipe
+8. Recommendations by users that have chosen the same recipe
 9. Recommendations by similar users
 10. Content recommendation
 11. Logout
