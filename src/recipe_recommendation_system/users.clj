@@ -58,7 +58,8 @@
 (defn most-similar-user [users-to-compare target-user similarity-fn]
   (let [all-users (remove #(= (:username %) (:username target-user)) users-to-compare)
         similarities (map #(vector (:username %) (similarity-fn target-user %)) all-users)
-        most-similar (if (= similarity-fn "euclidean")
+        most-similar (if (or (= similarity-fn "euclidean")
+                             (= similarity-fn "manhattan"))
                        (apply min-key second similarities)
                        (apply max-key second similarities))]
     most-similar))
@@ -94,6 +95,20 @@
                             (map vector vector1 vector2))]
         (Math/sqrt sum-of-squares)))))
 
+(defn manhattan [user1 user2]
+  (let [favs1 (extract-favs user1)
+        favs2 (extract-favs user2)]
+    (if (or (empty? favs1) (empty? favs2))
+      0.0
+      (let [all-recipes (set/union favs1 favs2)
+            vector1 (map #(if (contains? favs1 %) 1 0) all-recipes)
+            vector2 (map #(if (contains? favs2 %) 1 0) all-recipes)
+            distance (reduce
+                      (fn [acc [a b]]
+                        (+ acc (Math/abs (- a b))))
+                      0
+                      (map vector vector1 vector2))]
+        distance))))
 
 (defn get-user-favs [username users]
   (do
@@ -114,12 +129,18 @@
         final-users (remove #(= (:username %) (first most-similar-cosine)) remaining-users)
         most-similar-euclidean (if (empty? final-users)
                                  nil
-                                 (most-similar-user final-users target-user euclidean))]
+                                 (most-similar-user final-users target-user euclidean))
+        printing-users (remove #(= (:username %) (first most-similar-euclidean)) final-users)
+        most-similar-manhattan (if (empty? printing-users)
+                                 nil
+                                 (most-similar-user printing-users target-user manhattan))]
 
     (if most-similar-cosine
-      (if most-similar-euclidean
-        [most-similar-jaccard most-similar-cosine most-similar-euclidean]
-        [most-similar-jaccard most-similar-cosine])
+      (if most-similar-manhattan
+        [most-similar-jaccard most-similar-cosine most-similar-euclidean most-similar-manhattan]
+        (if most-similar-euclidean
+          [most-similar-jaccard most-similar-cosine most-similar-euclidean]
+          [most-similar-jaccard most-similar-cosine]))
       [most-similar-jaccard])))
 
 
