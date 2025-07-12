@@ -36,13 +36,13 @@ The database encompasses a sample of 50 recipes.
 
 Each instance contains the following attributes:
 
-- title
-- total-time
-- serving-size
-- ingr
-- instructions
-- difficulty
-- fav
+- **title**: the name of the recipe.
+- **total-time**: the ammount of time needed for preparing the recipe.
+- **serving-size**: the measurement of the portion.
+- **ingr**: ingredients of the recipe.
+- **instructions**: the preparing process.
+- **difficulty**: difficulty of the recipe.
+- **fav**: how many times has a recipe been chosen as a favorite by users.
 
 By adding and removing recipes from favorites, users can get recipes recommended. Multiple options are available in the main menu.
 
