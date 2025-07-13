@@ -153,6 +153,24 @@ Recipe: Jamaican Fried Dumplings...
 
 ```
 
+The following metrics have been used for calculating the similarities. Sets of favorite recipes are presented as vectors, based on whether the set contains a recipe from the set of total recipes chosen by two users or not.
+
+Jaccard similarity:
+
+![1](https://github.com/ivanav3/recipe-recommendation-system/blob/main/metrics/Jaccard.PNG)
+
+Cosine similarity:
+
+![2](https://github.com/ivanav3/recipe-recommendation-system/blob/main/metrics/Cosine.PNG)
+
+Euclidean distance:
+
+![3](https://github.com/ivanav3/recipe-recommendation-system/blob/main/metrics/Euclidean.PNG)
+
+Manhattan distance:
+
+![4](https://github.com/ivanav3/recipe-recommendation-system/blob/main/metrics/Manhattan.PNG)
+
 Moreover, users can get a report on their activity. This way they can stay updated on their progress.
 
 ```
@@ -163,6 +181,8 @@ Average difficulty: 1.667 (max 3)
 Current time: 2025-01-09T20:25:33.028498200
 -------------------------------------------
 ```
+
+All of the functions have been tested. The performance of each function has been compared.
 
 ## License
 
